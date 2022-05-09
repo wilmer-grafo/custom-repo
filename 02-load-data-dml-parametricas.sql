@@ -16,6 +16,38 @@ INSERT INTO parametricas.par_tipos_super_administracion (descripcion, activo, id
 
 -- parametricas.par_administraciones_tributarias
 -- export data from SQL SERVER in csv, using this query
+SELECT TOP 8 LTRIM(RTRIM([C_Descripcion])) AS descripcion,
+             (CASE
+                  WHEN [C_Articulo] LIKE 'el' THEN 1
+                  WHEN [C_Articulo] LIKE 'la' THEN 2
+                  ELSE -1
+                 END)                      AS id_articulo,
+             (CASE
+                  WHEN [C_Preposicion] LIKE 'del' THEN 1
+                  WHEN [C_Preposicion] LIKE 'de la' THEN 2
+                  ELSE -2
+                 END)                      AS id_preposicion,
+             (CASE
+                  WHEN [C_Super_Adm_Tri] LIKE 'S.I.N.' THEN 1
+                  WHEN [C_Super_Adm_Tri] LIKE 'ADUANA' THEN 2
+                  WHEN [C_Super_Adm_Tri] LIKE 'GOB. MUNICIPALES' THEN 3
+                  WHEN [C_Super_Adm_Tri] LIKE 'GOB. DEPARTAMENTALES' THEN 4
+                  ELSE -3
+                 END)                      AS id_tipo_super_administracion,
+             [N_Estado]                    AS activo,
+             1                             AS id_usuario_registra,
+             [D_Fecha_Update]              AS fecha_registra,
+             0                             AS id_usuario_modifica,
+             GETDATE()                     AS fecha_modifica
+FROM [dbo].[TSS_ADMINISTRACIONES_TRIBUTARIAS];
+
+-- import the csv file into parametricas.par_administraciones_tributarias
+
+-- SEQ
+SELECT setval(pg_get_serial_sequence('parametricas.par_administraciones_tributarias', 'id'),
+              (SELECT max(id) + 1 FROM parametricas.par_administraciones_tributarias));
+
+-- export data from SQL SERVER in csv, using this query
 SELECT LTRIM(RTRIM([C_Descripcion])) AS descripcion,
        (CASE
             WHEN [C_Articulo] LIKE 'el' THEN 1
@@ -39,8 +71,9 @@ SELECT LTRIM(RTRIM([C_Descripcion])) AS descripcion,
        [D_Fecha_Update]              AS fecha_registra,
        0                             AS id_usuario_modifica,
        GETDATE()                     AS fecha_modifica
-FROM [dbo].[TSS_ADMINISTRACIONES_TRIBUTARIAS];
-
+FROM [dbo].[TSS_ADMINISTRACIONES_TRIBUTARIAS]
+WHERE [N_Codigo_Adm_Tri] NOT IN (SELECT TOP 8 [N_Codigo_Adm_Tri]
+                                 FROM [dbo].[TSS_ADMINISTRACIONES_TRIBUTARIAS]);
 -- import the csv file into parametricas.par_administraciones_tributarias
 
 -- parametricas.par_subadministraciones_tributarias
@@ -69,7 +102,59 @@ SELECT LTRIM(RTRIM([C_Descripcion])) AS descripcion,
        [D_Fecha_Update]              AS fecha_registra,
        0                             AS id_usuario_modifica,
        GETDATE()                     AS fecha_modifica
-FROM [dbo].[TSS_SUBADMINISTRACIONES_TRIBUTARIAS];
+FROM [dbo].[TSS_SUBADMINISTRACIONES_TRIBUTARIAS]
+WHERE N_Codigo_Subadm_Tri < 15;
+
+-- import the csv file into parametricas.par_administraciones_tributarias
+-- set value to 15, and import 15-18-sub
+SELECT setval(pg_get_serial_sequence('parametricas.par_subadministraciones_tributarias', 'id'),
+              (SELECT max(id) + 1 FROM parametricas.par_subadministraciones_tributarias));
+-- set value to 18, and import 18-36-sub
+SELECT setval(pg_get_serial_sequence('parametricas.par_subadministraciones_tributarias', 'id'),
+              (SELECT max(id) + 1 FROM parametricas.par_subadministraciones_tributarias));
+-- set value to 36, and import 36-80-sub
+SELECT setval(pg_get_serial_sequence('parametricas.par_subadministraciones_tributarias', 'id'),
+              (SELECT max(id) + 1 FROM parametricas.par_subadministraciones_tributarias));
+-- set value to 80, and import 80-89-sub
+SELECT setval(pg_get_serial_sequence('parametricas.par_subadministraciones_tributarias', 'id'),
+              (SELECT max(id) + 3 FROM parametricas.par_subadministraciones_tributarias));
+-- set value to 89, and import 89-92-sub
+SELECT setval(pg_get_serial_sequence('parametricas.par_subadministraciones_tributarias', 'id'),
+              (SELECT max(id) + 1 FROM parametricas.par_subadministraciones_tributarias));
+-- set value to 92, and import 92-102-sub
+SELECT setval(pg_get_serial_sequence('parametricas.par_subadministraciones_tributarias', 'id'),
+              (SELECT max(id) + 1 FROM parametricas.par_subadministraciones_tributarias));
+-- set value to 102, and import 102-105-sub
+SELECT setval(pg_get_serial_sequence('parametricas.par_subadministraciones_tributarias', 'id'),
+              (SELECT max(id) + 1 FROM parametricas.par_subadministraciones_tributarias));
+-- set value to 105, and import 105-126-sub
+SELECT setval(pg_get_serial_sequence('parametricas.par_subadministraciones_tributarias', 'id'),
+              (SELECT max(id) + 1 FROM parametricas.par_subadministraciones_tributarias));
+-- set value to 126, and import 126-sub
+SELECT setval(pg_get_serial_sequence('parametricas.par_subadministraciones_tributarias', 'id'),
+              (SELECT max(id) + 1 FROM parametricas.par_subadministraciones_tributarias));
+
+-- 1 - 14; 15
+SELECT * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS WHERE N_Codigo_Subadm_Tri < 15;
+-- 16 - 17; 18
+SELECT * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS WHERE N_Codigo_Subadm_Tri > 15 AND N_Codigo_Subadm_Tri < 18;
+-- 19 - 35; 36
+SELECT * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS WHERE N_Codigo_Subadm_Tri > 18 AND N_Codigo_Subadm_Tri < 36;
+-- 37 - 77; 78, 79, 80
+SELECT * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS WHERE N_Codigo_Subadm_Tri > 36 AND N_Codigo_Subadm_Tri < 80;
+-- 81 - 88; 89
+SELECT * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS WHERE N_Codigo_Subadm_Tri > 80 AND N_Codigo_Subadm_Tri < 89;
+-- 90 - 91; 92
+SELECT * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS WHERE N_Codigo_Subadm_Tri > 89 AND N_Codigo_Subadm_Tri < 92;
+-- 93 - 101; 102
+SELECT * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS WHERE N_Codigo_Subadm_Tri > 92 AND N_Codigo_Subadm_Tri < 102;
+-- 103 - 104; 105
+SELECT * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS WHERE N_Codigo_Subadm_Tri > 102 AND N_Codigo_Subadm_Tri < 105;
+-- 106 - 125; 126
+SELECT * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS WHERE N_Codigo_Subadm_Tri > 105 AND N_Codigo_Subadm_Tri < 126;
+-- 127 - 184;
+SELECT * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS WHERE N_Codigo_Subadm_Tri > 126;
+
 
 -- import the csv file into parametricas.par_subadministraciones_tributarias
 
@@ -125,3 +210,29 @@ SELECT LTRIM(RTRIM([C_Nombre]))           AS nombres,
 FROM [dbo].[TSS_FUNCIONARIOS];
 
 -- import the csv file into seguridad.seg_personas
+
+
+
+
+SELECT *
+FROM [dbo].[TSS_ADMINISTRACIONES_TRIBUTARIAS]
+WHERE [N_Codigo_Adm_Tri] NOT IN (SELECT TOP 8 [N_Codigo_Adm_Tri]
+                                 FROM [dbo].[TSS_ADMINISTRACIONES_TRIBUTARIAS]);
+
+SELECT (SELECT isnull(max(N_Codigo_Adm_Tri) + 1, 1)
+        FROM [TSS_ADMINISTRACIONES_TRIBUTARIAS]
+        WHERE N_Codigo_Adm_Tri < md.N_Codigo_Adm_Tri) AS [de],
+       md.N_Codigo_Adm_Tri - 1                        AS [hasta]
+FROM [TSS_ADMINISTRACIONES_TRIBUTARIAS] md
+WHERE md.N_Codigo_Adm_Tri != 1
+  AND NOT exists(
+        SELECT 1 FROM [TSS_ADMINISTRACIONES_TRIBUTARIAS] md2 WHERE md2.N_Codigo_Adm_Tri = md.N_Codigo_Adm_Tri - 1);
+
+SELECT (SELECT isnull(max([N_Codigo_Subadm_Tri]) + 1, 1)
+        FROM [TSS_SUBADMINISTRACIONES_TRIBUTARIAS]
+        WHERE [N_Codigo_Subadm_Tri] < md.[N_Codigo_Subadm_Tri]) AS [de],
+       md.[N_Codigo_Subadm_Tri] - 1                        AS [hasta]
+FROM [TSS_SUBADMINISTRACIONES_TRIBUTARIAS] md
+WHERE md.[N_Codigo_Subadm_Tri] != 1
+  AND NOT exists(
+        SELECT 1 FROM [TSS_SUBADMINISTRACIONES_TRIBUTARIAS] md2 WHERE md2.[N_Codigo_Subadm_Tri] = md.[N_Codigo_Subadm_Tri] - 1);
