@@ -1,0 +1,39 @@
+
+MIGRACION DE PARAMETRICAS
+-------------------------
+
+NUEVAS TABLAS (ESTABLECIDOS)
+===========================
+-- [C_Articulo] parametricas.par_tipos_articulos
+-- [C_Preposicion] parametricas.par_tipos_preposicion
+-- [C_Super_Adm_Tri] parametricas.par_tipos_super_administracion
+
+MIGRACION
+=========
+-- TSS_ADMINISTRACIONES_TRIBUTARIAS; [C_Articulo]; [C_Preposicion]; [C_Super_Adm_Tri]
+-- parametricas.par_administraciones_tributarias
+-- TSS_SUBADMINISTRACIONES_TRIBUTARIAS; [C_Articulo]; [C_Preposicion];
+-- parametricas.par_subadministraciones_tributarias
+
+*************************************************************************************
+
+NUEVAS TABLAS (ESTABLECIDOS)
+===========================
+-- parametricas.par_motivos_feriados;
+-- seguridad.seg_regiones
+
+MIGRACION
+=========
+-- TSS_FERIADOS
+-- comunes.feriados
+
+*************************************************************************************
+
+NUEVAS TABLAS (ESTABLECIDOS)
+===========================
+
+MIGRACION
+=========
+-- TSS_TIPOS_CAMBIOS_UFV
+-- parametricas.par_tipos_cambios_ufv
+

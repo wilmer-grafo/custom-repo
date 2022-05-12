@@ -1,3 +1,8 @@
+-- truncar la tabla y reiniciar la sequencia
+TRUNCATE TABLE comunes.feriados RESTART IDENTITY CASCADE;
+
+-- ejcutar la consulta y exportar en csv, esto en SQL SERVER
+--=================================================================================================================--
 SELECT (CASE
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'AMPLIACIÓN AL 6 DE AGOSTO' THEN 12
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'ANIVERSARIO CIVICO DE CHUQUISACA' THEN 42
@@ -64,7 +69,37 @@ SELECT (CASE
        1                          estado,
        1                          id_usuario_registra,
        GETDATE()               AS fecha_registra,
-       0                       AS id_usuario_modifica,
-       [D_Fecha_Update]        AS fecha_modifica,
+       NULL                    AS id_usuario_modifica,
+       NULL                    AS fecha_modifica,
        YEAR([D_Fecha_Feriado]) AS gestion
 FROM [dbo].[TSS_FERIADOS];
+--=================================================================================================================--
+-- importar el csv en comunes.feriados, esto en Postgres
+
+-- vericar cantidad de registro importados
+--=================================================================================================================--
+SELECT COUNT(*) AS Total FROM [dbo].[TSS_FERIADOS];
+SELECT count(id) AS total FROM comunes.feriados;
+--=================================================================================================================--
+
+-- contrastar resultado
+-- SQL SERVER
+--=================================================================================================================--
+SELECT C_Descripcion, D_Fecha_Feriado, N_Codigo_Oficina, N_Codigo_Reg_Int
+FROM [dbo].[TSS_FERIADOS]
+WHERE (N_Codigo_Oficina = 0 AND N_Codigo_Reg_Int = 0)
+  AND YEAR(D_Fecha_Feriado) = 2021;
+--=================================================================================================================--
+-- POSTGRES
+--=================================================================================================================--
+SELECT com_f.id_motivo_feriado,
+       (SELECT par_mf.descripcion
+        FROM parametricas.par_motivos_feriados AS par_mf
+        WHERE par_mf.id = com_f.id_motivo_feriado)                                                   AS descripcion,
+       com_f.fecha,
+       com_f.id_region,
+       (SELECT seg_r.descripcion FROM seguridad.seg_regiones seg_r WHERE seg_r.id = com_f.id_region) AS region
+FROM comunes.feriados AS com_f
+WHERE com_f.id_region = 10
+  AND com_f.gestion = 2021;
+--=================================================================================================================--
