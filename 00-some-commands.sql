@@ -9,6 +9,8 @@ ALTER SEQUENCE <table name>_<column name>_seq RESTART WITH <reset id>;
 --https://stackoverflow.com/questions/14630984/how-do-i-do-multiple-case-when-conditions-using-sql-server-2008
 --http://www.sublimetext.com/docs/1/selection
 
+create schema parametricas AUTHORIZATION postgres;
+
 --check null values
 SELECT column_name, is_nullable, data_type
   FROM information_schema.columns
