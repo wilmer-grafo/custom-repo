@@ -1,7 +1,7 @@
 achinos 
 achino1 
 achinot 
-acarrascor 
+acarrascor  
 aillaneslr 
 ccazuriagar 
 csalasa 
@@ -33,7 +33,6 @@ gcoimbrab
 gcoimbrao 
 gcoimbrar 
 gtrujillot 
-gyanique 
 hpantojab 
 hpantojaa 
 hpantojan 
@@ -51,13 +50,13 @@ lleonr
 lespadacam 
 mcarpioa 
 moportor 
-mchavez 
 manibarroj 
 manibarroa 
 manibarros 
 mmoyaa 
 mmoyas 
 mmoyaofi 
+nmunozs 
 nvasquezi 
 oserranoi 
 pbarrientos1 
@@ -65,7 +64,6 @@ parodrigo
 pcondes 
 pcondet 
 pcondeor 
-rosinaga 
 rparavicinit 
 rhuancaj 
 smercadot 
@@ -74,6 +72,7 @@ ttogos
 vaescobars 
 vlaurad 
 vlaurac 
+vlaurari 
 vescobarm 
 vescobarr 
 vescobars 

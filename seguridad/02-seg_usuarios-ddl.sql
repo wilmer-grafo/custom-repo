@@ -63,3 +63,5 @@ CREATE TRIGGER agregar_usuario
   EXECUTE PROCEDURE seguridad.seg_fun_insertar_usuario();
 --=================================================================================================================--
 
+TRUNCATE TABLE seguridad.seg_personas RESTART IDENTITY CASCADE;
+TRUNCATE TABLE seguridad.seg_usuarios RESTART IDENTITY CASCADE;

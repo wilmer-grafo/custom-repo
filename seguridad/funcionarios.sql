@@ -71,6 +71,9 @@ TRUNCATE TABLE seguridad.seg_personas RESTART IDENTITY CASCADE;
 134,ERNESTO,MARIÑO,BORQUEZ,emariñoC
 127,ERNESTO RUFO,MARIÑO ,BORQUEZ,emarino
 
+287 FABIOLA ADRIANA MERCADO SANDY   fmercado
+526 FABIOLA ADRIANA MERCADO MERCADO fmercados
+
 330,Fily Amalia,Chucatiny,Torrico,achucatinyr
 55,Fily Amalia,Chucatiny,Torrico,achucatiny
 
@@ -188,14 +191,18 @@ TRUNCATE TABLE seguridad.seg_personas RESTART IDENTITY CASCADE;
 298,Telma Susana,Togo,COca,ttogot
 364,TELMA SUSANA,TOGO,COCA,ttogos
 
+471 NESTOR  MUÑOZ   COSSIO  nmunoz
+524 NESTOR  MUÑOZ   COSSIO  nmunozs
+
 163,VANESSA,ESCOBAR,MONCADA,vaescobar
 305,VANESSA,ESCOBAR,MONCADA,vaescobars
 
 322,VERONICA,LAURA,CUSICANQUI,vlaura
 355,VERONICA,LAURA,CUSICANQUI,vlaurad
 515,VERONICA,LAURA,CUSICANQUI,vlaurac
+522,Veronica RI,Laura,Cusicanqui,vlaurari
 
--- no migrar
+-- no migrar: 
 146,VICEMINISTERIO,DE POLITICA,TRIBUTARIA,vptributaria
 160,VICEMINISTERIO,DE POLITICA,TRIBUTARIA,hugovpt
 
@@ -212,7 +219,7 @@ TRUNCATE TABLE seguridad.seg_personas RESTART IDENTITY CASCADE;
 
 -- funcionarios con logins
 --=================================================================================================================--
-SELECT *
+SELECT temp.Logins, temp.C_Nombre, temp.C_Apellido_Paterno, temp.C_Apellido_Materno
 FROM (SELECT tf.C_Nombre,
              tf.C_Apellido_Paterno,
              tf.C_Apellido_Materno,
