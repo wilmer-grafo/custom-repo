@@ -8,7 +8,7 @@ NUEVAS TABLAS (ESTABLECIDOS)
 -- [C_Preposicion] parametricas.par_tipos_preposicion
 -- [C_Super_Adm_Tri] parametricas.par_tipos_super_administracion
 
-MIGRACION
+MIGRACION - I
 =========
 -- TSS_ADMINISTRACIONES_TRIBUTARIAS; [C_Articulo]; [C_Preposicion]; [C_Super_Adm_Tri]
 -- parametricas.par_administraciones_tributarias
@@ -22,7 +22,7 @@ NUEVAS TABLAS (ESTABLECIDOS)
 -- parametricas.par_motivos_feriados;
 -- seguridad.seg_regiones
 
-MIGRACION
+MIGRACION - II
 =========
 -- TSS_FERIADOS
 -- comunes.feriados
@@ -32,8 +32,16 @@ MIGRACION
 NUEVAS TABLAS (ESTABLECIDOS)
 ===========================
 
-MIGRACION
+MIGRACION - III
 =========
 -- TSS_TIPOS_CAMBIOS_UFV
 -- parametricas.par_tipos_cambios_ufv
 
+*************************************************************************************
+
+MIGRACION - IV
+=========
+
+-- TSS_FUNCIONARIOS
+-- seguridad.seg_personas
+-- seguridad.seg_usuarios

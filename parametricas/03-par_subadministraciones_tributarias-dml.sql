@@ -22,7 +22,7 @@ WHERE md.[N_Codigo_Subadm_Tri] != 1
 102 102
 105 105
 126 126
--- ejcutar la consulta y exportar en csv: TOP = 15 - 1 = 14, esto en SQL SERVER
+-- ejcutar la consulta y exportar en csv, esto en SQL SERVER
 --=================================================================================================================--
 SELECT LTRIM(RTRIM([C_Descripcion])) AS descripcion,
        LTRIM(RTRIM([C_Autoridad]))   AS nombre_autoridad,

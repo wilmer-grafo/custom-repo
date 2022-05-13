@@ -1,0 +1,28 @@
+
+NUEVAS TABLAS (ESTABLECIDOS)
+===========================
+-- [C_Articulo] parametricas.par_tipos_articulos
+-- [C_Preposicion] parametricas.par_tipos_preposicion
+
+MIGRACION - VI
+=========
+-- TSS_ACTOS; [C_Articulo]; [C_Preposicion];
+-- parametricas.par_tipos_actos
+
+*************************************************************************************
+
+MIGRACION - VII
+=========
+-- TSS_ACTOS_IMPUGNADOS
+-- alzada.alz_actos_impugnados
+
+*************************************************************************************
+
+MIGRACION - VIII
+=========
+-- TSS_ACTOS_IMPUGNADOS
+-- alzada.alz_actos_impugnados
+
+*************************************************************************************
+
+
