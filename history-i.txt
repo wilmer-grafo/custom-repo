@@ -13,8 +13,8 @@ MIGRACION - VI
 
 MIGRACION - VII
 =========
--- TSS_ACTOS_IMPUGNADOS
--- alzada.alz_actos_impugnados
+-- TSS_RECURSOS_ALZADA
+-- alzada.alz_recursos_alzada
 
 *************************************************************************************
 

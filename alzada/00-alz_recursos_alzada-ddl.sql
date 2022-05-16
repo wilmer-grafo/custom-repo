@@ -117,3 +117,6 @@ comment on column alzada.alz_recursos_alzada.clasificador_alzada is '1->RECEPCIO
 comment on column alzada.alz_recursos_alzada.id_region_recepcion is 'Identificador de la region donde se recepciona el expediente de alzada original.';
 
 alter table alzada.alz_recursos_alzada owner to postgres;
+
+--=================================================================================================================--
+TRUNCATE TABLE alzada.alz_recursos_alzada RESTART IDENTITY CASCADE;

@@ -224,7 +224,7 @@ FROM (SELECT tf.C_Nombre,
              tf.C_Apellido_Paterno,
              tf.C_Apellido_Materno,
              STUFF(
-                     (SELECT C_Login + ', '
+                     (SELECT C_Login + ','
                       FROM TSS_FUNCIONARIOS
                       WHERE (C_Nombre = tf.C_Nombre AND C_Apellido_Paterno = tf.C_Apellido_Paterno AND
                              C_Apellido_Materno = tf.C_Apellido_Materno)
