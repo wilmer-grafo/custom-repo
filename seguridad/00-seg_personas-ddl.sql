@@ -55,3 +55,5 @@ comment on column seguridad.seg_personas.fecha_modifica is 'Fecha en la que se r
 comment on column seguridad.seg_personas.activo is 'Estado del registro 1=Activo 0= Inactivo';
 -- DDL
 alter table seguridad.seg_personas owner to postgres;
+
+TRUNCATE TABLE seguridad.seg_personas RESTART IDENTITY CASCADE;

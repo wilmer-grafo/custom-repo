@@ -6,18 +6,20 @@ SELECT UPPER(LTRIM(RTRIM([C_Nombre])))           AS nombres,
        NULL                                      AS telefono,
        NULL                                      AS num_celular,
        (CASE
-            WHEN (LTRIM(RTRIM(C_Login)) = 'cpradoa') THEN 'cprado@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'driveroa') THEN 'drivero@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'gcoimbrar') THEN 'gcoimbra@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'jalvarez') THEN 'jalvarezv@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'jcastrog') THEN 'jcastro@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'lpachecov') THEN 'lpacheco@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'lespadacam') THEN 'lespada@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'mcarpioa') THEN 'mcarpio@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'masalvatierra') THEN 'msalvatierrac@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'mfernandez') THEN 'mfernandezc@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'manibarroa') THEN 'manibarro@ait.gob.bo'
-            WHEN (LTRIM(RTRIM(C_Login)) = 'nmunozs') THEN 'nmunoz@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'alcarrascoq') THEN 'acarrascoq@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'csalasa') THEN 'csalas@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'cvalle1') THEN 'cvalle@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'cmoram') THEN 'cmora@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'fmercados') THEN 'fmercado@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'fsubieta1') THEN 'fsubieta@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'hpantojab') THEN 'hpantoja@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'jalvarez2') THEN 'jalvarez@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'klopezc') THEN 'klopezl@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'lleonr') THEN 'lleon@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'liparedes') THEN 'lparedes@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'rhuancaj') THEN 'rhuanca@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'vlaurac') THEN 'vlaura@ait.gob.bo'
+            WHEN (LTRIM(RTRIM(C_Login)) = 'vicampero') THEN 'vcampero@ait.gob.bo'
             ELSE LTRIM(RTRIM(C_Login)) + '@ait.gob.bo'
            END)                                  AS email,
        NULL                                      AS fecha_nacimiento,
@@ -52,13 +54,20 @@ WHERE C_Login IN (SELECT usuarios.test
                               FROM [dbo].[TSS_FUNCIONARIOS]
                               WHERE C_Estado = 1
                               GROUP BY LTRIM(RTRIM(C_Login))) AS fun
-                        INTERSECT
+                            EXCEPT
                         SELECT temp.test
                         FROM (SELECT LTRIM(RTRIM(C_Usuario)) AS test
                               FROM TSS_RECURSOS_ALZADA
                               GROUP BY LTRIM(RTRIM(C_Usuario))) AS temp) AS usuarios
                   WHERE usuarios.test NOT IN
-                        ('achinot', 'cvalleae', 'cprados', 'cvaldezs', 'esuarezs',
-                         'facebeys', 'arit', 'mmoyaa', 'mmoyaofi', 'mmoyas'))
+                        ('acarrascor', 'aillaneslr', 'analistaagit', 'aritcba', 'aritchq',
+                         'aritlpz', 'aritscz', 'aexterna', 'cvalle1', 'cvalleofi', 'consultacont',
+                         'dmartinezr', 'dmartinezri', 'dontiveros1', 'drivero', 'dzapataa', 'eochoat', 'esuarezo',
+                         'achucatinyr', 'facebeyn', 'gcoimbra', 'gcoimbrab', 'gcoimbrao', 'hpantojab',
+                         'hpantojan', 'hpantojaa', 'jzabalai', 'kvillegas.tja', 'larcec', 'lpacheco', 'manibarro', 'mcarpio', 'mcussii',
+                         'nvasquezi', 'oserranoi', 'pcondet', 'pcondeor', 'receprj', 'secretarioagit',
+                         'ttogos', 'ttogot', 'vlaurari', 'hugovpt', 'vptributaria',
+                         'vescobars', 'vescobarm', 'vescobarr', 'vicamperor', 'agit'))
   AND C_Estado = 1
+  AND (LTRIM(RTRIM(C_Nombre)) NOT LIKE 'GUSTAVO OLI%')
 ORDER BY C_Nombre, C_Apellido_Paterno, C_Apellido_Materno;

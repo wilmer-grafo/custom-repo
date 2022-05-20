@@ -37,3 +37,5 @@ comment on column alzada.alz_actos_impugnados.fecha_modifica is 'Fecha en la que
 
 alter table alzada.alz_actos_impugnados owner to postgres;
 
+--
+TRUNCATE TABLE alzada.alz_actos_impugnados RESTART IDENTITY CASCADE;
