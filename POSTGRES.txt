@@ -1,0 +1,24 @@
+SHOW datestyle;
+SHOW TIMEZONE;
+COPY alzada.alz_actos_impugnados from 'C:\Users\wvillca\Result_35.csv' delimiter ',' csv header;
+SELECT * FROM alzada.alz_actos_impugnados;
+
+
+TRUNCATE TABLE alzada.alz_montos_alzada RESTART IDENTITY;
+TRUNCATE TABLE alzada.alz_actos_impugnados RESTART IDENTITY CASCADE;
+select * from alzada.alz_recursos_alzada where numero_recurso_alzada = 'ARIT-BEN-0002/2010';
+select * from alzada.alz_actos_impugnados where id_recurso_alzada = 14;
+
+select numero_recurso_alzada, id from alzada.alz_recursos_alzada
+                           where numero_recurso_alzada in
+select count(*) from(
+    select concat(numero_recurso_alzada, ' ')
+    from alzada.alz_recursos_alzada
+    where numero_recurso_alzada ilike 'ARIT-BEN-%'
+    group by numero_recurso_alzada) as f
+
+select id_recurso_alzada from alzada.alz_actos_impugnados group by id_recurso_alzada
+
+select concat(id_recurso_alzada, ' ')
+    from alzada.alz_actos_impugnados
+    group by id_recurso_alzada

@@ -25,4 +25,11 @@ MIGRACION - VIII
 
 *************************************************************************************
 
+MIGRACION - XI
+=========
+--parametricas.par_tipos_super_administracion (ESTABLECIDO)
+-- TSS_IMPUESTOS
+-- parametricas.par_tipos_impuestos
+
+*************************************************************************************
 

@@ -1,0 +1,19 @@
+SERVER
+
+SELECT *
+FROM TSS_MONTOS
+WHERE N_Codigo_Impuesto > 0;
+
+select * from TSS_ACTOS_IMPUGNADOS WHERE C_Nro_Expediente = 'ARIT-TJA-0008/2012';
+
+
+
+select * from TSS_ACTOS_IMPUGNADOS WHERE C_Numero = '---';
+SELECT C_Nro_Expediente FROM TSS_RECURSOS_ALZADA WHERE C_Nro_Expediente = 'ARIT-BEN-0002/2010';
+SELECT N_Codigo_Acto FROM TSS_ACTOS_IMPUGNADOS WHERE C_Nro_Expediente = 'ARIT-BEN-0002/2010';
+SELECT * FROM TSS_MONTOS WHERE N_Codigo_Acto = 53;
+
+
+select C_Nro_Expediente, count(C_Nro_Expediente) from TSS_ACTOS_IMPUGNADOS group by C_Nro_Expediente having count(C_Nro_Expediente) > 2
+
+select count (t.C_Nro_Expediente) from (select C_Nro_Expediente from TSS_ACTOS_IMPUGNADOS group by C_Nro_Expediente) as t;

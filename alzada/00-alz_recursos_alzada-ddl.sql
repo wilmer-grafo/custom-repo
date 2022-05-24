@@ -1,3 +1,6 @@
+-- !important
+SET DATEFORMAT 'YMD';
+
 --parametricas.par_medios_recepcion
 --parametricas.par_tipos_demandante
 --parametricas.par_tipos_documentos

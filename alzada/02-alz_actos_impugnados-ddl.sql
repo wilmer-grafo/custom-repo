@@ -37,5 +37,18 @@ comment on column alzada.alz_actos_impugnados.fecha_modifica is 'Fecha en la que
 
 alter table alzada.alz_actos_impugnados owner to postgres;
 
+SET TIMEZONE='America/La_Paz';
+SHOW datestyle;
+SHOW TIMEZONE;
 --
 TRUNCATE TABLE alzada.alz_actos_impugnados RESTART IDENTITY CASCADE;
+
+--
+UPDATE alzada.alz_actos_impugnados
+SET fecha_emision =
+  (fecha_emision AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_actos_impugnados
+SET fecha_notificacion =
+  (fecha_notificacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+  
