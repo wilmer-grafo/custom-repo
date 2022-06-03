@@ -33,3 +33,58 @@ MIGRACION - XI
 
 *************************************************************************************
 
+MIGRACION - X
+=========
+-- TSS_MONTOS
+-- alzada.alz_montos_alzada
+
+*************************************************************************************
+
+MIGRACION - XI
+=========
+-- TSS_AUTOS
+-- alzada.alz_actuaciones
+
+*************************************************************************************
+
+MIGRACION - XII
+=========
+-- TSS_NOTIFICACIONES
+-- alzada.alz_notificaciones
+
+*************************************************************************************
+
+MIGRACION - XIII
+=========
+-- TSS_REPRESENTANTES_AT
+-- alzada.alz_representantes_at
+
+*************************************************************************************
+
+MIGRACION - XIV
+=========
+-- FROM TSS_RECURSOS_ALZADA
+-- alzada.alz_recursos_alzada_representantes_at
+
+*************************************************************************************
+
+MIGRACION - XV
+=========
+-- FROM TSS_RECURSOS_ALZADA
+-- alzada.alz_representantes_sp
+
+*************************************************************************************
+
+MIGRACION - XVI
+=========
+-- FROM TSS_RECURSOS_ALZADA
+-- alzada.alz_recursos_alzada_representantes_sp
+
+*************************************************************************************
+
+MIGRACION - XVII
+=========
+-- FROM TSS_INTERPONE_REC_JER
+-- alzada.alz_interposiciones_jerarquico
+
+*************************************************************************************

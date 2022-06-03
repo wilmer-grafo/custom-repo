@@ -1,4 +1,17 @@
-SERVER
+POR DEFECTO
+-----------
+
+1                      AS id_usuario_registra,
+       GETDATE()              AS fecha_registra,
+       NULL                   AS id_usuario_modifica,
+       NULL                   AS fecha_modifica,
+==================================================================
+INSERTAR SECUENCIAS IDS FALTANTES
+INSERT INTO TSS_ADMINISTRACIONES_TRIBUTARIAS
+    (N_Codigo_Adm_Tri, C_Descripcion, C_Usuario, D_Fecha_Update, N_Estado)
+VALUES (9, 'SEQUENCIA - 6', 'admin', GETDATE(), 0);
+
+SELECT @@VERSION
 
 SELECT *
 FROM TSS_MONTOS
@@ -6,14 +19,90 @@ WHERE N_Codigo_Impuesto > 0;
 
 select * from TSS_ACTOS_IMPUGNADOS WHERE C_Nro_Expediente = 'ARIT-TJA-0008/2012';
 
-
-
 select * from TSS_ACTOS_IMPUGNADOS WHERE C_Numero = '---';
 SELECT C_Nro_Expediente FROM TSS_RECURSOS_ALZADA WHERE C_Nro_Expediente = 'ARIT-BEN-0002/2010';
 SELECT N_Codigo_Acto FROM TSS_ACTOS_IMPUGNADOS WHERE C_Nro_Expediente = 'ARIT-BEN-0002/2010';
 SELECT * FROM TSS_MONTOS WHERE N_Codigo_Acto = 53;
 
-
 select C_Nro_Expediente, count(C_Nro_Expediente) from TSS_ACTOS_IMPUGNADOS group by C_Nro_Expediente having count(C_Nro_Expediente) > 2
 
 select count (t.C_Nro_Expediente) from (select C_Nro_Expediente from TSS_ACTOS_IMPUGNADOS group by C_Nro_Expediente) as t;
+
+
+--TIPO IMPUESTO
+SELECT TAT.C_Super_Adm_Tri, TAT.N_Codigo_Adm_Tri, TRA.N_Codigo_Subadm_Tri, m.C_Nro_Expediente
+FROM TSS_MONTOS AS m
+         INNER JOIN TSS_RECURSOS_ALZADA TRA on m.C_Nro_Expediente = TRA.C_Nro_Expediente
+         INNER JOIN TSS_SUBADMINISTRACIONES_TRIBUTARIAS TST on TST.N_Codigo_Subadm_Tri = TRA.N_Codigo_Subadm_Tri
+         INNER JOIN TSS_ADMINISTRACIONES_TRIBUTARIAS TAT on TAT.N_Codigo_Adm_Tri = TST.N_Codigo_Adm_Tri
+where m.C_Nro_Expediente = 'ARIT-BEN-0002/2011';
+
+--CONTAR
+SELECT * FROM TSS_ACTOS_IMPUGNADOS
+WHERE C_Nro_Expediente LIKE 'ARIT-BEN-%'
+
+SELECT C_Nro_Expediente + ' ' FROM TSS_MONTOS
+where C_Nro_Expediente like 'ARIT-BEN-%'
+
+SELECT C_Nro_Expediente, N_Codigo_Acto, C_Numero 
+FROM TSS_ACTOS_IMPUGNADOS
+WHERE C_Nro_Expediente LIKE 'ARIT-CBA-%'
+GROUP BY C_Nro_Expediente, N_Codigo_Acto, C_Numero
+
+AUTOS
+-----
+select C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+from TSS_AUTOS
+where C_Nro_Expediente like 'ARIT-CBA-%/2010'
+group by C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+order by C_Nro_Expediente;
+
+https://www.mssqltips.com/sqlservertip/2914/rolling-up-multiple-rows-into-a-single-row-and-column-for-sql-server-data/
+
+select CAST(N_Codigo_Tipo_Auto AS varchar(10)) as auto,  (N_Codigo_Tipo_Auto + 1) as plus
+from (select C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+from TSS_AUTOS
+where C_Nro_Expediente like 'ARIT-CBA-%/2010'
+group by C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+) as d
+group by N_Codigo_Tipo_Auto
+order by N_Codigo_Tipo_Auto;
+
+--------------------------------------------
+select *
+from (select N_Codigo_Tipo_Auto
+      from TSS_AUTOS
+      group by N_Codigo_Tipo_Auto) as d
+-- where d.N_Codigo_Tipo_Auto between 1 and 38
+-- where d.N_Codigo_Tipo_Auto between 39 and 42
+-- where d.N_Codigo_Tipo_Auto between 43 and 58
+-- where d.N_Codigo_Tipo_Auto between 60 and 69
+-- where d.N_Codigo_Tipo_Auto between 70 and 84
+-- where d.N_Codigo_Tipo_Auto between 86 and 90
+where d.N_Codigo_Tipo_Auto between 92 and 98
+order by N_Codigo_Tipo_Auto;
+--------------------------------------------
+
+notificaciones
+select * from TSS_NOTIFICACIONES
+where C_Nro_Expediente like 'ARIT-CBA-%/2010';
+
+-- Notificaciones por expediente
+SELECT TRA.C_Nro_Expediente,
+       (SELECT ta.C_Descripcion
+        FROM TSS_TIPOS_AUTOS ta
+        WHERE tn.N_Codigo_Tipo_Auto = ta.N_Codigo_Tipo_Auto) AS C_descripcion,
+       ra.D_Fecha_Emision,
+       tn.N_Codigo_Destinatario,
+       tn.D_Fecha_Hora_Notificacion,
+       tn.N_Codigo_Tipo_Not
+FROM TSS_AUTOS AS ra
+         INNER JOIN TSS_NOTIFICACIONES TN
+                    ON (ra.C_Nro_Expediente = TN.C_Nro_Expediente AND
+                        ra.N_Codigo_Tipo_Auto = TN.N_Codigo_Tipo_Auto AND
+                        ra.D_Fecha_Emision = TN.D_Fecha_Emision)
+         INNER JOIN TSS_RECURSOS_ALZADA TRA ON TRA.C_Nro_Expediente = ra.C_Nro_Expediente
+WHERE ra.C_Nro_Expediente LIKE 'ARIT-CBA-0049/2010'
+  AND TN.C_Nro_Expediente LIKE 'ARIT-CBA-0049/2010'
+  AND TRA.C_Nro_Expediente LIKE 'ARIT-CBA-0049/2010'
+ORDER BY ra.d_fecha_emision;

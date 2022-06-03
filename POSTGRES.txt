@@ -22,3 +22,17 @@ select id_recurso_alzada from alzada.alz_actos_impugnados group by id_recurso_al
 select concat(id_recurso_alzada, ' ')
     from alzada.alz_actos_impugnados
     group by id_recurso_alzada
+
+-- DETERMINA LA SERIE FALTANTE *PG*
+SELECT s.id AS missing_ids
+    FROM generate_series(1, 500) s(id)
+    WHERE NOT EXISTS (SELECT 1 FROM parametricas.par_tipos_actuaciones WHERE id = s.id);
+-- PARA INSERTAR EL ID 100  *PG*
+SELECT setval(pg_get_serial_sequence('parametricas.par_tipos_actuaciones', 'id'),
+              (SELECT 99 FROM parametricas.par_tipos_actuaciones limit 1));
+-- PARA VOLVER
+SELECT setval(pg_get_serial_sequence('parametricas.par_tipos_actuaciones', 'id'),
+              (SELECT max(id) FROM parametricas.par_tipos_actuaciones));
+
+TRUNCATE TABLE alzada.alz_representantes_at RESTART IDENTITY ;
+DELETE FROM alzada.alz_representantes_at WHERE id > 0;

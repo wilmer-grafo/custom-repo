@@ -22,3 +22,17 @@ MIGRACION DE USUARIOS
 -- [dbo].[TSS_FUNCIONARIOS]
 -- seguridad.seg_personas
 -- seguridad.seg_usuarios
+
+
+SET TIMEZONE='America/La_Paz';
+SHOW datestyle;
+SHOW TIMEZONE;
+
+--
+UPDATE alzada.alz_actos_impugnados
+SET fecha_emision =
+  (fecha_emision AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_actos_impugnados
+SET fecha_notificacion =
+  (fecha_notificacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';

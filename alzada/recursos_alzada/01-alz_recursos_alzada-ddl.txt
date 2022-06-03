@@ -1,0 +1,5 @@
+-- FECHAS
+UPDATE alzada.alz_recursos_alzada
+SET fecha_presentacion =
+        (fecha_presentacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+

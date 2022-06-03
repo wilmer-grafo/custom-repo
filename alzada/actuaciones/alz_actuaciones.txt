@@ -1,0 +1,304 @@
+-- obtener los recursos alzada, copiar el csv
+select numero_recurso_alzada, id from alzada.alz_recursos_alzada
+where numero_recurso_alzada ilike 'ARIT-CBA-%/2010';
+
+-- construir el resultado en la clausula case
+WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0001/2010' THEN 348) AS id_recurso_alzada
+
+-- PRUEBAS --
+-- TOTAL REGITROS - POSTGRES = 1663
+select count(*) from alzada.alz_actuaciones;
+
+-- TOTAL REGITROS - SQL SERVER = 1663
+select C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+from TSS_AUTOS
+where C_Nro_Expediente like 'ARIT-CBA-%/2010'
+group by C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+order by C_Nro_Expediente;
+
+-- CONSULTA DE PRUEBA
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0001/2010' THEN 348
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0002/2010' THEN 361
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0003/2010' THEN 373
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0004/2010' THEN 385
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0005/2010' THEN 397
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0006/2010' THEN 409
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0007/2010' THEN 424
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0008/2010' THEN 437
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0009/2010' THEN 449
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0010/2010' THEN 464
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0011/2010' THEN 480
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0012/2010' THEN 494
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0013/2010' THEN 510
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0014/2010' THEN 525
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0015/2010' THEN 539
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0016/2010' THEN 554
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0017/2010' THEN 570
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0018/2010' THEN 585
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0019/2010' THEN 600
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0020/2010' THEN 617
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0021/2010' THEN 632
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0022/2010' THEN 653
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0023/2010' THEN 669
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0024/2010' THEN 684
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0025/2010' THEN 700
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0026/2010' THEN 716
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0027/2010' THEN 732
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0028/2010' THEN 748
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0029/2010' THEN 763
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0030/2010' THEN 778
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0031/2010' THEN 792
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0032/2010' THEN 807
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0033/2010' THEN 826
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0034/2010' THEN 842
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0035/2010' THEN 859
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0036/2010' THEN 875
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0037/2010' THEN 892
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0038/2010' THEN 908
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0039/2010' THEN 924
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0040/2010' THEN 938
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0041/2010' THEN 952
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0042/2010' THEN 967
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0043/2010' THEN 983
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0044/2010' THEN 998
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0045/2010' THEN 1012
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0046/2010' THEN 1026
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0047/2010' THEN 1041
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0048/2010' THEN 1055
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0049/2010' THEN 1069
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0050/2010' THEN 1082
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0051/2010' THEN 1094
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0052/2010' THEN 1107
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0053/2010' THEN 1119
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0054/2010' THEN 1132
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0055/2010' THEN 1146
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0056/2010' THEN 1158
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0057/2010' THEN 1171
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0058/2010' THEN 1183
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0059/2010' THEN 1198
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0060/2010' THEN 1210
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0061/2010' THEN 1223
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0062/2010' THEN 1239
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0063/2010' THEN 1254
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0064/2010' THEN 1267
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0065/2010' THEN 1280
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0066/2010' THEN 1293
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0067/2010' THEN 1305
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0068/2010' THEN 1317
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0100/2010' THEN 1746
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0069/2010' THEN 1330
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0070/2010' THEN 1342
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0071/2010' THEN 1356
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0102/2010' THEN 1773
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0072/2010' THEN 1370
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0073/2010' THEN 1384
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0075/2010' THEN 1412
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0074/2010' THEN 1398
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0076/2010' THEN 1426
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0077/2010' THEN 1439
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0078/2010' THEN 1451
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0079/2010' THEN 1463
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0080/2010' THEN 1475
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0081/2010' THEN 1487
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0082/2010' THEN 1499
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0083/2010' THEN 1511
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0084/2010' THEN 1524
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0085/2010' THEN 1538
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0086/2010' THEN 1553
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0087/2010' THEN 1567
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0088/2010' THEN 1580
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0089/2010' THEN 1593
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0090/2010' THEN 1607
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0097/2010' THEN 1704
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0091/2010' THEN 1620
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0092/2010' THEN 1635
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0093/2010' THEN 1648
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0094/2010' THEN 1661
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0095/2010' THEN 1674
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0096/2010' THEN 1689
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0098/2010' THEN 1718
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0099/2010' THEN 1732
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0101/2010' THEN 1760
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0103/2010' THEN 1788
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0104/2010' THEN 1801
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0105/2010' THEN 1815
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0106/2010' THEN 1829
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0107/2010' THEN 1843
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0108/2010' THEN 1856
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0109/2010' THEN 1869
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0110/2010' THEN 1883
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0111/2010' THEN 1898
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0112/2010' THEN 1912
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0113/2010' THEN 1927
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0114/2010' THEN 1942
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0115/2010' THEN 1956
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0116/2010' THEN 1970
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0117/2010' THEN 1984
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0118/2010' THEN 1997
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0119/2010' THEN 2011
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0120/2010' THEN 2024
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0121/2010' THEN 2037
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0122/2010' THEN 2051
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0123/2010' THEN 2064
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0124/2010' THEN 2077
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0125/2010' THEN 2093
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0126/2010' THEN 2106
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0127/2010' THEN 2120
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0128/2010' THEN 2132
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0129/2010' THEN 2144
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0130/2010' THEN 2157
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0131/2010' THEN 2171
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0132/2010' THEN 2184
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0133/2010' THEN 2198
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0134/2010' THEN 2210
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0135/2010' THEN 2222
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0136/2010' THEN 2235
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0137/2010' THEN 2247
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0138/2010' THEN 2261
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0139/2010' THEN 2275
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0140/2010' THEN 2289
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0141/2010' THEN 2301
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0142/2010' THEN 2315
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0143/2010' THEN 2327
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0144/2010' THEN 2339
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0145/2010' THEN 2351
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0146/2010' THEN 2364
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0147/2010' THEN 2376
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0148/2010' THEN 2388
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0149/2010' THEN 2402
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0150/2010' THEN 2414
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0151/2010' THEN 2426
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0152/2010' THEN 2439
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0153/2010' THEN 2452
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0154/2010' THEN 2468
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0155/2010' THEN 2486
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0156/2010' THEN 2501
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0157/2010' THEN 2517
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0158/2010' THEN 2529
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0159/2010' THEN 2542
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0160/2010' THEN 2555
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0161/2010' THEN 2570
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0162/2010' THEN 2583
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0163/2010' THEN 2597
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0164/2010' THEN 2611
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0165/2010' THEN 2624
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0166/2010' THEN 2636
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0167/2010' THEN 2649
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0168/2010' THEN 2664
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0169/2010' THEN 2678
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0170/2010' THEN 2692
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0171/2010' THEN 2704
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0172/2010' THEN 2716
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0173/2010' THEN 2728
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0174/2010' THEN 2742
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0175/2010' THEN 2754
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0176/2010' THEN 2767
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0177/2010' THEN 2781
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0178/2010' THEN 2796
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0179/2010' THEN 2809
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0180/2010' THEN 2823
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0181/2010' THEN 2837
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0182/2010' THEN 2850
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0183/2010' THEN 2862
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0184/2010' THEN 2874
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0185/2010' THEN 2887
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0186/2010' THEN 2904
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0187/2010' THEN 2916
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0188/2010' THEN 2933
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0189/2010' THEN 2947
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0190/2010' THEN 2960
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0204/2010' THEN 3127
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0191/2010' THEN 2974
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0192/2010' THEN 2986
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0193/2010' THEN 2998
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0194/2010' THEN 3010
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0195/2010' THEN 3022
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0196/2010' THEN 3033
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0197/2010' THEN 3044
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0198/2010' THEN 3055
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0199/2010' THEN 3067
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0200/2010' THEN 3079
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0201/2010' THEN 3093
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0202/2010' THEN 3104
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0203/2010' THEN 3115
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0205/2010' THEN 3139
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0206/2010' THEN 3150
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0207/2010' THEN 3163
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0208/2010' THEN 3175
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0209/2010' THEN 3186
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0210/2010' THEN 3199
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0211/2010' THEN 3210
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0212/2010' THEN 3222
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0213/2010' THEN 3234
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0214/2010' THEN 3246
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0215/2010' THEN 3257
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0216/2010' THEN 3269
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0217/2010' THEN 3283
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0218/2010' THEN 3299
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0219/2010' THEN 3310
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0220/2010' THEN 3321
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0221/2010' THEN 3334
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0222/2010' THEN 3345
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0223/2010' THEN 3356
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0224/2010' THEN 3367
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0225/2010' THEN 3378
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0226/2010' THEN 3390
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0227/2010' THEN 3401
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0228/2010' THEN 3412
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0229/2010' THEN 3426
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0230/2010' THEN 3437
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0231/2010' THEN 3450
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0232/2010' THEN 3463
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0233/2010' THEN 3474
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0234/2010' THEN 3486
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0235/2010' THEN 3496
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0236/2010' THEN 3507
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0237/2010' THEN 3517
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0238/2010' THEN 3527
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0239/2010' THEN 3542
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0240/2010' THEN 3552
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0241/2010' THEN 3565
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0242/2010' THEN 3575
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0243/2010' THEN 3586
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0244/2010' THEN 3600
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0245/2010' THEN 3611
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0246/2010' THEN 3622
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0247/2010' THEN 3633
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0248/2010' THEN 3644
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0249/2010' THEN 3654
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0250/2010' THEN 3664
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0251/2010' THEN 3674
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0252/2010' THEN 3684
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0253/2010' THEN 3694
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0254/2010' THEN 3706
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0255/2010' THEN 3717
+            WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0256/2010' THEN 3729
+    END)                      AS id_recurso_alzada,
+       (CASE
+            WHEN ra.N_Codigo_Tipo_Auto BETWEEN 1 AND 38 THEN N_Codigo_Tipo_Auto + 1
+            WHEN ra.N_Codigo_Tipo_Auto BETWEEN 39 AND 42 THEN 40
+            WHEN ra.N_Codigo_Tipo_Auto BETWEEN 43 AND 58 THEN N_Codigo_Tipo_Auto
+            WHEN ra.N_Codigo_Tipo_Auto = 59 THEN 100
+            WHEN ra.N_Codigo_Tipo_Auto BETWEEN 60 AND 69 THEN N_Codigo_Tipo_Auto - 1
+            WHEN ra.N_Codigo_Tipo_Auto BETWEEN 70 AND 84 THEN N_Codigo_Tipo_Auto
+            WHEN ra.N_Codigo_Tipo_Auto BETWEEN 86 AND 90 THEN N_Codigo_Tipo_Auto - 1
+            WHEN ra.N_Codigo_Tipo_Auto BETWEEN 92 AND 98 THEN N_Codigo_Tipo_Auto - 2
+            WHEN ra.N_Codigo_Tipo_Auto = 100 THEN 97
+            WHEN ra.N_Codigo_Tipo_Auto = 101 THEN 98
+            WHEN ra.N_Codigo_Tipo_Auto = 102 THEN 99
+           END)               AS id_tipo_actuacion,
+       ra.D_Fecha_Emision     AS fecha_emision,
+       ra.C_Observacion       AS observaciones,
+       ra.D_Fecha_Subsanacion AS fecha_subsanacion,
+       1                      AS id_usuario_registra,
+       GETDATE()              AS fecha_registra,
+       NULL                   AS id_usuario_modifica,
+       NULL                   AS fecha_modifica,
+       20                     AS estado,
+       NULL                   AS id_memorial,
+       NULL                   AS clasificacion_etapa,
+       NULL                   AS id_interposicion_jerarquico,
+       NULL                   AS estado_interposicion
+FROM TSS_AUTOS AS ra
+WHERE C_Nro_Expediente LIKE 'ARIT-CBA-%/2010';

@@ -1,0 +1,53 @@
+-- OBTENER LOS RECURSOS ALZADA, luego hacer CASE con el resultado, en 
+-- la QQ, dml
+select distinct * from (select numero_recurso_alzada, id
+from alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+    select numero_recurso_alzada
+    from alzada.alz_recursos_alzada
+    where numero_recurso_alzada ilike 'ARIT-BEN-%'
+    group by numero_recurso_alzada)
+    order by numero_recurso_alzada) as d;
+
+select count(*) from alzada.alz_actos_impugnados
+
+-- CONDICIONES
+'ARIT-CBA-%'
+select numero_recurso_alzada, id
+from alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+    select numero_recurso_alzada
+    from alzada.alz_recursos_alzada
+    where numero_recurso_alzada ilike 'ARIT-CBA-%'
+    group by numero_recurso_alzada)
+order by numero_recurso_alzada
+-- limit 1000 offset 0;
+-- limit 1000 offset 1000;
+-- limit 1000 offset 2000;
+-- limit 1000 offset 3000;
+-- limit 1000 offset 4000;
+limit 1000 offset 5000;
+
+
+'ARIT-CHQ-%'
+
+'ARIT-LPZ-%'
+
+'ARIT-ORU-%'
+
+'ARIT-PND-%'
+
+'ARIT-PTS-%'
+
+'ARIT-SCZ-%'
+
+'ARIT-TJA-%'
+
+-- HACE LO MISMO PARA LAS DEMAS CONDICIONES
+
+-- TOTAL
+select count(f.numero_recurso_alzada)
+from (select numero_recurso_alzada
+      from alzada.alz_recursos_alzada
+      where numero_recurso_alzada ilike 'ARIT-BEN-%'
+      group by numero_recurso_alzada) as f;

@@ -1,15 +1,55 @@
-SELECT C_Nro_Expediente + ' ' FROM TSS_MONTOS
-where C_Nro_Expediente like 'ARIT-BEN-%'
-group by C_Nro_Expediente
-order by C_Nro_Expediente;
+-- OBTENER LAS OCURRENCIAS
+select distinct d.*
+from (SELECT C_Nro_Expediente + ' ' as result
+      FROM TSS_MONTOS
+      where C_Nro_Expediente like 'ARIT-BEN-%'
+      group by C_Nro_Expediente
+     ) as d
+order by d.result;
 
+where C_Nro_Expediente like 'ARIT-CBA-%'
+where C_Nro_Expediente like 'ARIT-CHQ-%'
+where C_Nro_Expediente like 'ARIT-LPZ-%'
+where C_Nro_Expediente like 'ARIT-ORU-%'
+where C_Nro_Expediente like 'ARIT-PND-%'
+where C_Nro_Expediente like 'ARIT-PTS-%'
+where C_Nro_Expediente like 'ARIT-SCZ-%'
+where C_Nro_Expediente like 'ARIT-TJA-%'
+
+WHEN LTRIM(RTRIM(ra.C_Nro_Expediente))
+
+-- TOTAL
 SELECT COUNT(*)
 FROM TSS_MONTOS AS ra
-WHERE C_Nro_Expediente LIKE 'ARIT-BEN-%'
-  AND N_Codigo_Impuesto > 0;
+WHERE C_Nro_Expediente LIKE 'ARIT-BEN-%';
+
+-- CONSULTA, PEGAR LAS OCURRENCIAS, hacer pruebas con limit, si es necesario
+select (select ra.numero_recurso_alzada
+        from alzada.alz_recursos_alzada ra
+        where ra.id = temp.id_recurso_alzada) as numero_recurso_alzada,
+       temp.id as id
+from (select id_recurso_alzada, id
+      from alzada.alz_actos_impugnados
+      where id_recurso_alzada in (
+          select id
+          from alzada.alz_recursos_alzada
+          where numero_recurso_alzada in
+                (
+                    ))) AS temp
+order by numero_recurso_alzada;
+
+limit 1000 offset 0;
+-- limit 1000 offset 1000;
+-- limit 1000 offset 2000;
+-- limit 1000 offset 3000;
+-- limit 1000 offset 4000;
+-- limit 1000 offset 5000;
 
 
-select (select ra.numero_recurso_alzada from alzada.alz_recursos_alzada ra where ra.id = temp.id_recurso_alzada),
+-- EJEMPLO PARA MONTOS ALZADA
+select (select ra.numero_recurso_alzada
+        from alzada.alz_recursos_alzada ra
+        where ra.id = temp.id_recurso_alzada),
        temp.id
 from (select id_recurso_alzada, id
       from alzada.alz_actos_impugnados
@@ -324,47 +364,3 @@ from (select id_recurso_alzada, id
                  'ARIT-BEN-0071/2016',
                  'ARIT-BEN-0073/2016'
                     ))) AS temp;
-
-
---CASE EL RESULTADO
-
--- CASOS DE USO
-SELECT C_Nro_Expediente + ' ' FROM TSS_MONTOS
-where C_Nro_Expediente like 'ARIT-CBA-%'
-group by C_Nro_Expediente
-order by C_Nro_Expediente;
-
-SELECT C_Nro_Expediente + ' ' FROM TSS_MONTOS
-where C_Nro_Expediente like 'ARIT-CHQ-%'
-group by C_Nro_Expediente
-order by C_Nro_Expediente;
-
-SELECT C_Nro_Expediente + ' ' FROM TSS_MONTOS
-where C_Nro_Expediente like 'ARIT-LPZ-%'
-group by C_Nro_Expediente
-order by C_Nro_Expediente;
-
-SELECT C_Nro_Expediente + ' ' FROM TSS_MONTOS
-where C_Nro_Expediente like 'ARIT-ORU-%'
-group by C_Nro_Expediente
-order by C_Nro_Expediente;
-
-SELECT C_Nro_Expediente + ' ' FROM TSS_MONTOS
-where C_Nro_Expediente like 'ARIT-PND-%'
-group by C_Nro_Expediente
-order by C_Nro_Expediente;
-
-SELECT C_Nro_Expediente + ' ' FROM TSS_MONTOS
-where C_Nro_Expediente like 'ARIT-PTS-%'
-group by C_Nro_Expediente
-order by C_Nro_Expediente;
-
-SELECT C_Nro_Expediente + ' ' FROM TSS_MONTOS
-where C_Nro_Expediente like 'ARIT-SCZ-%'
-group by C_Nro_Expediente
-order by C_Nro_Expediente;
-
-SELECT C_Nro_Expediente + ' ' FROM TSS_MONTOS
-where C_Nro_Expediente like 'ARIT-TJA-%'
-group by C_Nro_Expediente
-order by C_Nro_Expediente;

@@ -67,4 +67,3 @@ FROM TSS_ACTOS_IMPUGNADOS;
 var usuariosPostgres = [];
 var usuariosInterseccion = [];
 var diferencia = usuariosInterseccion.filter(e => usuariosPostgres.indexOf(e) === -1);
-
