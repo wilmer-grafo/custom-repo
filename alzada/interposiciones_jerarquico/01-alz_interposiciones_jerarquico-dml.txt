@@ -14,11 +14,10 @@ where numero_recurso_alzada in (
     );
 con el resultado armar el when rec_jer.C_Nro_Expediente
 
-
 select (select ra.numero_recurso_alzada
         from alzada.alz_recursos_alzada ra
         where ra.id = rat.id_recurso_alzada) as expediente,
-       rat.id
+       rat.id_representante_at
 from alzada.alz_recursos_alzada_representantes_at rat
 WHERE rat.id_recurso_alzada IN (
     select id
@@ -31,6 +30,9 @@ WHERE rat.id_recurso_alzada IN (
 con el resultado armar el when rec_jer.C_Nro_Expediente
 
 -- ================================================= --
+
+-- EN SQL SERVER
+SET DATEFORMAT 'YMD'; 
 
 UPDATE alzada.alz_interposiciones_jerarquico
 SET fecha_interpone =

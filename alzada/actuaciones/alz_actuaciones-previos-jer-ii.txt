@@ -1,0 +1,89 @@
+-- obtener los recursos alzada, copiar el csv
+select numero_recurso_alzada, id from alzada.alz_recursos_alzada
+where numero_recurso_alzada ilike 'ARIT-CBA-%/2010';
+
+-- construir el resultado en la clausula case
+WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-CBA-0001/2010' THEN 348) AS id_recurso_alzada
+
+-- PRUEBAS --
+-- TOTAL REGITROS - POSTGRES = 1663
+select count(*) from alzada.alz_actuaciones;
+
+-- TOTAL REGITROS - SQL SERVER = 158
+select C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+from TSS_AUTOS_PREVIOS_JER
+where C_Nro_Expediente like 'ARIT-CBA-%/2010'
+group by C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+order by C_Nro_Expediente;
+
+PARA EL CAMPO id_interposicion_jerarquico
+select (select ra.numero_recurso_alzada
+        from alzada.alz_recursos_alzada ra
+        where ra.id = ratj.id_recurso_alzada) as expediente,
+       ratj.id
+from alzada.alz_interposiciones_jerarquico ratj
+where id_recurso_alzada in (
+    select id
+    from alzada.alz_recursos_alzada
+    where numero_recurso_alzada ilike 'ARIT-BEN-%/2019'
+    order by numero_recurso_alzada
+);
+
+-- construir el resultado en la clausula case
+WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-BEN-0004/2019' THEN 4) AS id_interposicion_jerarquico
+
+
+-- CONSULTA DE PRUEBA
+
+SELECT *
+FROM (SELECT (CASE
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0001/2019' THEN 11
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0002/2019' THEN 23
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0003/2019' THEN 35
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0004/2019' THEN 47
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0005/2019' THEN 59
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0006/2019' THEN 73
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0007/2019' THEN 86
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0008/2019' THEN 97
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0009/2019' THEN 107
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0010/2019' THEN 117
+    END)                            AS id_recurso_alzada,
+             (CASE
+                  WHEN ra.N_Codigo_Tipo_Auto BETWEEN 1 AND 38 THEN N_Codigo_Tipo_Auto + 1
+                  WHEN ra.N_Codigo_Tipo_Auto BETWEEN 39 AND 42 THEN 40
+                  WHEN ra.N_Codigo_Tipo_Auto BETWEEN 43 AND 58 THEN N_Codigo_Tipo_Auto
+                  WHEN ra.N_Codigo_Tipo_Auto = 59 THEN 100
+                  WHEN ra.N_Codigo_Tipo_Auto BETWEEN 60 AND 69 THEN N_Codigo_Tipo_Auto - 1
+                  WHEN ra.N_Codigo_Tipo_Auto BETWEEN 70 AND 84 THEN N_Codigo_Tipo_Auto
+                  WHEN ra.N_Codigo_Tipo_Auto BETWEEN 86 AND 90 THEN N_Codigo_Tipo_Auto - 1
+                  WHEN ra.N_Codigo_Tipo_Auto BETWEEN 92 AND 98 THEN N_Codigo_Tipo_Auto - 2
+                  WHEN ra.N_Codigo_Tipo_Auto = 100 THEN 97
+                  WHEN ra.N_Codigo_Tipo_Auto = 101 THEN 98
+                  WHEN ra.N_Codigo_Tipo_Auto = 102 THEN 99
+                 END)               AS id_tipo_actuacion,
+             ra.D_Fecha_Emision     AS fecha_emision,
+             ra.C_Observacion       AS observaciones,
+             ra.D_Fecha_Subsanacion AS fecha_subsanacion,
+             1                      AS id_usuario_registra,
+             GETDATE()              AS fecha_registra,
+             NULL                   AS id_usuario_modifica,
+             NULL                   AS fecha_modifica,
+             20                     AS estado,
+             NULL                   AS id_memorial,
+             1                      AS clasificacion_etapa,
+             (CASE
+                  WHEN LTRIM(RTRIM(ra.C_Nro_Expediente)) = 'ARIT-BEN-0004/2019' THEN 4
+                 END)               AS id_interposicion_jerarquico,
+             NULL                   AS estado_interposicion
+      FROM TSS_AUTOS_PREVIOS_JER AS ra
+      WHERE C_Nro_Expediente LIKE 'ARIT-BEN-%/2019') AS gg
+WHERE gg.id_interposicion_jerarquico IS NOT NULL;
+
+-- FECHAS
+UPDATE alzada.alz_actuaciones
+SET fecha_emision =
+  (fecha_emision AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_actuaciones
+SET fecha_subsanacion =
+  (fecha_subsanacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';

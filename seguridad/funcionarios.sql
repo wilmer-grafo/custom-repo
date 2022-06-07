@@ -32,10 +32,10 @@ WHERE md.N_Codigo_Funcionario != 1
 --=================================================================================================================--
 
 --=================================================================================================================--
-SELECT LTRIM(RTRIM(tf.C_Nombre)),
-       LTRIM(RTRIM(tf.C_Apellido_Paterno)),
-       LTRIM(RTRIM(tf.C_Apellido_Materno)),
-       LTRIM(RTRIM(tf.C_Login))
+SELECT LTRIM(RTRIM(tf.C_Nombre)) AS C_Nombre,
+       LTRIM(RTRIM(tf.C_Apellido_Paterno)) AS C_Apellido_Paterno,
+       LTRIM(RTRIM(tf.C_Apellido_Materno)) AS C_Apellido_Materno,
+       LTRIM(RTRIM(tf.C_Login)) AS C_Login
 FROM TSS_FUNCIONARIOS AS tf
 GROUP BY LTRIM(RTRIM(tf.C_Nombre)), LTRIM(RTRIM(tf.C_Apellido_Paterno)), LTRIM(RTRIM(tf.C_Apellido_Materno)),
          LTRIM(RTRIM(tf.C_Login));

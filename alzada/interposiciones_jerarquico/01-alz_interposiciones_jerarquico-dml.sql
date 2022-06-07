@@ -22,9 +22,9 @@ SELECT (CASE
        NULL                                                                                AS id_usuario_modifica,
        NULL                                                                                AS fecha_modifica,
        (CASE
-            WHEN rec_jer.C_Nro_Expediente = 'ARIT-BEN-0004/2019' THEN 8
-            WHEN rec_jer.C_Nro_Expediente = 'ARIT-BEN-0007/2018' THEN 20
-            WHEN rec_jer.C_Nro_Expediente = 'ARIT-BEN-0030/2017' THEN 77
+            WHEN rec_jer.C_Nro_Expediente = 'ARIT-BEN-0004/2019' THEN 2576
+            WHEN rec_jer.C_Nro_Expediente = 'ARIT-BEN-0007/2018' THEN 2576
+            WHEN rec_jer.C_Nro_Expediente = 'ARIT-BEN-0030/2017' THEN 2576
            END)                                                                            AS id_representante_at,
        NULL                                                                                AS observaciones,
        NULL                                                                                AS id_memorial,

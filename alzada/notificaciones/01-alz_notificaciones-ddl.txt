@@ -1,0 +1,39 @@
+--AUTOS = 1663 TOTAL
+select ra.numero_recurso_alzada,
+       (CASE
+            WHEN ac.id_tipo_actuacion BETWEEN 1 AND 38 THEN id_tipo_actuacion - 1
+            WHEN ac.id_tipo_actuacion BETWEEN 39 AND 42 THEN 40
+            WHEN ac.id_tipo_actuacion BETWEEN 43 AND 58 THEN id_tipo_actuacion
+            WHEN ac.id_tipo_actuacion = 59 THEN 100
+            WHEN ac.id_tipo_actuacion BETWEEN 60 AND 69 THEN id_tipo_actuacion + 1
+            WHEN ac.id_tipo_actuacion BETWEEN 70 AND 84 THEN id_tipo_actuacion
+            WHEN ac.id_tipo_actuacion BETWEEN 86 AND 90 THEN id_tipo_actuacion + 1
+            WHEN ac.id_tipo_actuacion BETWEEN 92 AND 98 THEN id_tipo_actuacion + 2
+            WHEN ac.id_tipo_actuacion = 100 THEN 97
+            WHEN ac.id_tipo_actuacion = 101 THEN 98
+            WHEN ac.id_tipo_actuacion = 102 THEN 99
+           END) AS id_tipo_actuacion,
+       ac.fecha_emision,
+       ac.id
+from alzada.alz_recursos_alzada as ra
+         inner join alzada.alz_actuaciones ac
+                    on ra.id = ac.id_recurso_alzada
+where ra.numero_recurso_alzada ilike 'ARIT-CBA-%/2010'
+  and ac.id_tipo_actuacion not in (22, 23)
+order by ac.id;
+
+========================================================================================
+ARMAR EN EL CSV
+WHEN 
+ra.C_Nro_Expediente='ARIT-CBA-0001/2010' and 
+ra.N_Codigo_Tipo_Auto=4 and 
+ra.D_Fecha_Emision='2010-01-05 00:00:00.000' THEN 1
+--TRASNFORMAR A ESTE FORMATO: 00:00:00.000
+--PRIMERO LA FECHA
+
+--AUTOS = 1663
+SELECT C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+from TSS_AUTOS
+where C_Nro_Expediente like 'ARIT-CBA-%/2010'
+group by C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+order by C_Nro_Expediente;

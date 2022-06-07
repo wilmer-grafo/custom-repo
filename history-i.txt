@@ -84,7 +84,7 @@ MIGRACION - XVI
 
 MIGRACION - XVII
 =========
--- FROM TSS_INTERPONE_REC_JER
+-- TSS_INTERPONE_REC_JER
 -- alzada.alz_interposiciones_jerarquico
 
 *************************************************************************************

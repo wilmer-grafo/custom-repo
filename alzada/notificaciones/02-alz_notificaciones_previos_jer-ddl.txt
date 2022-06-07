@@ -1,0 +1,81 @@
+
+SELECT C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+from TSS_AUTOS_PREVIOS_JER
+where C_Nro_Expediente like 'ARIT-BEN-%/2019'
+group by C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
+order by C_Nro_Expediente;
+
+SELECCIONAR LOS C_Nro_Expediente,
+
+
+select ra.numero_recurso_alzada,
+       (CASE
+            WHEN ac.id_tipo_actuacion BETWEEN 1 AND 38 THEN id_tipo_actuacion - 1
+            WHEN ac.id_tipo_actuacion BETWEEN 39 AND 42 THEN 40
+            WHEN ac.id_tipo_actuacion BETWEEN 43 AND 58 THEN id_tipo_actuacion
+            WHEN ac.id_tipo_actuacion = 59 THEN 100
+            WHEN ac.id_tipo_actuacion BETWEEN 60 AND 69 THEN id_tipo_actuacion + 1
+            WHEN ac.id_tipo_actuacion BETWEEN 70 AND 84 THEN id_tipo_actuacion
+            WHEN ac.id_tipo_actuacion BETWEEN 86 AND 90 THEN id_tipo_actuacion + 1
+            WHEN ac.id_tipo_actuacion BETWEEN 92 AND 98 THEN id_tipo_actuacion + 2
+            WHEN ac.id_tipo_actuacion = 100 THEN 97
+            WHEN ac.id_tipo_actuacion = 101 THEN 98
+            WHEN ac.id_tipo_actuacion = 102 THEN 99
+           END) AS id_tipo_actuacion,
+       ac.fecha_emision,
+       ac.id
+from alzada.alz_recursos_alzada as ra
+         inner join alzada.alz_actuaciones ac
+                    on ra.id = ac.id_recurso_alzada
+where ra.numero_recurso_alzada in
+      ('ARIT-BEN-0004/2019',
+       'ARIT-BEN-0009/2019',
+       'ARIT-BEN-0010/2019'
+          )
+  and ac.id_tipo_actuacion not in (22, 23)
+order by ac.id;
+
+
+
+CONSULTA DE PRUEBA
+
+SELECT *
+FROM (SELECT (CASE
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0004/2019' and ra.N_Codigo_Tipo_Auto = 2 and
+                       ra.D_Fecha_Emision = '2019-09-12 00:00:00.000' THEN 1664
+                  WHEN ra.C_Nro_Expediente = 'ARIT-BEN-0004/2019' and ra.N_Codigo_Tipo_Auto = 3 and
+                       ra.D_Fecha_Emision = '2019-09-02 00:00:00.000' THEN 1665
+    END)                               AS id_actuacion,
+             ra.N_Codigo_Dest  AS id_tipo_demandante,
+             ra.N_Codigo_Tipo_Not      AS id_tipo_notificacion,
+             D_Fecha_Hora_Notificacion AS fecha_hora_notificacion,
+             1                         AS estado,
+             1                         AS id_usuario_registra,
+             GETDATE()                 AS fecha_registra,
+             NULL                      AS id_usuario_modifica,
+             NULL                      AS fecha_modifica,
+             ra.D_Fecha_Emision        AS fecha_actuacion_registro,
+             (CASE
+                  WHEN (tra.N_Codigo_Super_Reg IS NULL AND ISNUMERIC(tra.N_Codigo_Intendencia) = 1)
+                      THEN tra.N_Codigo_Intendencia + 4
+                  WHEN (ISNUMERIC(tra.N_Codigo_Super_Reg) = 1 AND tra.N_Codigo_Intendencia IS NULL)
+                      THEN tra.N_Codigo_Super_Reg
+                  WHEN (ISNUMERIC(tra.N_Codigo_Super_Reg) = 1 AND ISNUMERIC(tra.N_Codigo_Intendencia) = 1)
+                      THEN tra.N_Codigo_Super_Reg
+                  ELSE -4
+                 END)                  AS id_region_radicatoria
+
+      FROM TSS_NOTIFICACIONES_PREVIOS_JER AS ra
+               inner join TSS_RECURSOS_ALZADA TRA on TRA.C_Nro_Expediente = ra.C_Nro_Expediente
+      WHERE ra.C_Nro_Expediente LIKE 'ARIT-BEN-%/2019'
+        and TRA.C_Nro_Expediente LIKE 'ARIT-BEN-%/2019'
+        and ra.N_Codigo_Tipo_Auto not in (22, 23)) as dd
+WHERE dd.id_actuacion is not null;
+
+
+PG
+select *
+from alzada.alz_notificaciones
+where id_actuacion in (select id
+                       from alzada.alz_actuaciones
+                       where id_recurso_alzada = 47);

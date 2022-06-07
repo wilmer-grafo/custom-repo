@@ -32,3 +32,7 @@ create table alzada.alz_interposiciones_jerarquico
 			references comunes.memoriales,
 	observaciones_antecedentes text
 );
+
+TRUNCATE TABLE alzada.alz_interposiciones_jerarquico RESTART IDENTITY CASCADE;
+
+DELETE FROM alzada.alz_interposiciones_jerarquico WHERE id > 0;
