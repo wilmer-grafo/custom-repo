@@ -1,5 +1,5 @@
 -- truncar la tabla y reiniciar la sequencia
-TRUNCATE TABLE comunes.feriados RESTART IDENTITY CASCADE;
+TRUNCATE TABLE comunes.feriados RESTART IDENTITY;
 
 -- ejcutar la consulta y exportar en csv, esto en SQL SERVER
 --=================================================================================================================--
@@ -37,7 +37,8 @@ SELECT (CASE
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'ENCAPSULAMIENTO' THEN 26
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'ESTADO PLURINACIONAL' THEN 31
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'ESTADO PLURINACIONAL DE BOLIVIA' THEN 4
-            WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'FERIADO CIVICO DPTAL.' THEN 36
+            WHEN (LTRIM(RTRIM([C_Descripcion])) LIKE 'FERIADO CIVICO DPTAL.' OR
+                  LTRIM(RTRIM([C_Descripcion])) LIKE 'FERIADO CÍVICO DPTAL.') THEN 36
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'FERIADO CIVICO DPTAL.ORURO' THEN 15
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'FERIADO DE NAVIDAD' THEN 39
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'FERIADO REGIONAL COCHABAMBA' THEN 35
@@ -48,9 +49,9 @@ SELECT (CASE
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'TODOS SANTOS' THEN 2
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'VIERNES SANTO' THEN 29
             WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'VISITA DEL PAPA FRANCISCO' THEN 38
-            ELSE -10
-    END)                       AS id_motivo_feriado,
-       [D_Fecha_Feriado]       AS fecha,
+            WHEN LTRIM(RTRIM([C_Descripcion])) LIKE 'DIA DEL TRABAJADOR DS 2750' THEN 45
+    END)                           AS id_motivo_feriado,
+       [D_Fecha_Feriado]           AS fecha,
        (CASE
             WHEN ([N_Codigo_Oficina] = 0 AND [N_Codigo_Reg_Int] = 0) THEN 10
             WHEN ([N_Codigo_Oficina] = 1 AND [N_Codigo_Reg_Int] = 1) THEN 5
@@ -63,16 +64,16 @@ SELECT (CASE
             WHEN ([N_Codigo_Oficina] = 2 AND [N_Codigo_Reg_Int] = 3) THEN 3
             WHEN ([N_Codigo_Oficina] = 2 AND [N_Codigo_Reg_Int] = 4) THEN 4
             WHEN ([N_Codigo_Oficina] = 2 AND [N_Codigo_Reg_Int] = 5) THEN 9
-            ELSE -1
-           END)                AS id_region,
-       0                       AS suspende_plazo,
-       1                          estado,
-       1                          id_usuario_registra,
-       GETDATE()               AS fecha_registra,
-       NULL                    AS id_usuario_modifica,
-       NULL                    AS fecha_modifica,
-       YEAR([D_Fecha_Feriado]) AS gestion
-FROM [dbo].[TSS_FERIADOS];
+           END)                    AS id_region,
+       0                           AS suspende_plazo,
+       1                              estado,
+       1                              id_usuario_registra,
+       GETDATE()                   AS fecha_registra,
+       NULL                        AS id_usuario_modifica,
+       NULL                        AS fecha_modifica,
+       YEAR([D_Fecha_Feriado])     AS gestion
+FROM [dbo].[TSS_FERIADOS]
+ORDER BY D_Fecha_Feriado;
 --=================================================================================================================--
 -- importar el csv en comunes.feriados, esto en Postgres
 

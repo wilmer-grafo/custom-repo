@@ -25,11 +25,13 @@ order by ac.id;
 ========================================================================================
 ARMAR EN EL CSV
 WHEN 
-ra.C_Nro_Expediente='ARIT-CBA-0001/2010' and 
+LTRIM(RTRIM(ra.C_Nro_Expediente))='ARIT-CBA-0001/2010' and 
 ra.N_Codigo_Tipo_Auto=4 and 
 ra.D_Fecha_Emision='2010-01-05 00:00:00.000' THEN 1
 --TRASNFORMAR A ESTE FORMATO: 00:00:00.000
 --PRIMERO LA FECHA
+
+ARIT-ORU-0141/2021,25$ AND ra.D_Fecha_Emision='2022-02-24 00:00:00.000'*3565
 
 --AUTOS = 1663
 SELECT C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
@@ -37,3 +39,4 @@ from TSS_AUTOS
 where C_Nro_Expediente like 'ARIT-CBA-%/2010'
 group by C_Nro_Expediente, N_Codigo_Tipo_Auto, D_Fecha_Emision
 order by C_Nro_Expediente;
+

@@ -1,0 +1,129 @@
+-- obtener los expedientes <= 20, SQL SERVER 
+SELECT  LTRIM(RTRIM(dd.id_exp)), 1 AS id
+FROM (SELECT id_exp
+      FROM control_tiempo
+      WHERE LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2016%'
+        AND LEN(id_exp) <= 20
+      GROUP BY id_exp) AS dd
+ORDER BY dd.id_exp;
+
+-- armar los expedientes para el IN
+
+-- obtener los id's de los expedientes, PG
+select ra.numero_recurso_alzada,
+       ra.id
+from alzada.alz_recursos_alzada as ra
+where ra.numero_recurso_alzada in (
+PEGAR LOS EXPEDIENTES
+    );
+
+-- armar LTRIM(RTRIM(ct.id_exp)) = '' para id_recurso_alzada 
+WHEN ct.id_exp = 'ARIT-LPZ-0001/2016' THEN 7260
+
+-- obtener los expedientes > 20, SQL SERVER 
+SELECT (CASE
+            WHEN LEN(LTRIM(RTRIM(dd.id_exp))) > 20 THEN SUBSTRING(LTRIM(RTRIM(id_exp)), 0,
+                                                                  CHARINDEX('//', LTRIM(RTRIM(id_exp))))
+            ELSE LTRIM(RTRIM(dd.id_exp))
+    END) AS exp,
+       1 AS id
+FROM (SELECT LTRIM(RTRIM(id_exp)) AS id_exp
+      FROM control_tiempo
+      WHERE SUBSTRING(LTRIM(RTRIM(id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(id_exp)))) LIKE 'ARIT-LPZ-%/2016%'
+        AND LEN(LTRIM(RTRIM(id_exp))) > 20
+      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
+ORDER BY dd.id_exp;
+
+-- EYE        WHERE LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2020%';
+
+-- obtener los id's de los expedientes, PG
+select ra.numero_recurso_alzada,
+       ra.id
+from alzada.alz_recursos_alzada as ra
+where ra.numero_recurso_alzada in (
+PEGAR LOS EXPEDIENTES
+    );
+
+-- obtener los valores de los expedientes de la anterior consulta y copiar esos valores
+ARIT-LPZ-0172/2016,9487 y armar con los expedientes de esta consulta
+
+-- armar con estos valores
+SELECT  LTRIM(RTRIM(dd.id_exp)), 1 AS id
+FROM (SELECT id_exp
+      FROM control_tiempo
+      WHERE SUBSTRING(LTRIM(RTRIM(id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(id_exp)))) LIKE 'ARIT-LPZ-%/2016%'
+        AND LEN(id_exp) > 20
+      GROUP BY id_exp) AS dd
+ORDER BY dd.id_exp;
+
+-- armar LTRIM(RTRIM(ct.id_exp)) = '' para id_recurso_alzada 
+ARIT-LPZ-0244/2016//ARIT-LPZ-0243/2016//ARIT-LPZ-0304/2016,10442
+
+
+
+-- obtener las combinaciones, en base al resultado armar el case con los valores del EXCEL
+SELECT *
+FROM (SELECT ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')  AS cargoorigen,
+             ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') AS cargodestino
+      FROM control_tiempo AS ct
+      WHERE id_exp LIKE 'ARIT-LPZ-%/2016') AS temp
+GROUP BY temp.cargoorigen, temp.cargodestino
+ORDER BY temp.cargoorigen, temp.cargodestino;
+
+-- armar ct.origen = '' y ct.destino = '' para id_proceso
+WHEN ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'ACAMARA'*ACAMARA
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')= 
+AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')= 
+)
+THEN 1
+
+-- obtener el origen
+SELECT origen + ','
+FROM control_tiempo
+WHERE id_exp LIKE 'ARIT-LPZ-%/2016'
+GROUP BY origen + ','
+ORDER BY origen + ',';
+
+-- obtener los valores, ACA en lugar de id_persona colocar el ID
+select login, id_persona
+from seguridad.seg_usuarios
+where login in (
+PEGAR LOS ORIGEN
+    )
+order by login;
+
+-- armar ct.origen
+WHEN ct.origen = '' THEN VALOR
+
+
+-- obtener el destino
+SELECT destino + ','
+FROM control_tiempo
+WHERE id_exp LIKE 'ARIT-LPZ-%/2016'
+GROUP BY destino + ','
+ORDER BY destino + ',';
+
+-- obtener los valores, OJO el ID
+select login, id_persona
+from seguridad.seg_usuarios
+where login in (
+PEGAR LOS ORIGEN
+    )
+order by login;
+
+-- armar ct.destino
+WHEN ct.destino = '' THEN VALOR
+
+
+
+SELECT *
+FROM control_tiempo
+WHERE id_exp LIKE 'ARIT-LPZ-%/2016'
+AND (ruta_pro IS NULL OR ruta_pro = '');
+
+
+SELECT SUBSTRING('ARIT-LPZ-0731/2020-1//ARIT-LPZ-0704/2020-1', 0,
+                 CHARINDEX('//', 'ARIT-LPZ-0731/2020-1//ARIT-LPZ-0704/2020-1'));

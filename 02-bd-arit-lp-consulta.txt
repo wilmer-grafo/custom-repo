@@ -1,0 +1,1025 @@
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0001/2016' THEN 7260
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0002/2016' THEN 7272
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0003/2016' THEN 7284
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0004/2016' THEN 7296
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0005/2016' THEN 7308
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0006/2016' THEN 7320
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0007/2016' THEN 7333
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0008/2016' THEN 7345
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0009/2016' THEN 7358
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0010/2016' THEN 7370
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0011/2016' THEN 7383
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0011/2016-1' THEN 7384
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0013/2016' THEN 7408
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0013/2016-1' THEN 7409
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0014/2016' THEN 7421
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0015/2016' THEN 7434
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0016/2016' THEN 7446
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0018/2016' THEN 7470
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0019/2016' THEN 7482
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0020/2016' THEN 7494
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0021/2016' THEN 7506
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0022/2016' THEN 7519
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0024/2016' THEN 7543
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0025/2016' THEN 7555
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0026/2016' THEN 7570
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0027/2016' THEN 7582
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0028/2016' THEN 7595
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0029/2016' THEN 7608
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0030/2016' THEN 7620
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0031/2016' THEN 7632
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0032/2016' THEN 7644
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0033/2016' THEN 7656
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0033/2016-1' THEN 7657
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0034/2016' THEN 7669
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0035/2016' THEN 7681
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0035/2016-1' THEN 7682
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0036/2016' THEN 7695
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0039/2016' THEN 7732
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0039/2016-1' THEN 7733
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0040/2016' THEN 7747
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0041/2016' THEN 7760
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0042/2016' THEN 7773
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0043/2016' THEN 7785
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0044/2016' THEN 7798
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0045/2016' THEN 7811
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0046/2016' THEN 7824
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0047/2016' THEN 7839
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0049/2016' THEN 7865
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0050/2016' THEN 7878
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0050/2016-1' THEN 7879
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0051/2016' THEN 7893
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0052/2016' THEN 7908
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0053/2016' THEN 7921
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0056/2016' THEN 7960
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0059/2016' THEN 8000
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0060/2016' THEN 8014
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0060/2016-1' THEN 8015
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0062/2016' THEN 8041
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0063/2016' THEN 8053
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0064/2016' THEN 8065
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0065/2016' THEN 8078
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0066/2016' THEN 8091
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0067/2016' THEN 8105
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0068/2016' THEN 8118
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0069/2016' THEN 8130
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0070/2016' THEN 8142
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0071/2016' THEN 8154
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0072/2016' THEN 8166
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0073/2016' THEN 8178
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0074/2016' THEN 8190
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0075/2016' THEN 8202
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0076/2016' THEN 8214
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0077/2016' THEN 8226
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0078/2016' THEN 8239
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0079/2016' THEN 8251
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0080/2016' THEN 8263
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0083/2016' THEN 8299
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0084/2016' THEN 8311
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0085/2016' THEN 8323
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0086/2016' THEN 8335
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0087/2016' THEN 8348
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0088/2016' THEN 8360
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0089/2016' THEN 8372
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0090/2016' THEN 8384
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0091/2016' THEN 8398
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0093/2016' THEN 8423
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0094/2016' THEN 8436
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0095/2016' THEN 8448
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0097/2016' THEN 8473
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0098/2016' THEN 8487
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0099/2016' THEN 8501
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0100/2016' THEN 8514
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0101/2016' THEN 8527
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0102/2016' THEN 8539
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0102/2016-1' THEN 8540
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0105/2016' THEN 8578
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0106/2016' THEN 8592
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0107/2016' THEN 8605
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0108/2016' THEN 8619
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0109/2016' THEN 8634
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0111/2016' THEN 8662
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0112/2016' THEN 8677
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0113/2016' THEN 8690
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0114/2016' THEN 8704
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0115/2016' THEN 8718
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0117/2016' THEN 8746
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0119/2016' THEN 8773
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0120/2016' THEN 8787
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0121/2016' THEN 8800
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0121/2016-1' THEN 8801
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0122/2016' THEN 8816
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0123/2016' THEN 8829
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0124/2016' THEN 8842
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0125/2016' THEN 8855
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0126/2016' THEN 8868
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0127/2016' THEN 8881
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0128/2016' THEN 8895
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0130/2016' THEN 8921
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0130/2016-1' THEN 8922
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0132/2016' THEN 8947
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0133/2016' THEN 8960
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0134/2016' THEN 8974
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0135/2016' THEN 8987
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0136/2016' THEN 9000
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0138/2016' THEN 9026
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0138/2016-1' THEN 9027
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0139/2016' THEN 9040
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0140/2016' THEN 9053
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0141/2016' THEN 9066
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0142/2016' THEN 9079
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0143/2016' THEN 9092
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0144/2016' THEN 9107
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0145/2016' THEN 9121
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0149/2016' THEN 9175
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0149/2016-1' THEN 9176
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0153/2016' THEN 9232
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0154/2016' THEN 9246
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0155/2016' THEN 9260
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0156/2016' THEN 9273
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0159/2016' THEN 9313
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0160/2016' THEN 9326
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0161/2016' THEN 9339
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0162/2016' THEN 9352
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0163/2016' THEN 9365
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0164/2016' THEN 9378
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0165/2016' THEN 9393
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0166/2016' THEN 9407
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0167/2016' THEN 9420
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0167/2016-1' THEN 9421
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0168/2016' THEN 9434
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0169/2016' THEN 9447
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0170/2016' THEN 9461
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0171/2016' THEN 9474
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0173/2016' THEN 9500
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0174/2016' THEN 9513
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0175/2016' THEN 9526
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0176/2016' THEN 9539
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0177/2016' THEN 9552
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0178/2016' THEN 9565
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0179/2016' THEN 9578
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0180/2016' THEN 9591
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0182/2016' THEN 9617
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0183/2016' THEN 9630
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0184/2016' THEN 9645
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0185/2016' THEN 9658
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0186/2016' THEN 9671
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0187/2016' THEN 9684
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0187/2016-1' THEN 9685
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0188/2016' THEN 9698
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0189/2016' THEN 9711
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0190/2016' THEN 9724
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0191/2016' THEN 9737
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0192/2016' THEN 9750
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0194/2016' THEN 9777
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0195/2016' THEN 9790
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0196/2016' THEN 9803
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0197/2016' THEN 9816
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0198/2016' THEN 9829
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0199/2016' THEN 9842
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0200/2016' THEN 9856
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0202/2016' THEN 9882
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0203/2016' THEN 9895
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0206/2016' THEN 9934
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0206/2016-1' THEN 9935
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0207/2016' THEN 9950
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0208/2016' THEN 9963
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0208/2016-1' THEN 9964
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0209/2016' THEN 9977
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0210/2016' THEN 9990
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0215/2016' THEN 10055
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0218/2016' THEN 10095
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0218/2016-1' THEN 10096
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0219/2016' THEN 10111
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0220/2016' THEN 10124
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0221/2016' THEN 10137
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0224/2016' THEN 10177
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0225/2016' THEN 10190
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0226/2016' THEN 10203
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0227/2016' THEN 10216
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0228/2016' THEN 10229
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0229/2016' THEN 10242
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0229/2016-1' THEN 10243
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0230/2016' THEN 10256
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0231/2016' THEN 10269
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0232/2016' THEN 10282
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0233/2016' THEN 10296
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0235/2016' THEN 10323
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0237/2016' THEN 10351
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0238/2016' THEN 10364
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0239/2016' THEN 10377
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0240/2016' THEN 10390
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0241/2016' THEN 10403
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0242/2016' THEN 10416
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0245/2016' THEN 10455
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0246/2016' THEN 10471
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0247/2016' THEN 10485
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0248/2016' THEN 10501
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0249/2016' THEN 10515
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0250/2016' THEN 10529
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0251/2016' THEN 10543
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0252/2016' THEN 10557
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0253/2016' THEN 10571
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0254/2016' THEN 10585
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0255/2016' THEN 10599
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0256/2016' THEN 10613
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0257/2016' THEN 10627
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0258/2016' THEN 10641
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0259/2016' THEN 10656
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0260/2016' THEN 10670
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0261/2016' THEN 10684
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0262/2016' THEN 10699
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0263/2016' THEN 10714
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0264/2016' THEN 10728
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0265/2016' THEN 10743
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0266/2016' THEN 10760
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0267/2016' THEN 10774
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0268/2016' THEN 10788
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0269/2016' THEN 10802
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0270/2016' THEN 10817
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0271/2016' THEN 10831
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0272/2016' THEN 10845
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0273/2016' THEN 10860
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0274/2016' THEN 10874
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0275/2016' THEN 10888
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0276/2016' THEN 10902
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0277/2016' THEN 10916
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0278/2016' THEN 10931
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0279/2016' THEN 10945
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0280/2016' THEN 10959
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0281/2016' THEN 10974
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0282/2016' THEN 10989
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0283/2016' THEN 11003
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0284/2016' THEN 11018
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0285/2016' THEN 11033
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0286/2016' THEN 11047
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0287/2016' THEN 11061
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0288/2016' THEN 11075
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0289/2016' THEN 11089
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0290/2016' THEN 11103
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0291/2016' THEN 11117
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0292/2016' THEN 11131
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0293/2016' THEN 11146
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0294/2016' THEN 11160
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0295/2016' THEN 11174
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0296/2016' THEN 11188
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0297/2016' THEN 11203
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0298/2016' THEN 11216
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0300/2016' THEN 11242
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0301/2016' THEN 11255
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0302/2016' THEN 11268
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0303/2016' THEN 11282
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0305/2016' THEN 11309
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0307/2016' THEN 11337
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0308/2016' THEN 11350
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0309/2016' THEN 11363
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0310/2016' THEN 11376
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0311/2016' THEN 11390
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0312/2016' THEN 11404
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0313/2016' THEN 11418
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0314/2016' THEN 11432
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0315/2016' THEN 11446
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0316/2016' THEN 11460
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0317/2016' THEN 11476
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0318/2016' THEN 11490
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0319/2016' THEN 11504
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0320/2016' THEN 11518
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0321/2016' THEN 11533
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0322/2016' THEN 11547
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0323/2016' THEN 11561
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0324/2016' THEN 11575
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0325/2016' THEN 11591
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0326/2016' THEN 11605
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0327/2016' THEN 11619
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0328/2016' THEN 11633
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0329/2016' THEN 11648
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0330/2016' THEN 11663
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0331/2016' THEN 11677
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0332/2016' THEN 11691
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0333/2016' THEN 11706
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0334/2016' THEN 11721
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0335/2016' THEN 11736
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0336/2016' THEN 11751
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0337/2016' THEN 11765
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0338/2016' THEN 11780
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0339/2016' THEN 11795
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0340/2016' THEN 11811
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0341/2016' THEN 11826
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0342/2016' THEN 11840
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0343/2016' THEN 11854
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0344/2016' THEN 11868
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0345/2016' THEN 11882
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0346/2016' THEN 11896
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0347/2016' THEN 11910
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0348/2016' THEN 11925
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0349/2016' THEN 11939
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0350/2016' THEN 11953
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0351/2016' THEN 11968
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0352/2016' THEN 11982
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0353/2016' THEN 11997
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0354/2016' THEN 12012
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0355/2016' THEN 12027
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0356/2016' THEN 12043
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0357/2016' THEN 12057
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0358/2016' THEN 12072
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0359/2016' THEN 12086
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0360/2016' THEN 12100
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0361/2016' THEN 12114
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0362/2016' THEN 12129
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0363/2016' THEN 12143
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0364/2016' THEN 12156
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0365/2016' THEN 12169
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0366/2016' THEN 12183
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0367/2016' THEN 12196
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0368/2016' THEN 12211
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0369/2016' THEN 12224
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0370/2016' THEN 12237
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0371/2016' THEN 12250
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0372/2016' THEN 12263
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0373/2016' THEN 12276
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0374/2016' THEN 12289
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0375/2016' THEN 12302
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0377/2016' THEN 12328
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0378/2016' THEN 12343
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0379/2016' THEN 12356
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0381/2016' THEN 12384
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0382/2016' THEN 12397
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0383/2016' THEN 12411
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0384/2016' THEN 12425
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0385/2016' THEN 12438
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0388/2016' THEN 12482
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0389/2016' THEN 12495
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0390/2016' THEN 12508
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0391/2016' THEN 12523
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0392/2016' THEN 12538
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0393/2016' THEN 12551
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0394/2016' THEN 12564
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0395/2016' THEN 12577
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0396/2016' THEN 12591
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0397/2016' THEN 12604
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0398/2016' THEN 12619
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0400/2016' THEN 12646
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0403/2016' THEN 12685
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0404/2016' THEN 12699
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0405/2016' THEN 12712
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0407/2016' THEN 12738
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0408/2016' THEN 12751
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0409/2016' THEN 12764
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0410/2016' THEN 12780
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0411/2016' THEN 12793
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0412/2016' THEN 12806
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0413/2016' THEN 12820
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0415/2016' THEN 12847
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0416/2016' THEN 12860
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0417/2016' THEN 12873
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0418/2016' THEN 12886
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0418/2016-1' THEN 12887
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0419/2016' THEN 12901
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0422/2016' THEN 12940
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0423/2016' THEN 12953
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0424/2016' THEN 12967
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0425/2016' THEN 12980
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0426/2016' THEN 12993
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0428/2016' THEN 13019
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0429/2016' THEN 13032
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0430/2016' THEN 13046
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0433/2016' THEN 13086
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0434/2016' THEN 13100
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0435/2016' THEN 13114
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0436/2016' THEN 13127
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0437/2016' THEN 13141
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0438/2016' THEN 13154
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0439/2016' THEN 13167
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0440/2016' THEN 13180
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0441/2016' THEN 13196
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0442/2016' THEN 13209
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0443/2016' THEN 13222
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0444/2016' THEN 13237
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0445/2016' THEN 13250
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0446/2016' THEN 13263
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0447/2016' THEN 13276
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0448/2016' THEN 13289
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0449/2016' THEN 13302
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0450/2016' THEN 13316
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0453/2016' THEN 13356
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0456/2016' THEN 13392
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0457/2016' THEN 13404
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0458/2016' THEN 13416
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0459/2016' THEN 13429
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0460/2016' THEN 13443
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0461/2016' THEN 13456
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0463/2016' THEN 13482
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0464/2016' THEN 13495
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0465/2016' THEN 13509
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0468/2016' THEN 13545
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0469/2016' THEN 13557
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0471/2016' THEN 13583
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0475/2016' THEN 13633
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0475/2016-1' THEN 13634
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0476/2016' THEN 13648
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0477/2016' THEN 13662
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0479/2016' THEN 13689
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0481/2016' THEN 13713
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0482/2016' THEN 13727
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0484/2016' THEN 13754
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0485/2016' THEN 13767
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0486/2016' THEN 13779
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0487/2016' THEN 13792
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0488/2016' THEN 13806
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0489/2016' THEN 13821
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0490/2016' THEN 13835
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0491/2016' THEN 13847
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0492/2016' THEN 13859
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0493/2016' THEN 13871
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0494/2016' THEN 13883
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0496/2016' THEN 13907
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0497/2016' THEN 13921
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0498/2016' THEN 13935
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0499/2016' THEN 13947
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0501/2016' THEN 13971
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0502/2016' THEN 13983
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0504/2016' THEN 14009
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0505/2016' THEN 14021
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0509/2016' THEN 14071
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0510/2016' THEN 14083
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0511/2016' THEN 14096
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0512/2016' THEN 14110
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0513/2016' THEN 14124
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0514/2016' THEN 14140
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0515/2016' THEN 14153
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0516/2016' THEN 14166
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0517/2016' THEN 14179
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0518/2016' THEN 14193
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0519/2016' THEN 14206
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0522/2016' THEN 14245
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0523/2016' THEN 14257
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0524/2016' THEN 14273
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0525/2016' THEN 14286
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0526/2016' THEN 14298
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0527/2016' THEN 14310
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0529/2016' THEN 14334
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0530/2016' THEN 14347
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0531/2016' THEN 14359
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0531/2016-1' THEN 14360
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0532/2016' THEN 14372
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0533/2016' THEN 14384
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0535/2016' THEN 14409
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0535/2016-1' THEN 14410
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0536/2016' THEN 14423
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0537/2016' THEN 14436
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0538/2016' THEN 14448
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0542/2016' THEN 14495
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0544/2016' THEN 14518
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0545/2016' THEN 14531
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0546/2016' THEN 14543
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0547/2016' THEN 14554
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0548/2016' THEN 14572
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0549/2016' THEN 14584
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0554/2016' THEN 14645
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0557/2016' THEN 14684
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0559/2016' THEN 14710
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0560/2016' THEN 14721
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0561/2016' THEN 14732
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0562/2016' THEN 14743
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0563/2016' THEN 14755
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0564/2016' THEN 14767
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0565/2016' THEN 14781
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0566/2016' THEN 14793
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0567/2016' THEN 14804
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0568/2016' THEN 14816
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0570/2016' THEN 14839
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0572/2016' THEN 14864
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0573/2016' THEN 14878
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0574/2016' THEN 14890
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0576/2016' THEN 14912
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0578/2016' THEN 14934
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0579/2016' THEN 14946
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0581/2016' THEN 14969
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0582/2016' THEN 14981
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0583/2016' THEN 14993
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0584/2016' THEN 15004
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0585/2016' THEN 15015
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0586/2016' THEN 15028
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0590/2016' THEN 15076
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0592/2016' THEN 15100
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0593/2016' THEN 15111
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0594/2016' THEN 15123
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0595/2016' THEN 15135
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0596/2016' THEN 15146
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0597/2016' THEN 15159
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0598/2016' THEN 15171
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0599/2016' THEN 15184
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0600/2016' THEN 15197
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0601/2016' THEN 15210
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0602/2016' THEN 15223
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0603/2016' THEN 15235
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0604/2016' THEN 15247
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0605/2016' THEN 15258
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0606/2016' THEN 15270
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0607/2016' THEN 15281
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0610/2016' THEN 15315
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0611/2016' THEN 15326
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0612/2016' THEN 15337
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0613/2016' THEN 15348
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0614/2016' THEN 15360
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0615/2016' THEN 15371
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0616/2016' THEN 15383
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0617/2016' THEN 15394
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0618/2016' THEN 15405
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0619/2016' THEN 15417
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0620/2016' THEN 15428
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0621/2016' THEN 15439
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0622/2016' THEN 15450
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0624/2016' THEN 15472
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0625/2016' THEN 15483
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0626/2016' THEN 15494
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0627/2016' THEN 15505
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0628/2016' THEN 15517
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0629/2016' THEN 15529
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0630/2016' THEN 15542
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0631/2016' THEN 15553
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0632/2016' THEN 15564
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0633/2016' THEN 15575
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0634/2016' THEN 15585
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0635/2016' THEN 15595
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0636/2016' THEN 15605
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0637/2016' THEN 15615
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0638/2016' THEN 15625
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0639/2016' THEN 15635
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0641/2016' THEN 15656
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0642/2016' THEN 15666
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0652/2016' THEN 15766
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0654/2016' THEN 15784
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0655/2016' THEN 15794
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0657/2016' THEN 15812
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0658/2016' THEN 15821
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0659/2016' THEN 15831
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0660/2016' THEN 15843
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0661/2016' THEN 15855
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0664/2016' THEN 15887
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0665/2016' THEN 15899
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0666/2016' THEN 15911
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0667/2016' THEN 15922
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0668/2016' THEN 15932
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0669/2016' THEN 15942
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0671/2016' THEN 15964
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0672/2016' THEN 15974
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0673/2016' THEN 15984
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0674/2016' THEN 15994
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0675/2016' THEN 16003
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0676/2016' THEN 16012
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0677/2016' THEN 16021
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0678/2016' THEN 16031
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0679/2016' THEN 16040
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0680/2016' THEN 16049
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0681/2016' THEN 16058
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0682/2016' THEN 16068
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0684/2016' THEN 16086
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0685/2016' THEN 16095
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0686/2016' THEN 16104
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0688/2016' THEN 16123
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0689/2016' THEN 16132
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0690/2016' THEN 16141
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0691/2016' THEN 16151
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0692/2016' THEN 16160
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0693/2016' THEN 16169
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0694/2016' THEN 16178
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0695/2016' THEN 16187
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0696/2016' THEN 16196
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0697/2016' THEN 16205
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0698/2016' THEN 16215
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0699/2016' THEN 16225
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0700/2016' THEN 16235
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0701/2016' THEN 16244
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0702/2016' THEN 16253
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0703/2016' THEN 16262
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0704/2016' THEN 16271
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0705/2016' THEN 16280
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0706/2016' THEN 16289
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0707/2016' THEN 16298
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0708/2016' THEN 16308
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0709/2016' THEN 16319
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0710/2016' THEN 16329
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0711/2016' THEN 16338
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0712/2016' THEN 16347
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0715/2016' THEN 16374
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0716/2016' THEN 16385
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0717/2016' THEN 16396
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0718/2016' THEN 16405
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0719/2016' THEN 16415
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0720/2016' THEN 16424
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0721/2016' THEN 16434
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0722/2016' THEN 16445
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0723/2016' THEN 16454
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0724/2016' THEN 16463
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0725/2016' THEN 16472
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0726/2016' THEN 16481
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0727/2016' THEN 16490
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0728/2016' THEN 16499
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0729/2016' THEN 16508
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0730/2016' THEN 16518
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0731/2016' THEN 16527
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0732/2016' THEN 16537
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0733/2016' THEN 16546
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0734/2016' THEN 16555
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0735/2016' THEN 16564
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0736/2016' THEN 16573
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0737/2016' THEN 16582
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0738/2016' THEN 16591
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0739/2016' THEN 16600
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0740/2016' THEN 16609
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0741/2016' THEN 16618
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0742/2016' THEN 16627
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0743/2016' THEN 16636
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0744/2016' THEN 16647
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0745/2016' THEN 16656
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0746/2016' THEN 16665
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0747/2016' THEN 16674
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0748/2016' THEN 16684
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0749/2016' THEN 16693
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0750/2016' THEN 16702
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0751/2016' THEN 16711
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0752/2016' THEN 16720
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0753/2016' THEN 16729
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0754/2016' THEN 16738
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0755/2016' THEN 16747
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0756/2016' THEN 16757
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0757/2016' THEN 16767
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0758/2016' THEN 16779
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0759/2016' THEN 16789
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0760/2016' THEN 16800
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0761/2016' THEN 16811
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0762/2016' THEN 16821
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0763/2016' THEN 16831
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0764/2016' THEN 16841
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0765/2016' THEN 16851
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0767/2016' THEN 16869
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0769/2016' THEN 16887
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0770/2016' THEN 16896
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0772/2016' THEN 16916
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0773/2016' THEN 16925
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0774/2016' THEN 16934
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0775/2016' THEN 16945
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0776/2016' THEN 16956
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0778/2016' THEN 16976
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0778/2016-1' THEN 16977
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0779/2016' THEN 16987
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0780/2016' THEN 16997
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0781/2016' THEN 17006
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0782/2016' THEN 17015
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0783/2016' THEN 17024
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0784/2016' THEN 17033
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0785/2016' THEN 17042
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0786/2016' THEN 17052
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0787/2016' THEN 17062
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0789/2016' THEN 17080
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0790/2016' THEN 17089
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0791/2016' THEN 17098
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0792/2016' THEN 17107
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0793/2016' THEN 17117
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0794/2016' THEN 17127
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0795/2016' THEN 17139
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0796/2016' THEN 17148
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0797/2016' THEN 17157
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0798/2016' THEN 17166
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0799/2016' THEN 17175
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0800/2016' THEN 17184
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0802/2016' THEN 17204
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0803/2016' THEN 17214
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0804/2016' THEN 17225
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0805/2016' THEN 17235
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0806/2016' THEN 17244
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0808/2016' THEN 17263
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0809/2016' THEN 17272
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0810/2016' THEN 17281
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0812/2016' THEN 17299
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0814/2016' THEN 17318
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0815/2016' THEN 17327
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0816/2016' THEN 17336
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0817/2016' THEN 17345
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0817/2016-1' THEN 17346
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0818/2016' THEN 17356
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0821/2016' THEN 17386
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0824/2016' THEN 17414
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0825/2016' THEN 17423
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0826/2016' THEN 17432
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0827/2016' THEN 17441
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0828/2016' THEN 17450
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0829/2016' THEN 17460
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0831/2016' THEN 17478
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0833/2016' THEN 17498
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0838/2016' THEN 17551
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0840/2016' THEN 17571
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0841/2016' THEN 17583
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0842/2016' THEN 17592
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0843/2016' THEN 17603
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0844/2016' THEN 17612
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0845/2016' THEN 17621
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0846/2016' THEN 17631
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0847/2016' THEN 17640
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0849/2016' THEN 17658
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0850/2016' THEN 17667
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0851/2016' THEN 17677
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0852/2016' THEN 17686
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0853/2016' THEN 17695
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0855/2016' THEN 17714
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0856/2016' THEN 17723
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0857/2016' THEN 17732
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0858/2016' THEN 17741
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0859/2016' THEN 17750
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0860/2016' THEN 17760
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0861/2016' THEN 17769
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0862/2016' THEN 17778
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0863/2016' THEN 17787
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0864/2016' THEN 17796
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0865/2016' THEN 17805
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0866/2016' THEN 17814
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0867/2016' THEN 17823
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0868/2016' THEN 17832
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0869/2016' THEN 17841
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0870/2016' THEN 17851
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0871/2016' THEN 17860
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0872/2016' THEN 17869
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0873/2016' THEN 17878
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0874/2016' THEN 17889
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0884/2016' THEN 17973
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0886/2016' THEN 17991
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0888/2016' THEN 18007
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0889/2016' THEN 18017
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0890/2016' THEN 18025
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0892/2016' THEN 18042
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0894/2016' THEN 18059
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0895/2016' THEN 18067
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0896/2016' THEN 18075
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0897/2016' THEN 18084
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0898/2016' THEN 18092
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0899/2016' THEN 18101
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0900/2016' THEN 18109
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0901/2016' THEN 18118
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0902/2016' THEN 18126
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0903/2016' THEN 18134
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0904/2016' THEN 18143
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0905/2016' THEN 18151
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0906/2016' THEN 18159
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0907/2016' THEN 18169
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0908/2016' THEN 18178
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0909/2016' THEN 18187
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0911/2016' THEN 18203
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0912/2016' THEN 18212
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0913/2016' THEN 18220
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0914/2016' THEN 18228
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0915/2016' THEN 18236
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0916/2016' THEN 18245
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0917/2016' THEN 18253
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0917/2016-1' THEN 18254
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0917/2016-2' THEN 18255
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0918/2016' THEN 18263
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0919/2016' THEN 18272
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0921/2016' THEN 18288
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0922/2016' THEN 18296
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0923/2016' THEN 18304
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0924/2016' THEN 18312
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0925/2016' THEN 18321
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0926/2016' THEN 18328
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0927/2016' THEN 18335
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0928/2016' THEN 18342
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0929/2016' THEN 18349
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0930/2016' THEN 18356
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0931/2016' THEN 18364
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0932/2016' THEN 18371
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0933/2016' THEN 18378
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0934/2016' THEN 18385
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0935/2016' THEN 18392
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0936/2016' THEN 18400
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0938/2016' THEN 18414
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0939/2016' THEN 18421
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0941/2016' THEN 18435
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0942/2016' THEN 18442
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0944/2016' THEN 18456
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0946/2016' THEN 18470
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0947/2016' THEN 18477
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0948/2016' THEN 18484
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0949/2016' THEN 18491
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0950/2016' THEN 18498
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0951/2016' THEN 18505
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0952/2016' THEN 18512
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0953/2016' THEN 18519
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0954/2016' THEN 18526
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0955/2016' THEN 18534
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0956/2016' THEN 18541
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0957/2016' THEN 18548
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0958/2016' THEN 18555
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0959/2016' THEN 18562
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0960/2016' THEN 18569
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0961/2016' THEN 18579
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0962/2016' THEN 18586
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0963/2016' THEN 18593
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0964/2016' THEN 18600
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0965/2016' THEN 18607
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0966/2016' THEN 18614
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0967/2016' THEN 18621
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0968/2016' THEN 18628
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0969/2016' THEN 18635
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0970/2016' THEN 18642
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0971/2016' THEN 18649
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0972/2016' THEN 18656
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0974/2016' THEN 18671
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0975/2016' THEN 18680
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0977/2016' THEN 18694
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0978/2016' THEN 18701
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0979/2016' THEN 18708
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0980/2016' THEN 18715
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0172/2016//ARIT-LPZ-0171/2016' THEN 9487
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0236/2016//ARIT-LPZ-0221/2016' THEN 10337
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0244/2016//ARIT-LPZ-0243/2016//ARIT-LPZ-0304/2016' THEN 10442
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0406/2016//ARIT-LPZ-0399/2016' THEN 12725
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0414/2016//ARIT-LPZ-0420/2016' THEN 12834
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0569/2016//ARIT-LPZ-0555/2016' THEN 14828
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0571/2016//ARIT-LPZ-0556/2016' THEN 14853
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0575/2016//ARIT-LPZ-0552/2016' THEN 14901
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0577/2016//ARIT-LPZ-0553/2016' THEN 14923
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0580/2016//ARIT-LPZ-0551/2016' THEN 14957
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0885/2016//ARIT-LPZ-0820/2016' THEN 17983
+    END)        AS id_recurso_alzada,
+       (CASE
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'ACAMARA' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'ACAMARA') THEN 1
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'ACAMARA' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'DEJ') THEN 1
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'ACAMARA' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'EJ') THEN 1
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'ACAMARA' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'JURIDICO')
+                THEN 1
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'ACAMARA' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'TECNICO') THEN 1
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'DEJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'JURIDICO')
+                THEN 8
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'DEJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'SEJ') THEN 10
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'DEJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'TECNICO') THEN 8
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'EJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'ACAMARA')
+                THEN 27
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'EJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'DEJ') THEN 1
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'EJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'EJ') THEN 3
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'EJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'JURIDICO')
+                THEN 4
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'EJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'SEJ') THEN 5
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'EJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'TECNICO') THEN 4
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'JURIDICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'ACAMARA')
+                THEN 27
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'JURIDICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'DEJ') THEN 11
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'JURIDICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'EJ') THEN 2
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'JURIDICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'JURIDICO')
+                THEN 3
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'JURIDICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'SEJ') THEN 1
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'JURIDICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'TECNICO') THEN 3
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'OFDILIG' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'JURIDICO')
+                THEN 1
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'OFDILIG' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'TECNICO') THEN 1
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'SECREDEJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'SEJ') THEN 10
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'SECRESUB' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'DEJ') THEN 6
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'SECRESUB' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'JURIDICO')
+                THEN 6
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'SECRESUB' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'SEJ') THEN 10
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'SECRESUB' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'TECNICO') THEN 6
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'SEJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'ACAMARA')
+                THEN 27
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'SEJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'DEJ') THEN 7
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'SEJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'JURIDICO')
+                THEN 6
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'SEJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'SEJ') THEN 5
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'SEJ' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'TECNICO') THEN 6
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'TECNICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'ACAMARA')
+                THEN 27
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'TECNICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'DEJ') THEN 11
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'TECNICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'EJ') THEN 2
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'TECNICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'JURIDICO')
+                THEN 3
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'TECNICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'SEJ') THEN 1
+            WHEN (ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA') = 'TECNICO' AND
+                  ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') = 'TECNICO') THEN 3
+           END) AS id_proceso,
+       1        AS id_tramite,
+       (CASE
+            WHEN ct.origen = 'achuma' THEN 167
+            WHEN (ct.origen = 'avera' OR ct.origen = 'averas') THEN 333
+            WHEN ct.origen = 'bchura' THEN 337
+            WHEN ct.origen = 'cgomez' THEN 124
+            WHEN ct.origen = 'cherrera' THEN 343
+            WHEN ct.origen = 'csalas' THEN 177
+            WHEN ct.origen = 'cvalencia' THEN 338
+            WHEN ct.origen = 'cvelez' THEN 20
+            WHEN ct.origen = 'gchavez' THEN 356
+            WHEN ct.origen = 'gmeriles' THEN 358
+            WHEN ct.origen = 'ivela' THEN 362
+            WHEN ct.origen = 'jguzman' THEN 238
+            WHEN ct.origen = 'kvillegas' THEN 370
+            WHEN ct.origen = 'lespada' THEN 372
+            WHEN (ct.origen = 'mbarrenechea' OR ct.origen = 'mjbarrenechea') THEN 379
+            WHEN ct.origen = 'mferaudy' THEN 253
+            WHEN ct.origen = 'mrivas' THEN 375
+            WHEN ct.origen = 'msegales' THEN 384
+            WHEN ct.origen = 'mtimm' THEN 381
+            WHEN ct.origen = 'nherrera' THEN 386
+            WHEN ct.origen = 'pconde' THEN 393
+            WHEN ct.origen = 'rduran' THEN 395
+            WHEN ct.origen = 'rguachalla' THEN 158
+            WHEN ct.origen = 'rmendoza' THEN 296
+            WHEN (ct.origen = 'rramos' OR ct.origen = 'rramosr') THEN 398
+            WHEN ct.origen = 'rrivera' THEN 397
+            WHEN ct.origen = 'rvargasc' THEN 298
+            WHEN ct.origen = 'smoya' THEN 304
+            WHEN ct.origen = 'varauco' THEN 316
+            WHEN ct.origen = 'vlaura' THEN 318
+            WHEN (ct.origen = 'vquisbert' OR ct.origen = 'vquisbertr') THEN 163
+            WHEN ct.origen = 'wmiranda' THEN 404
+            WHEN (ct.origen = 'wvaldez' OR ct.origen = 'wvaldezr') THEN 402
+            WHEN ct.origen = 'tpenarrieta' THEN 400
+            WHEN (ct.origen = 'glimachi' OR ct.origen = 'nlozano' OR ct.origen = 'vflores') THEN 167
+           END) AS id_usuario_origen,
+       (CASE
+            WHEN (ct.destino = 'avera' OR ct.destino = 'averas') THEN 333
+            WHEN ct.destino = 'bchura' THEN 337
+            WHEN ct.destino = 'cgomez' THEN 124
+            WHEN ct.destino = 'cherrera' THEN 343
+            WHEN ct.destino = 'cvalencia' THEN 338
+            WHEN ct.destino = 'cvelez' THEN 20
+            WHEN ct.destino = 'gchavez' THEN 356
+            WHEN ct.destino = 'gmeriles' THEN 358
+            WHEN ct.destino = 'ivela' THEN 362
+            WHEN ct.destino = 'jguzman' THEN 238
+            WHEN ct.destino = 'kvillegas' THEN 370
+            WHEN ct.destino = 'lespada' THEN 372
+            WHEN (ct.destino = 'mbarrenechea' OR ct.destino = 'mjbarrenechea') THEN 379
+            WHEN ct.destino = 'mferaudy' THEN 253
+            WHEN ct.destino = 'mrivas' THEN 375
+            WHEN ct.destino = 'msegales' THEN 384
+            WHEN ct.destino = 'mtimm' THEN 381
+            WHEN ct.destino = 'nherrera' THEN 386
+            WHEN ct.destino = 'rduran' THEN 395
+            WHEN ct.destino = 'rguachalla' THEN 158
+            WHEN ct.destino = 'rmendoza' THEN 296
+            WHEN (ct.destino = 'rramos' OR ct.destino = 'rramosr') THEN 398
+            WHEN ct.destino = 'rrivera' THEN 397
+            WHEN ct.destino = 'rvargasc' THEN 298
+            WHEN (ct.destino = 'vquisbert' OR ct.destino = 'vquisbertr') THEN 163
+            WHEN ct.destino = 'wmiranda' THEN 404
+            WHEN (ct.destino = 'wvaldez' OR ct.destino = 'wvaldezr') THEN 402
+            WHEN ct.destino = 'tpenarrieta' THEN 400
+           END) AS id_usuario_destino,
+       (CASE
+            WHEN ct.f_recepcion = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_recepcion
+           END) AS fecha_recepcion,
+       (CASE
+            WHEN ct.f_inicio = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_inicio
+           END) AS fecha_inicio,
+       (CASE
+            WHEN ct.f_deriva = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_deriva
+           END) AS fecha_deriva,
+       NULL     AS id_tipo_observacion,
+       20       AS estado,
+       (CASE
+            WHEN LEN(LTRIM(RTRIM(ct.observaciones))) = 0 THEN NULL
+            ELSE LTRIM(RTRIM(ct.observaciones))
+           END) AS observaciones,
+       NULL     AS id_aclaracion
+FROM control_tiempo AS ct
+WHERE LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2016%'
+ORDER BY ct.id;
+

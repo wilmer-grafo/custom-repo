@@ -10,7 +10,8 @@ SELECT [D_Fecha_Tipo_Cambio] AS fecha,
        NULL                  AS id_usuario_modifica,
        NULL                  AS fecha_modifica,
        1                     AS activo
-FROM [dbo].[TSS_TIPOS_CAMBIOS_UFV];
+FROM [dbo].[TSS_TIPOS_CAMBIOS_UFV]
+ORDER BY D_Fecha_Tipo_Cambio;
 --=================================================================================================================--
 -- importar el csv en parametricas.par_subadministraciones_tributarias, esto en Postgres
 

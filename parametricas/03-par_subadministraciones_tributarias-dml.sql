@@ -212,3 +212,45 @@ SELECT sa.id,
 FROM parametricas.par_subadministraciones_tributarias AS sa
 WHERE id = 143;
 --=================================================================================================================--
+
+CONSULTA
+
+SELECT te.descripcion,
+       nombre_autoridad,
+       id_administracion_tributaria,
+       direccion,
+       latitud,
+       longitud,
+       activo,
+       id_articulo,
+       id_preposicion,
+       id_usuario_registra,
+       fecha_registra,
+       id_usuario_modifica,
+       fecha_modifica
+FROM (SELECT TOP 4 LTRIM(RTRIM([C_Descripcion])) AS descripcion,
+                   LTRIM(RTRIM([C_Autoridad]))   AS nombre_autoridad,
+                   [N_Codigo_Adm_Tri]            AS id_administracion_tributaria,
+                   (CASE
+                        WHEN [C_Ubicado_en] IS NOT NULL THEN REPLACE([C_Ubicado_en], NCHAR(160), ' ')
+                        ELSE ''
+                       END)                      AS direccion,
+                   0                             AS latitud,
+                   0                             AS longitud,
+                   [N_Estado]                    AS activo,
+                   (CASE
+                        WHEN [C_Articulo] LIKE 'el' THEN 1
+                        WHEN [C_Articulo] LIKE 'la' THEN 2
+                       END)                      AS id_articulo,
+                   (CASE
+                        WHEN [C_Preposicion] LIKE 'del' THEN 1
+                        WHEN [C_Preposicion] LIKE 'de la' THEN 2
+                       END)                      AS id_preposicion,
+                   1                             AS id_usuario_registra,
+                   GETDATE()                     AS fecha_registra,
+                   NULL                          AS id_usuario_modifica,
+                   NULL                          AS fecha_modifica,
+                   N_Codigo_Subadm_Tri
+      FROM [dbo].[TSS_SUBADMINISTRACIONES_TRIBUTARIAS]
+      ORDER BY N_Codigo_Subadm_Tri DESC) AS te
+ORDER BY N_Codigo_Subadm_Tri;

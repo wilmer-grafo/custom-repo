@@ -1,0 +1,64 @@
+SELECT (CASE
+
+    END)                AS id_recurso_alzada,
+       (CASE
+
+           END)         AS id_proceso,
+       1                AS id_tramite,
+       (CASE
+
+           END)         AS id_usuario_origen,
+       (CASE
+
+           END)         AS id_usuario_destino,
+       (CASE
+            WHEN ct.f_recepcion = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_recepcion
+           END)         AS fecha_recepcion,
+       (CASE
+            WHEN ct.f_inicio = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_inicio
+           END)         AS fecha_inicio,
+       (CASE
+            WHEN ct.f_deriva = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_deriva
+           END)         AS fecha_deriva,
+       NULL             AS id_tipo_observacion,
+       20               AS estado,
+       (CASE
+           WHEN LEN(LTRIM(RTRIM(ct.observaciones))) = 0 THEN NULL
+           ELSE LTRIM(RTRIM(ct.observaciones))
+           END) AS observaciones,
+       NULL             AS id_aclaracion
+FROM control_tiempo AS ct
+WHERE SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp))))LIKE 'ARIT-LPZ-%/2016%'
+ORDER BY ct.id_exp;
+
+
+
+TRUNCATE TABLE alzada.alz_registros_documentales_sustantivos RESTART IDENTITY CASCADE;
+
+UPDATE alzada.alz_registros_documentales_sustantivos
+SET fecha_recepcion =
+  (fecha_recepcion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_registros_documentales_sustantivos
+SET fecha_inicio =
+  (fecha_inicio AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_registros_documentales_sustantivos
+SET fecha_deriva =
+  (fecha_deriva AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+
+
+--PROCESOS
+SELECT *
+FROM (SELECT ISNULL((SELECT cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')  AS cargoorigen,
+             ISNULL((SELECT cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA') AS cargodestino
+      FROM control_tiempo AS ct
+      WHERE id_exp LIKE 'ARIT-LPZ-%/2015') AS temp
+GROUP BY temp.cargoorigen, temp.cargodestino
+ORDER BY temp.cargoorigen, temp.cargodestino;
+
+

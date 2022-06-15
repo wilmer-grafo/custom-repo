@@ -109,3 +109,39 @@ SELECT par_at.id,
 FROM parametricas.par_administraciones_tributarias AS par_at
 WHERE par_at.id = 33;
 --=================================================================================================================--
+
+CONSULTA 
+
+SELECT te.descripcion,
+       id_articulo,
+       id_preposicion,
+       id_tipo_super_administracion,
+       activo,
+       id_usuario_registra,
+       fecha_registra,
+       id_usuario_modifica,
+       fecha_modifica
+FROM (SELECT TOP 2 LTRIM(RTRIM([C_Descripcion])) AS descripcion,
+             (CASE
+                  WHEN [C_Articulo] LIKE 'el' THEN 1
+                  WHEN [C_Articulo] LIKE 'la' THEN 2
+                 END)                      AS id_articulo,
+             (CASE
+                  WHEN [C_Preposicion] LIKE 'del' THEN 1
+                  WHEN [C_Preposicion] LIKE 'de la' THEN 2
+                 END)                      AS id_preposicion,
+             (CASE
+                  WHEN [C_Super_Adm_Tri] LIKE 'S.I.N.' THEN 1
+                  WHEN [C_Super_Adm_Tri] LIKE 'ADUANA' THEN 2
+                  WHEN [C_Super_Adm_Tri] LIKE 'GOB. MUNICIPALES' THEN 3
+                  WHEN [C_Super_Adm_Tri] LIKE 'GOB. DEPARTAMENTALES' THEN 4
+                 END)                      AS id_tipo_super_administracion,
+             [N_Estado]                    AS activo,
+             1                             AS id_usuario_registra,
+             GETDATE()              AS fecha_registra,
+             NULL                             AS id_usuario_modifica,
+             NULL                     AS fecha_modifica,
+             N_Codigo_Adm_Tri
+FROM [dbo].[TSS_ADMINISTRACIONES_TRIBUTARIAS]
+ORDER BY N_Codigo_Adm_Tri DESC) AS te
+ORDER BY te.N_Codigo_Adm_Tri;

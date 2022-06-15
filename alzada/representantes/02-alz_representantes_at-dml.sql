@@ -1,19 +1,18 @@
-SELECT c_nombre_representante AS nombre_completo,
-       N_Codigo_Subadm_Tri    AS id_subadministracion_tributaria,
-       d_fecha_desde          AS fecha_desde,
-       d_fecha_hasta          AS fecha_hasta,
-       'com'                  AS id_tipo_documento_representante,
-       'comaux'               AS numero_documento,
-       'doc'                  AS numero_documento,
-       'emiPor'               AS emitido_por,
-       'cargomae'             AS cargo_emisor,
-       'notario'              AS notario,
-       n_estado               AS estado,
-       1                      AS id_usuario_registra,
-       GETDATE()              AS fecha_registra,
-       NULL                   AS id_usuario_modifica,
-       NULL                   AS fecha_modifica,
-       'glosa'                AS observaciones,
-       'cargoResp'            AS cargo_representante
-FROM TSS_REPRESENTANTES_AT
-ORDER BY N_Codigo_Subadm_Tri, N_Codigo_Adm_Tri, n_secuencia;
+--[nombre_notario]
+
+--[emiPor]=8
+select substring(
+    substring('[com]3[/com][doc]470/2020[/doc][emiPor]KARINA LILIANA SERRUDO MIRANDA[/emiPor]', 0,
+    charindex('[/emiPor]', '[com]3[/com][doc]470/2020[/doc][emiPor]KARINA LILIANA SERRUDO MIRANDA[/emiPor]'))
+    ,
+    CHARINDEX('[emiPor]',
+        substring('[com]3[/com][doc]470/2020[/doc][emiPor]KARINA LILIANA SERRUDO MIRANDA[/emiPor]', 0,
+    charindex('[/emiPor]', '[com]3[/com][doc]470/2020[/doc][emiPor]KARINA LILIANA SERRUDO MIRANDA[/emiPor]'))
+        )+8,
+    CHARINDEX('[emiPor]',
+        substring('[com]3[/com][doc]470/2020[/doc][emiPor]KARINA LILIANA SERRUDO MIRANDA[/emiPor]', 0,
+    charindex('[/emiPor]', '[com]3[/com][doc]470/2020[/doc][emiPor]KARINA LILIANA SERRUDO MIRANDA[/emiPor]'))
+        )+8);
+-- replace
+select replace('[glosa]por ELIANA RAQUEL ZEBALLOS YUGAR, en su condición de ADMINISTRACIÓN ADUANA AEROPUERTO EL ALTO de LA ADUANA NACIONAL,conforme personería acreditada mediante Testimonio de Poder Nº 270/2016, de 20 de Junio de 2017, otorgado por Notario de Fe Pública [nombre_notario],[/glosa]',
+    '[nombre_notario]', '');

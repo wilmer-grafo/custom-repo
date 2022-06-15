@@ -1,16 +1,3 @@
--- OBTENER LOS RECURSOS ALZADA, luego hacer CASE con el resultado, en 
--- la QQ, dml
-select distinct * from (select numero_recurso_alzada, id
-from alzada.alz_recursos_alzada
-where numero_recurso_alzada in (
-    select numero_recurso_alzada
-    from alzada.alz_recursos_alzada
-    where numero_recurso_alzada ilike 'ARIT-BEN-%'
-    group by numero_recurso_alzada)
-    order by numero_recurso_alzada) as d;
-
-select count(*) from alzada.alz_actos_impugnados
-
 -- CONDICIONES
 'ARIT-CBA-%'
 select numero_recurso_alzada, id

@@ -1,0 +1,146 @@
+--TOTAL
+SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
+FROM control_tiempo
+WHERE id_exp LIKE 'ARIT-LPZ-0233/2016%'
+ORDER BY id;
+--ALMENOS
+SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
+FROM control_tiempo
+WHERE id_exp LIKE 'ARIT-LPZ-0233/2016%'
+AND (LEN(ruta_pro) = 0 AND  LEN(ruta_inf) > 0 OR (LEN(ruta_pro) > 0 AND  LEN(ruta_inf) = 0))
+ORDER BY id;
+--POR CEPARADO
+SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
+FROM control_tiempo
+WHERE id_exp LIKE 'ARIT-LPZ-0233/2016%'
+AND (LEN(ruta_pro) = 0 AND  LEN(ruta_inf) > 0)
+ORDER BY id;
+--POR CEPARADO
+SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
+FROM control_tiempo
+WHERE id_exp LIKE 'ARIT-LPZ-0233/2016%'
+AND ((LEN(ruta_pro) > 0 AND  LEN(ruta_inf) = 0))
+ORDER BY id;
+
+
+--1051
+SELECT id_exp, ruta_pro, ruta_inf
+FROM control_tiempo
+WHERE (LEN(ruta_pro) = 0 AND  LEN(ruta_inf) = 0 )
+ORDER BY id;
+
+
+PASOS, obtener usuarios origen, destino
+--para ruta_pro
+SELECT id_exp, origen, destino
+FROM control_tiempo
+WHERE id_exp LIKE 'ARIT-LPZ-0145/2016%'
+  AND ((LEN(ruta_pro) > 0 AND LEN(ruta_inf) = 0))
+ORDER BY id;
+
+--usuarios origen
+select id
+from seguridad.seg_usuarios
+    where
+login
+in ('cvelez', 'cherrera');
+
+--usuarios destino
+select id
+from seguridad.seg_usuarios
+    where
+login
+in ('jguzman', 'cvelez');
+
+OBTENER pegar los valores ID's
+select (select ra.numero_recurso_alzada from alzada.alz_recursos_alzada ra where ra.id = rds.id_recurso_alzada) as exp,
+       (select u.login
+        from seguridad.seg_usuarios u
+        where u.id_persona = rds.id_usuario_origen)                                                             as origen,
+       (select u.login
+        from seguridad.seg_usuarios u
+        where u.id_persona = rds.id_usuario_destino)                                                            as destino,
+--        (select ra.id from alzada.alz_recursos_alzada ra where ra.id = rds.id_recurso_alzada) as id_exp
+       rds.id
+from alzada.alz_registros_documentales_sustantivos as rds
+         inner join parametricas.par_tipos_procesos as tp on rds.id_proceso = tp.id
+where rds.id_recurso_alzada = 9121
+  and (
+        rds.id_usuario_origen in (20, 343) and
+        rds.id_usuario_destino in (20, 238)
+    )
+ORDER BY rds.fecha_recepcion;
+
+ARMAR:
+LTRIM(RTRIM(ct.id_exp)) 
+LTRIM(RTRIM(ct.origen)) 
+LTRIM(RTRIM(ct.destino)) 
+
+
+TRUNCATE TABLE alzada.alz_registros_documentales_sustantivos_anexos RESTART IDENTITY;
+
+
+--POR ceparado ruta inf
+
+SELECT origen, destino
+FROM control_tiempo
+WHERE id_exp LIKE 'ARIT-LPZ-0145/2016%'
+AND (LEN(ruta_pro) = 0 AND  LEN(ruta_inf) > 0)
+ORDER BY id;
+
+--primero origen 
+select id, 1 as g
+from seguridad.seg_usuarios
+    where
+login
+in (
+);
+
+238,1
+296,1
+343,1
+393,1
+
+--primero destino 
+select id, 1 as g
+from seguridad.seg_usuarios
+    where
+login
+in (
+);
+
+20,1
+238,1
+296,1
+343,1
+
+
+select (select ra.numero_recurso_alzada from alzada.alz_recursos_alzada ra where ra.id = rds.id_recurso_alzada) as exp,
+       (select u.login
+        from seguridad.seg_usuarios u
+        where u.id_persona = rds.id_usuario_origen)                                                             as origen,
+       (select u.login
+        from seguridad.seg_usuarios u
+        where u.id_persona = rds.id_usuario_destino)                                                            as destino,
+       rds.id
+from alzada.alz_registros_documentales_sustantivos as rds
+         inner join parametricas.par_tipos_procesos as tp on rds.id_proceso = tp.id
+where rds.id_recurso_alzada = 9121
+  and (
+        rds.id_usuario_origen in (
+        ) and
+        rds.id_usuario_destino in (
+        )
+    )
+ORDER BY rds.fecha_recepcion;
+
+ARMAR:
+LTRIM(RTRIM(ct.id_exp)) 
+LTRIM(RTRIM(ct.origen)) 
+LTRIM(RTRIM(ct.destino)) 
+
+ARIT-LPZ-0145/2016*pconde,cherrera$936
+ARIT-LPZ-0145/2016*cherrera,rmendoza$937
+ARIT-LPZ-0145/2016*rmendoza,jguzman$938
+ARIT-LPZ-0145/2016*jguzman,cvelez$939
+ARIT-LPZ-0145/2016*cherrera,cvelez$952

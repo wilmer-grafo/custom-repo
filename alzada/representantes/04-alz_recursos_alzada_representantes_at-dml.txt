@@ -35,7 +35,7 @@ where nombre_completo = 'ERNESTO NATUSCH SERRANO'
 and estado = 1
 limit 1;
 --==========================================================================================--
-
+s
 -- EN POSTGRES, PEGAR EN EL IN LOS EXPEDIENTES PARA OBTENER LOS
 -- NUEVOS RESULTADOS Y PASAR CON WHEN C_Nro_Expediente = ...
 select numero_recurso_alzada, id from

@@ -1,0 +1,140 @@
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='DEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='DEJ') THEN 25
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='DEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 8
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='DEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SCAMARA') THEN 27
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='DEJ' 
+AND ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SEJ') THEN 10
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='DEJ' 
+AND ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 8
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='EJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='ACAMARA') THEN 27
+
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='EJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='EJ') THEN 3
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='EJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 4
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='EJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SEJ') THEN 5
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='EJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 4
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='JURIDICO' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='ACAMARA') THEN 27
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='JURIDICO' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='DEJ') THEN 11
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='JURIDICO' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='EJ') THEN 2
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='JURIDICO' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 3
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='JURIDICO' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 3
+
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECREDEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SEJ') THEN 10
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECREDEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 8
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECREDEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 8
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECRESUB' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='DEJ') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECRESUB' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECRESUB' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SEJ') THEN 10
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECRESUB' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECRESUB' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='EJ') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='ACAMARA') THEN 27
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='DEJ') THEN 7
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SEJ') THEN 5
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='EJ') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='TECNICO' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='ACAMARA') THEN 27
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='TECNICO' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='DEJ') THEN 11
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='TECNICO' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='EJ') THEN 2
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='TECNICO' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 3
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='TECNICO' AND 
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 3
+
+ELSE 1
+

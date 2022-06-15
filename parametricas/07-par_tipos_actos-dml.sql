@@ -123,3 +123,37 @@ SELECT par_at.id,
 FROM parametricas.par_tipos_actos AS par_at
 WHERE par_at.id = 33;
 --=================================================================================================================--
+
+
+CONSULTA
+
+SELECT te.descripcion,
+       id_preposicion,
+       activo,
+       id_usuario_registra,
+       fecha_registra,
+       id_usuario_modifica,
+       fecha_modifica,
+       id_articulo
+FROM (SELECT TOP 8 LTRIM(RTRIM([C_Descripcion])) AS descripcion,
+                   (CASE
+                        WHEN LTRIM(RTRIM(C_Preposicion)) LIKE 'del' THEN 1
+                        WHEN LTRIM(RTRIM(C_Preposicion)) LIKE 'de' THEN 1
+                        WHEN LTRIM(RTRIM(C_Preposicion)) LIKE 'de la' THEN 2
+                        WHEN LTRIM(RTRIM(C_Preposicion)) LIKE 'de lla' THEN 2
+                        WHEN C_Preposicion IS NULL THEN 1
+                       END)                      AS id_preposicion,
+                   [N_Estado]                    AS activo,
+                   1                             AS id_usuario_registra,
+                   GETDATE()                     AS fecha_registra,
+                   NULL                          AS id_usuario_modifica,
+                   NULL                          AS fecha_modifica,
+                   (CASE
+                        WHEN LTRIM(RTRIM(C_Articulo)) LIKE 'el' THEN 1
+                        WHEN LTRIM(RTRIM(C_Articulo)) LIKE 'la' THEN 2
+                        WHEN C_Articulo IS NULL THEN 1
+                       END)                      AS id_articulo,
+                   N_Codigo_Acto
+      FROM TSS_ACTOS
+      ORDER BY N_Codigo_Acto DESC) AS te
+ORDER BY te.N_Codigo_Acto;

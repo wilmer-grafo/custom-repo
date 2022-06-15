@@ -1,0 +1,49 @@
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0145/2016' AND LTRIM(RTRIM(ct.origen)) = 'cvelez' AND
+                 LTRIM(RTRIM(ct.destino)) = 'jguzman' THEN 944
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0145/2016' AND LTRIM(RTRIM(ct.origen)) = 'cherrera' AND
+                 LTRIM(RTRIM(ct.destino)) = 'cvelez' THEN 952
+    END)                 AS id_registro_documental_sustantivo,
+--        'expedientes/informes_ra/' + SUBSTRING(ct.ruta_pro, 15, LEN(ct.ruta_pro) - 15) AS ruta_documento,
+       REPLACE(LTRIM(RTRIM(ct.ruta_pro)), '../documentos/', 'expedientes/informes-ra/') AS ruta_documento,
+       LTRIM(RTRIM(ct.ruta_inf)) AS nombre_documento,
+       20                AS estado,
+       1                 AS id_usuario_registra,
+       GETDATE()         AS fecha_registra,
+       NULL              AS id_usuario_modifica,
+       NULL              AS fecha_modifica
+FROM control_tiempo AS ct
+WHERE LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-0145/2016%'
+  AND ((LEN(ct.ruta_pro) > 0 AND LEN(ct.ruta_inf) = 0))
+ORDER BY ct.id;
+
+-- SELECT REPLACE('../documentos/2016/ARIT-LPZ-0145-2016/PROY-RA-LPZ-0145-2016-.docx', '../documentos/', 'expedientes/informes-ra/');
+
+
+
+
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0145/2016' AND LTRIM(RTRIM(ct.origen)) = 'pconde' AND
+                 LTRIM(RTRIM(ct.destino)) = 'cherrera' THEN 936
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0145/2016' AND LTRIM(RTRIM(ct.origen)) = 'cherrera' AND
+                 LTRIM(RTRIM(ct.destino)) = 'rmendoza' THEN 937
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0145/2016' AND LTRIM(RTRIM(ct.origen)) = 'rmendoza' AND
+                 LTRIM(RTRIM(ct.destino)) = 'jguzman' THEN 938
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0145/2016' AND LTRIM(RTRIM(ct.origen)) = 'jguzman' AND
+                 LTRIM(RTRIM(ct.destino)) = 'cvelez' THEN 939
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0145/2016' AND LTRIM(RTRIM(ct.origen)) = 'cherrera' AND
+                 LTRIM(RTRIM(ct.destino)) = 'cvelez' THEN 952
+    END)                                                                                AS id_registro_documental_sustantivo,
+       LTRIM(RTRIM(ct.ruta_pro))                                                        AS ruta_documento,
+       REPLACE(LTRIM(RTRIM(ct.ruta_inf)), '../documentos/', 'expedientes/informes-ra/') AS nombre_documento,
+       20                                                                               AS estado,
+       1                                                                                AS id_usuario_registra,
+       GETDATE()                                                                        AS fecha_registra,
+       NULL                                                                             AS id_usuario_modifica,
+       NULL                                                                             AS fecha_modifica
+FROM control_tiempo AS ct
+WHERE LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-0145/2016%'
+  AND (LEN(ruta_pro) = 0 AND LEN(ruta_inf) > 0)
+ORDER BY ct.id;
+
+

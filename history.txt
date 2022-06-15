@@ -18,7 +18,7 @@ MIGRACION - I
 
 NUEVAS TABLAS (ESTABLECIDOS)
 ===========================
--- parametricas.par_motivos_feriados;
+-- parametricas.par_motivos_feriados; 
 -- seguridad.seg_regiones
 
 MIGRACION - II
@@ -56,59 +56,59 @@ SELECT COUNT(N_Codigo_Subadm_Tri) FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS;
 -- 173
 select count(id) from parametricas.par_subadministraciones_tributarias;
 
--- 2236
+-- 2359
 SELECT COUNT(D_Fecha_Feriado) FROM TSS_FERIADOS;
 -- 2236
 select count(id) from comunes.feriados;
 
--- 6481
+-- 6699
 SELECT COUNT(D_Fecha_Tipo_Cambio) FROM TSS_TIPOS_CAMBIOS_UFV;
 -- 6481
 select count(id) from parametricas.par_tipos_cambios_ufv;
 
--- 510 ********
+-- 510 ******** now 559
 SELECT COUNT(N_Codigo_Funcionario) FROM TSS_FUNCIONARIOS;
 -- 404
 select count(id) from seguridad.seg_personas;
 -- 404
 select count(id) from seguridad.seg_usuarios;
 
--- 173
+-- 181
 SELECT COUNT(N_Codigo_Acto) FROM TSS_ACTOS;
 -- 173
 select count(id) from parametricas.par_tipos_actos;
 
--- 38336
+-- 39985
 SELECT COUNT(C_Nro_Expediente) FROM TSS_RECURSOS_ALZADA;
 -- 38336
 select count(id) from alzada.alz_recursos_alzada;
 
--- 42485
+-- 42485, now 44856
 SELECT COUNT(C_Nro_Expediente) FROM TSS_ACTOS_IMPUGNADOS;
 -- 6705
 select count(id) from alzada.alz_actos_impugnados;
 
--- 73
+-- 73, no changes
 SELECT COUNT(N_Codigo_Impuesto) FROM TSS_IMPUESTOS;
 -- 76, SE AUMENTO MULTAS
 select count(id) from parametricas.par_tipos_impuestos;
 
--- 87430
+-- 87430, now 92648
 SELECT COUNT(C_Nro_Expediente) FROM TSS_MONTOS;
 -- 11794
 select count(id) from alzada.alz_montos_alzada;
 
--- 249519
+-- 249519, now 260150
 SELECT COUNT(C_Nro_Expediente) FROM TSS_AUTOS;
 -- 1665
 select count(id) from alzada.alz_actuaciones;
 
--- 443814
+-- 443814, now 462203
 SELECT COUNT(C_Nro_Expediente) FROM TSS_NOTIFICACIONES;
 -- 3038
 select count(id) from alzada.alz_notificaciones;
 
--- 988
+-- 988; now 1122
 SELECT COUNT(N_Codigo_Subadm_Tri) FROM TSS_REPRESENTANTES_AT;
 -- 988
 select count(id) from alzada.alz_representantes_at;

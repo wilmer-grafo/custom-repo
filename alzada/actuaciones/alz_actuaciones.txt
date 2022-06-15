@@ -1,3 +1,4 @@
+
 -- obtener los recursos alzada, copiar el csv
 select numero_recurso_alzada, id from alzada.alz_recursos_alzada
 where numero_recurso_alzada ilike 'ARIT-CBA-%/2010';
