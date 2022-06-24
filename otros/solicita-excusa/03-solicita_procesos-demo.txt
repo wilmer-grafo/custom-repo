@@ -1,0 +1,32 @@
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mgemio' THEN 275
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'nherrera' THEN 386
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'sferreira' THEN 307
+            ELSE 167
+    END)                        AS id_usuario_solicita,
+       4                        AS id_tramite,
+       (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0109/2018' THEN 8983
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0964/2019' THEN 19485
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0965/2019' THEN 19492
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-1050/2017' THEN 19956
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-1434/2017' THEN 21452
+           END)                 AS id_recurso_alzada,
+       ct.gestion               AS gestion,
+       ct.f_solicita            AS fecha_solicita,
+       ct.otros_motivo          AS otro_motivo,
+       ct.correlativo_solicitud AS correlativo,
+       20                       AS estado,
+       NULL                     AS id_decision_anterior,
+       NULL                     AS id_decision_nueva
+FROM solicitud_excusa ct
+ORDER BY ct.id;
+
+SELECT *
+FROM solicitud_excusa ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+ORDER BY ct.id;
+
+SELECT DISTINCT id_exp AS C_Nro_Expediente, 1 AS d
+FROM solicitud_excusa ct
+ORDER BY id_exp;

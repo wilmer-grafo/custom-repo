@@ -1,4 +1,4 @@
-SELECT c_nombre_representante AS nombre_completo,
+SELECT LTRIM(RTRIM(c_nombre_representante)) AS nombre_completo,
        (CASE
             WHEN N_Codigo_Subadm_Tri = 36 THEN 29
             WHEN (N_Codigo_Subadm_Tri = 102 OR N_Codigo_Subadm_Tri = 126) THEN 23

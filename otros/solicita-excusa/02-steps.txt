@@ -1,0 +1,38 @@
+--
+SELECT DISTINCT id_exp AS C_Nro_Expediente, 1 AS d
+FROM solicitud_excusa ct
+ORDER BY id_exp;
+
+--  
+select numero_recurso_alzada, id
+FROM alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+
+    )
+order by numero_recurso_alzada;
+
+ARMAR
+LTRIM(RTRIM(ct.id_exp))
+
+
+
+select (select ra.numero_recurso_alzada
+        from alzada.alz_recursos_alzada ra
+        where ra.id = temp.id_recurso_alzada) as numero_recurso_alzada,
+       temp.id                                as id_solicitud_proceso
+from (select id_recurso_alzada, id
+      from alzada.alz_solicitudes_procesos
+      where id_recurso_alzada in (
+          select id
+          from alzada.alz_recursos_alzada
+          where numero_recurso_alzada in (
+'ARIT-LPZ-0109/2018',
+'ARIT-LPZ-0964/2019',
+'ARIT-LPZ-0965/2019',
+'ARIT-LPZ-1050/2017',
+'ARIT-LPZ-1434/2017'
+
+              )
+      )) AS temp
+order by numero_recurso_alzada;
+

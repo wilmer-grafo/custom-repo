@@ -1,10 +1,36 @@
+SELECT (CASE
+
+    END)         AS id_recurso_alzada,
+       (CASE
+
+           END)  AS id_representante_legal_sp,
+       1         AS id_usuario_registra,
+       NULL      AS id_usuario_modifica,
+       NULL      AS fecha_modifica,
+       1         AS estado,
+       GETDATE() AS fecha_registra,
+       ra.C_Cargo_Rep AS cargo_representante ,
+       NULL      AS numero_documento,
+       NULL      AS fecha_documento,
+       NULL      AS id_tipo_documento_representante
+FROM TSS_RECURSOS_ALZADA ra
+WHERE LEN(LTRIM(RTRIM(ra.C_Representante))) > 1
+  AND (ra.C_Nro_Expediente LIKE 'ARIT-CBA-%/2021%' OR ra.C_Nro_Expediente LIKE 'ARIT-CBA-%/2022%')
+ORDER BY ra.C_Nro_Expediente;
+
+138
+select (select ra.numero_recurso_alzada from alzada.alz_recursos_alzada ra where ra.id = rec_at.id_recurso_alzada) as numero_recurso_alzada,
+(select repe.nombre_completo from alzada.alz_representantes_sp as repe where repe.id= rec_at.id_representante_legal_sp) as id_representante_legal_sp
+from alzada.alz_recursos_alzada_representantes_sp as rec_at
+order by numero_recurso_alzada;
+
 EN SQL SERVER
 =============
-SELECT C_Nro_Expediente, LTRIM(RTRIM(C_Representante)) AS C_Representante
-FROM TSS_RECURSOS_ALZADA
-WHERE LEN(LTRIM(RTRIM(C_Representante))) > 2
-AND C_Nro_Expediente LIKE 'ARIT-BEN%'
-ORDER BY C_Nro_Expediente;
+select ra.C_Nro_Expediente, LTRIM(RTRIM(C_Representante)) AS C_Representante
+from TSS_RECURSOS_ALZADA ra
+where (ra.C_Nro_Expediente LIKE 'ARIT-CBA-%/2021%' OR ra.C_Nro_Expediente LIKE 'ARIT-CBA-%/2022%')
+and LEN(LTRIM(RTRIM(ra.C_Representante))) > 1
+order by ra.C_Nro_Expediente;
 
 COPIAR EL CSV EN CLIPBOARD, EJEMPLO
 ARIT-BEN-0001/2010,WALTER IRIARTE MERCADO
@@ -32,8 +58,8 @@ ARIT-BEN-0001/2013,4
 ARIT-BEN-0001/2014,5
 ARIT-BEN-0001/2017,8
 
-DESPUES AGREGAR WHEN C_Nro_Expediente = 'EXP' THEN VALUE
-
+ARMAR
+LTRIM(RTRIM(ra.C_Nro_Expediente))
 
 LUEGO OBTENER EL IDENTIFICADOR DEL REPRESENTANTE_SP CON IN
 PEGAR TODOS LOS NOMBRES
@@ -52,4 +78,5 @@ ADALBERTO DURAN NATUSCH,27
 ADALBERTO DURÁN NATUSCH,28
 ALEX CAYADURO FERNÁNDEZ,177
 
-DESPUES AGREGAR LTRIM(RTRIM(C_Representante)) = 'NOMBRE' THEN VALUE
+ARMAR
+LTRIM(RTRIM(ra.C_Representante))

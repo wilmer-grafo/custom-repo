@@ -1,0 +1,21 @@
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0109/2018' THEN 32
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0964/2019' THEN 34
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0965/2019' THEN 35
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-1050/2017' THEN 33
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-1434/2017' THEN 31
+    END)                                                  AS id_solicitud,
+       REPLACE(LTRIM(RTRIM(ct.motivo_solicita)), '/', '') AS id_motivo,
+       (CASE
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mgemio' THEN 275
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'nherrera' THEN 386
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'sferreira' THEN 307
+            ELSE 167
+           END)                                           AS id_usuario_registra,
+       ct.f_solicita                                      AS fecha_registra
+FROM solicitud_excusa ct
+WHERE LEN(LTRIM(RTRIM(ct.motivo_solicita))) <= 2
+ORDER BY ct.id;
+
+
+

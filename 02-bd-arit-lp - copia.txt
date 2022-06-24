@@ -1,38 +1,404 @@
 SELECT (CASE
-
-    END)                AS id_recurso_alzada,
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0001/2022' THEN 7504
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0002/2022' THEN 7517
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0003/2022' THEN 7530
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0004/2022' THEN 7543
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0005/2022' THEN 7556
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0006/2022' THEN 7570
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0007/2022' THEN 7583
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0008/2022' THEN 7596
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0009/2022' THEN 7610
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0010/2022' THEN 7623
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0011/2022' THEN 7638
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0012/2022' THEN 7651
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0013/2022' THEN 7665
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0014/2022' THEN 7678
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0015/2022' THEN 7692
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0016/2022' THEN 7705
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0017/2022' THEN 7718
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0018/2022' THEN 7731
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0019/2022' THEN 7744
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0020/2022' THEN 7757
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0021/2022' THEN 7771
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0022/2022' THEN 7784
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0023/2022' THEN 7797
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0024/2022' THEN 7810
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0025/2022' THEN 7826
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0026/2022' THEN 7839
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0027/2022' THEN 7852
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0028/2022' THEN 7867
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0029/2022' THEN 7880
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0030/2022' THEN 7893
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0031/2022' THEN 7906
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0032/2022' THEN 7919
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0033/2022' THEN 7933
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0034/2022' THEN 7946
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0035/2022' THEN 7960
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0036/2022' THEN 7974
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0037/2022' THEN 7988
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0038/2022' THEN 8001
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0040/2022' THEN 8030
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0041/2022' THEN 8044
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0042/2022' THEN 8058
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0043/2022' THEN 8071
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0045/2022' THEN 8100
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0046/2022' THEN 8115
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0047/2022' THEN 8130
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0048/2022' THEN 8144
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0049/2022' THEN 8158
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0050/2022' THEN 8173
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0051/2022' THEN 8188
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0052/2022' THEN 8204
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0053/2022' THEN 8218
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0054/2022' THEN 8232
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0055/2022' THEN 8246
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0056/2022' THEN 8260
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0057/2022' THEN 8275
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0058/2022' THEN 8289
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0060/2022' THEN 8319
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0062/2022' THEN 8346
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0063/2022' THEN 8359
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0065/2022' THEN 8386
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0066/2022' THEN 8400
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0067/2022' THEN 8415
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0068/2022' THEN 8429
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0069/2022' THEN 8442
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0070/2022' THEN 8455
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0071/2022' THEN 8468
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0072/2022' THEN 8481
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0073/2022' THEN 8494
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0074/2022' THEN 8507
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0076/2022' THEN 8533
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0077/2022' THEN 8546
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0078/2022' THEN 8560
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0079/2022' THEN 8573
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0080/2022' THEN 8586
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0081/2022' THEN 8599
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0082/2022' THEN 8612
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0083/2022' THEN 8625
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0084/2022' THEN 8638
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0085/2022' THEN 8651
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0086/2022' THEN 8664
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0087/2022' THEN 8678
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0089/2022' THEN 8704
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0090/2022' THEN 8717
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0091/2022' THEN 8732
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0092/2022' THEN 8746
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0093/2022' THEN 8760
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0094/2022' THEN 8773
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0095/2022' THEN 8786
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0096/2022' THEN 8800
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0098/2022' THEN 8830
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0100/2022' THEN 8857
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0101/2022' THEN 8871
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0102/2022' THEN 8885
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0103/2022' THEN 8898
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0106/2022' THEN 8941
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0107/2022' THEN 8955
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0108/2022' THEN 8970
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0109/2022' THEN 8987
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0111/2022' THEN 9016
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0112/2022' THEN 9032
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0114/2022' THEN 9061
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0115/2022' THEN 9077
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0116/2022' THEN 9091
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0117/2022' THEN 9106
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0118/2022' THEN 9120
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0119/2022' THEN 9135
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0121/2022' THEN 9166
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0122/2022' THEN 9181
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0123/2022' THEN 9195
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0124/2022' THEN 9209
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0125/2022' THEN 9224
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0126/2022' THEN 9238
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0127/2022' THEN 9253
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0128/2022' THEN 9267
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0129/2022' THEN 9281
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0130/2022' THEN 9296
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0131/2022' THEN 9310
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0132/2022' THEN 9323
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0133/2022' THEN 9337
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0135/2022' THEN 9366
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0136/2022' THEN 9380
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0137/2022' THEN 9394
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0139/2022' THEN 9423
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0141/2022' THEN 9451
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0143/2022' THEN 9480
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0145/2022' THEN 9510
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0146/2022' THEN 9524
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0147/2022' THEN 9538
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0154/2022' THEN 9645
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0155/2022' THEN 9659
+WHEN LTRIM(RTRIM(ct.id_exp))='ARIT-LPZ-0059/2022//ARIT-LPZ-0061/2022' THEN 8304
+    END)        AS id_recurso_alzada,
        (CASE
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='DEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='DEJ') THEN 25
 
-           END)         AS id_proceso,
-       1                AS id_tramite,
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='DEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 8
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='DEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SCAMARA') THEN 27
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='DEJ'
+AND ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SEJ') THEN 10
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='DEJ'
+AND ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 8
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='EJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='ACAMARA') THEN 27
+
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='EJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='EJ') THEN 3
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='EJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 4
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='EJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SEJ') THEN 5
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='EJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 4
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='JURIDICO' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='ACAMARA') THEN 27
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='JURIDICO' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='DEJ') THEN 11
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='JURIDICO' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='EJ') THEN 2
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='JURIDICO' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 3
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='JURIDICO' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 3
+
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECREDEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SEJ') THEN 10
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECREDEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 8
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECREDEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 8
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECRESUB' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='DEJ') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECRESUB' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECRESUB' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SEJ') THEN 10
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECRESUB' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SECRESUB' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='EJ') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='ACAMARA') THEN 27
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='DEJ') THEN 7
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='SEJ') THEN 5
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='SEJ' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='EJ') THEN 6
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='TECNICO' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='ACAMARA') THEN 27
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='TECNICO' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='DEJ') THEN 11
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='TECNICO' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='EJ') THEN 2
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='TECNICO' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='JURIDICO') THEN 3
+
+WHEN (
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.origen), 'ACAMARA')='TECNICO' AND
+ISNULL((SELECT u.cargo FROM usuario AS u WHERE u.id_user = ct.destino), 'ACAMARA')='TECNICO') THEN 3
+
+ELSE 1
+
+
+           END) AS id_proceso,
+       1        AS id_tramite,
        (CASE
-
-           END)         AS id_usuario_origen,
+            WHEN ct.origen = 'achuma' THEN 167
+            WHEN (ct.origen = 'avera' OR ct.origen = 'averas') THEN 333
+            WHEN ct.origen = 'bchura' THEN 337
+            WHEN ct.origen = 'cgomez' THEN 124
+            WHEN ct.origen = 'ctorres' THEN 183
+            WHEN ct.origen = 'cherrera' THEN 343
+            WHEN ct.origen = 'csalas' THEN 177
+            WHEN ct.origen = 'cvalencia' THEN 338
+            WHEN ct.origen = 'cvelez' THEN 20
+            WHEN ct.origen = 'fmercado' THEN 213
+            WHEN ct.origen = 'gchavez' THEN 356
+            WHEN ct.origen = 'gmeriles' THEN 358
+            WHEN ct.origen = 'ghilari' THEN 224
+            WHEN ct.origen = 'jaramayo' THEN 232
+            WHEN ct.origen = 'jguzman' THEN 238
+            WHEN ct.origen = 'ivela' THEN 362
+            WHEN ct.origen = 'jguzman' THEN 238
+            WHEN ct.origen = 'kvillegas' THEN 370
+            WHEN (ct.origen = 'lespada' OR ct.origen = 'lespadacam') THEN 372
+            WHEN ct.origen = 'mamercado' THEN 263
+            WHEN ct.origen = 'maranda' THEN 265
+            WHEN ct.origen = 'mamezaga' THEN 267
+            WHEN ct.origen = 'mcamacho' THEN 271
+            WHEN (ct.origen = 'mgemio' OR ct.origen = 'mgemior') THEN 275
+            WHEN (ct.origen = 'mbarrenechea' OR ct.origen = 'mjbarrenechea') THEN 379
+            WHEN ct.origen = 'mferaudy' THEN 253
+            WHEN (ct.origen = 'mmarin' OR ct.origen = 'mmarinm') THEN 274
+            WHEN (ct.origen = 'mrivas' OR ct.origen = 'mrivasr') THEN 375
+            WHEN ct.origen = 'moporto' THEN 266
+            WHEN ct.origen = 'msegales' THEN 384
+            WHEN ct.origen = 'mtimm' THEN 381
+            WHEN ct.origen = 'nherrera' THEN 386
+            WHEN (ct.origen = 'pconde' OR ct.origen = 'pcondet') THEN 393
+            WHEN ct.origen = 'rduran' THEN 395
+            WHEN ct.origen = 'rguachalla' THEN 158
+            WHEN ct.origen = 'rmendoza' THEN 296
+            WHEN (ct.origen = 'rramos' OR ct.origen = 'rramosr') THEN 398
+            WHEN ct.origen = 'rrivera' THEN 397
+            WHEN ct.origen = 'rvargasc' THEN 298
+            WHEN ct.origen = 'smoya' THEN 304
+            WHEN ct.origen = 'sferreira' THEN 307
+            WHEN ct.origen = 'steran' THEN 308
+            WHEN ct.origen = 'tpenarrieta' THEN 400
+            WHEN ct.origen = 'varauco' THEN 316
+            WHEN ct.origen = 'vlaura' THEN 318
+            WHEN (ct.origen = 'vquisbert' OR ct.origen = 'vquisbertr') THEN 163
+            WHEN ct.origen = 'wmiranda' THEN 404
+            WHEN (ct.origen = 'wvaldez' OR ct.origen = 'wvaldezr') THEN 402
+            WHEN ct.origen = 'tpenarrieta' THEN 400
+            WHEN (ct.origen = 'glimachi' OR ct.origen = 'nlozano' OR ct.origen = 'vflores') THEN 167
+            ELSE 167
+           END) AS id_usuario_origen,
        (CASE
-
-           END)         AS id_usuario_destino,
+            WHEN (ct.destino = 'avera' OR ct.destino = 'averas') THEN 333
+            WHEN ct.origen = 'fmercado' THEN 213
+            WHEN ct.origen = 'ghilari' THEN 224
+            WHEN ct.origen = 'jaramayo' THEN 232
+            WHEN ct.origen = 'jguzman' THEN 238
+            WHEN ct.destino = 'bchura' THEN 337
+            WHEN ct.destino = 'cgomez' THEN 124
+            WHEN ct.destino = 'cherrera' THEN 343
+            WHEN ct.destino = 'cvalencia' THEN 338
+            WHEN ct.destino = 'cvelez' THEN 20
+            WHEN ct.destino = 'gchavez' THEN 356
+            WHEN (ct.origen = 'lespada' OR ct.origen = 'lespadacam') THEN 372
+            WHEN ct.origen = 'mamercado' THEN 263
+            WHEN ct.destino = 'gmeriles' THEN 358
+            WHEN ct.origen = 'mamezaga' THEN 267
+            WHEN ct.origen = 'mcamacho' THEN 271
+            WHEN (ct.origen = 'mgemio' OR ct.origen = 'mgemior') THEN 275
+            WHEN ct.origen = 'maranda' THEN 265
+            WHEN (ct.origen = 'mmarin' OR ct.origen = 'mmarinm') THEN 274
+            WHEN (ct.origen = 'mrivas' OR ct.origen = 'mrivasr') THEN 375
+            WHEN ct.origen = 'moporto' THEN 266
+            WHEN ct.destino = 'ivela' THEN 362
+            WHEN ct.destino = 'jguzman' THEN 238
+            WHEN ct.destino = 'kvillegas' THEN 370
+            WHEN ct.destino = 'lespada' THEN 372
+            WHEN (ct.destino = 'mbarrenechea' OR ct.destino = 'mjbarrenechea') THEN 379
+            WHEN ct.destino = 'mferaudy' THEN 253
+            WHEN ct.destino = 'mrivas' THEN 375
+            WHEN ct.destino = 'msegales' THEN 384
+            WHEN ct.destino = 'mtimm' THEN 381
+            WHEN (ct.origen = 'pconde' OR ct.origen = 'pcondet') THEN 393
+            WHEN ct.destino = 'nherrera' THEN 386
+            WHEN ct.destino = 'rduran' THEN 395
+            WHEN ct.destino = 'rguachalla' THEN 158
+            WHEN ct.destino = 'rmendoza' THEN 296
+            WHEN (ct.destino = 'rramos' OR ct.destino = 'rramosr') THEN 398
+            WHEN ct.origen = 'sferreira' THEN 307
+            WHEN ct.origen = 'steran' THEN 308
+            WHEN ct.origen = 'tpenarrieta' THEN 400
+            WHEN ct.destino = 'rrivera' THEN 397
+            WHEN ct.destino = 'rvargasc' THEN 298
+            WHEN (ct.destino = 'vquisbert' OR ct.destino = 'vquisbertr') THEN 163
+            WHEN ct.destino = 'wmiranda' THEN 404
+            WHEN (ct.destino = 'wvaldez' OR ct.destino = 'wvaldezr') THEN 402
+            WHEN ct.destino = 'tpenarrieta' THEN 400
+            ELSE 167
+           END) AS id_usuario_destino,
        (CASE
             WHEN ct.f_recepcion = '1900-01-01 00:00:00.000' THEN NULL
             ELSE ct.f_recepcion
-           END)         AS fecha_recepcion,
+           END) AS fecha_recepcion,
        (CASE
             WHEN ct.f_inicio = '1900-01-01 00:00:00.000' THEN NULL
             ELSE ct.f_inicio
-           END)         AS fecha_inicio,
+           END) AS fecha_inicio,
        (CASE
             WHEN ct.f_deriva = '1900-01-01 00:00:00.000' THEN NULL
             ELSE ct.f_deriva
-           END)         AS fecha_deriva,
-       NULL             AS id_tipo_observacion,
-       20               AS estado,
+           END) AS fecha_deriva,
+       NULL     AS id_tipo_observacion,
+       20       AS estado,
        (CASE
-           WHEN LEN(LTRIM(RTRIM(ct.observaciones))) = 0 THEN NULL
-           ELSE LTRIM(RTRIM(ct.observaciones))
+            WHEN LEN(LTRIM(RTRIM(ct.observaciones))) = 0 THEN NULL
+            ELSE LTRIM(RTRIM(ct.observaciones))
            END) AS observaciones,
-       NULL             AS id_aclaracion
+       NULL     AS id_aclaracion
 FROM control_tiempo AS ct
-WHERE SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp))))LIKE 'ARIT-LPZ-%/2016%'
-ORDER BY ct.id_exp;
+WHERE LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2022%'
+ORDER BY ct.id;
+
 
 
 

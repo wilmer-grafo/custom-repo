@@ -1,0 +1,23 @@
+SELECT DISTINCT u_solicita, 1 AS d
+FROM solicitud_excusa
+ORDER BY u_solicita;
+
+ARMAR
+LTRIM(RTRIM(ct.u_solicita))
+
+select login, id from seguridad.seg_usuarios
+where login in (
+
+    )
+order by login;
+
+
+
+SELECT DISTINCT id_exp, 1 AS d
+FROM solicitud_ampliacion
+WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR
+       LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+ORDER BY id_exp;
+
+
+LTRIM(RTRIM(ct.id_exp))

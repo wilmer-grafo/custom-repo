@@ -43,3 +43,15 @@ from (select numero_recurso_alzada, id
           where (numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%' OR numero_recurso_alzada ilike 'ARIT-LPZ-%/2022%')
           group by numero_recurso_alzada)
       order by numero_recurso_alzada) as d;
+
+
+select numero_recurso_alzada, id from alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+                  'ARIT-LPZ-0757/2021-1',
+'ARIT-LPZ-0758/2021-1',
+'ARIT-LPZ-0759/2021-1',
+'ARIT-LPZ-0762/2021-1',
+'ARIT-LPZ-0763/2021-1'
+
+    )
+order by numero_recurso_alzada;

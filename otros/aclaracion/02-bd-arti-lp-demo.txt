@@ -1,0 +1,84 @@
+SELECT (CASE
+
+    END)                                          AS id_recurso_alzada,
+       (CASE
+
+       END)                                       AS id_memorial,
+       ('ARIT-RA-' + (
+           CASE
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 1 THEN '000' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 2 THEN '00' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 3 THEN '0' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 4 THEN LTRIM(RTRIM(ct.correlativo))
+               END
+           ) + '/' + CAST(ct.gestion AS VARCHAR)) as numero_auto_motivado,
+       (CASE
+            WHEN ct.f_liberacion = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_liberacion
+           END)                                   AS fecha_liberacion,
+       20                                         AS estado,
+       NULL                                       AS fecha_entrega
+FROM reg_aclaracion AS ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+ORDER BY id;
+
+
+
+=== SAMPLE CASE ===
+
+
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0012/2021' THEN 7650
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0028/2021' THEN 7865
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0086/2021' THEN 8663
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0091/2021' THEN 8731
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0244/2021' THEN 10937
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0334/2021' THEN 12309
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0335/2021' THEN 12325
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0336/2021' THEN 12341
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0337/2021' THEN 12356
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0373/2021-1' THEN 12891
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0592/2021' THEN 15789
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0593/2021' THEN 15801
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0604/2021' THEN 15949
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0642/2021' THEN 16410
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0673/2021' THEN 16759
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0775/2021' THEN 17824
+    END)                                          AS id_recurso_alzada,
+       (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0012/2021' THEN 726
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0012/2021' THEN 727
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0028/2021' THEN 2250
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0086/2021' THEN 1006
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0091/2021' THEN 1073
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0244/2021' THEN 2055
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0334/2021' THEN 2385
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0335/2021' THEN 2386
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0336/2021' THEN 2262
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0337/2021' THEN 2387
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0373/2021-1' THEN 2329
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0592/2021' THEN 3373
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0593/2021' THEN 3372
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0604/2021' THEN 3423
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0642/2021' THEN 3651
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0673/2021' THEN 3805
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0775/2021' THEN 4290
+           END)                                   AS id_memorial,
+       ('ARIT-RA-' + (
+           CASE
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 1 THEN '000' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 2 THEN '00' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 3 THEN '0' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 4 THEN LTRIM(RTRIM(ct.correlativo))
+               END
+           ) + '/' + CAST(ct.gestion AS VARCHAR)) as numero_auto_motivado,
+       (CASE
+            WHEN ct.f_liberacion = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_liberacion
+           END)                                   AS fecha_liberacion,
+       20                                         AS estado,
+       ct.f_registro                              AS fecha_entrega
+FROM reg_aclaracion AS ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+ORDER BY id;
+

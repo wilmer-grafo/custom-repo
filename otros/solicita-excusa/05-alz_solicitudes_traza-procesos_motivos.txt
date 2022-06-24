@@ -1,0 +1,62 @@
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0109/2018' THEN 32
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0964/2019' THEN 34
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0965/2019' THEN 35
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-1050/2017' THEN 33
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-1434/2017' THEN 31
+    END)                  AS id_solicitud_proceso,
+       (CASE
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mgemio' THEN 275
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'nherrera' THEN 386
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'sferreira' THEN 307
+            ELSE 167
+           END)           AS id_usuario_origen,
+       (CASE
+            WHEN LTRIM(RTRIM(ct.u_aprueba_rechaza_sd)) = 'jguzman' THEN 238
+            ELSE 167 END) AS id_usuario_destino,
+       (CASE
+            WHEN ct.f_aprueba_rechaza_sd IS NULL THEN ct.f_solicita
+            ELSE ct.f_aprueba_rechaza_sd
+           END)           AS fecha_accion,
+       NULL               AS ruta_adjunto,
+       20                 AS estado,
+       (
+           CASE
+               WHEN ct.estado = 1 THEN 15
+               WHEN ct.estado = 2 THEN 16
+               ELSE 15
+               END)       AS id_proceso,
+       NULL               AS observaciones
+FROM solicitud_excusa ct
+ORDER BY ct.id;
+
+
+
+SELECT DISTINCT id_exp AS C_Nro_Expediente, 1 AS d
+FROM solicitud_excusa ct
+ORDER BY id_exp;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SELECT DISTINCT u_aprueba_rechaza_sd, 1 AS d
+FROM solicitud_excusa
+ORDER BY u_aprueba_rechaza_sd;
+

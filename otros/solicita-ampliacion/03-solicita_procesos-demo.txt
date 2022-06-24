@@ -1,0 +1,67 @@
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'bchura' THEN 337
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'cgomez' THEN 124
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'cherrera' THEN 343
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'cvalencia' THEN 338
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'fmercado' THEN 213
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'gmeriles' THEN 358
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'idavezies' THEN 229
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'ivela' THEN 362
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'jcabero' THEN 368
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'lespada' THEN 372
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mamercado' THEN 263
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mamezaga' THEN 267
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'maranda' THEN 265
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mgemio' THEN 275
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mmarin' THEN 274
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mrivas' THEN 375
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'msegales' THEN 384
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mtimm' THEN 381
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mvillcac' THEN 151
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'navendano' THEN 279
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'nherrera' THEN 386
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'rduran' THEN 395
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'rlinares' THEN 292
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'rramos' THEN 398
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'sferreira' THEN 307
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'steran' THEN 308
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'vquisbert' THEN 163
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'wvaldez' THEN 402
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'pcondet' THEN 393
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'tpenarrieta' THEN 400
+    END)                         AS id_usuario_solicita,
+       5                         AS id_tramite,
+       (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0082/2021' THEN 8611
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0125/2021' THEN 9222
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0131/2022' THEN 9310
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0166/2021' THEN 9817
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0193/2021-2' THEN 10203
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0194/2021-2' THEN 10219
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0203/2021' THEN 10346
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0204/2021' THEN 10360
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0244/2021' THEN 10937
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0278/2021' THEN 11463
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0343/2021' THEN 12451
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0416/2021' THEN 13478
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0439/2021' THEN 13785
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0448/2021' THEN 13907
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0541/2021' THEN 15120
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0606/2021' THEN 15974
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0710/2021' THEN 17142
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0730/2021' THEN 17351
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0740/2021' THEN 17452
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0773/2021' THEN 17801
+           END)                  AS id_recurso_alzada,
+       ct.gestion                AS gestion,
+       ct.f_solicita             AS fecha_solicita,
+       ct.otros_motivo           AS otro_motivo,
+       ct.correlativo_ampliacion AS correlativo,
+       20                        AS estado,
+       NULL                      AS id_decision_anterior,
+       NULL                      AS id_decision_nueva
+FROM solicitud_ampliacion ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+  AND ct.correlativo_ampliacion IS NOT NULL
+ORDER BY ct.id;

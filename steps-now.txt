@@ -1,0 +1,244 @@
+TRUNCATE TABLE seguridad.seg_areas RESTART IDENTITY CASCADE;
+
+DROP TABLE seguridad.seg_regiones CASCADE;
+
+export with pg_dump
+
+modify sequence
+
+=================
+ULTIMOS REGISTROS 
+
+parametricas
+
+SELECT *
+FROM (SELECT TOP 2 * FROM TSS_ADMINISTRACIONES_TRIBUTARIAS ORDER BY N_Codigo_Adm_Tri DESC) AS te
+ORDER BY te.N_Codigo_Adm_Tri;
+
+SELECT *
+FROM (SELECT TOP 4 * FROM TSS_SUBADMINISTRACIONES_TRIBUTARIAS ORDER BY N_Codigo_Subadm_Tri DESC) AS te
+ORDER BY te.N_Codigo_Subadm_Tri;
+
+comunes
+
+TRUNCATE TABLE comunes.feriados RESTART IDENTITY;
+
+UPDATE comunes.feriados
+SET fecha =
+  (fecha AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+parametricas
+
+TRUNCATE TABLE parametricas.par_tipos_cambios_ufv RESTART IDENTITY;
+
+UPDATE parametricas.par_tipos_cambios_ufv
+SET fecha =
+  (fecha AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+seguridad
+
+SELECT *
+FROM (SELECT TOP 48 * FROM TSS_FUNCIONARIOS ORDER BY N_Codigo_Funcionario DESC) AS te
+ORDER BY te.N_Codigo_Funcionario;
+
+parametricas
+
+SELECT *
+FROM (SELECT TOP 8 * FROM TSS_ACTOS ORDER BY N_Codigo_Acto DESC) AS te
+ORDER BY te.N_Codigo_Acto;
+
+------------------------------------------------------------------------------------------------
+alzada.alz_recursos_alzada
+------------------------------------------------------------------------------------------------
+SET DATEFORMAT 'YMD';
+
+TRUNCATE TABLE alzada.alz_recursos_alzada RESTART IDENTITY CASCADE;
+
+UPDATE alzada.alz_recursos_alzada
+SET fecha_presentacion =
+        (fecha_presentacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_recursos_alzada
+SET fecha_respuesta_administracion =
+        (fecha_respuesta_administracion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_recursos_alzada
+SET fecha_vencimiento =
+        (fecha_vencimiento AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+		
+------------------------------------------------------------------------------------------------
+alzada.alz_actos_impugnados
+------------------------------------------------------------------------------------------------
+
+TRUNCATE TABLE alzada.alz_actos_impugnados RESTART IDENTITY CASCADE;
+
+UPDATE alzada.alz_actos_impugnados
+SET fecha_emision =
+        (fecha_emision AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+		
+UPDATE alzada.alz_actos_impugnados
+SET fecha_notificacion =
+        (fecha_notificacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+parametricas.par_tipos_impuestos
+SIN CAMBIOS
+
+------------------------------------------------------------------------------------------------
+alzada.alz_actuaciones
+------------------------------------------------------------------------------------------------
+
+UPDATE alzada.alz_actuaciones
+SET fecha_emision =
+        (fecha_emision AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_actuaciones
+SET fecha_subsanacion =
+        (fecha_subsanacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+------------------------------------------------------------------------------------------------
+alzada.alz_notificaciones
+------------------------------------------------------------------------------------------------
+
+TRUNCATE TABLE alzada.alz_notificaciones RESTART IDENTITY;
+
+SET DATEFORMAT 'YMD';
+
+UPDATE alzada.alz_notificaciones
+SET fecha_hora_notificacion =
+        (fecha_hora_notificacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+		
+UPDATE alzada.alz_notificaciones
+SET fecha_actuacion_registro =
+        (fecha_actuacion_registro AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+------------------------------------------------------------------------------------------------
+alzada.alz_representantes_at
+------------------------------------------------------------------------------------------------
+
+TRUNCATE TABLE alzada.alz_representantes_at RESTART IDENTITY CASCADE;
+
+------------------------------------------------------------------------------------------------
+alzada.alz_recursos_alzada_representantes_at
+------------------------------------------------------------------------------------------------
+
+TRUNCATE TABLE alzada.alz_recursos_alzada_representantes_at RESTART IDENTITY;
+
+
+------------------------------------------------------------------------------------------------
+alzada.alz_representantes_sp
+------------------------------------------------------------------------------------------------
+
+TRUNCATE TABLE alzada.alz_representantes_sp RESTART IDENTITY CASCADE;
+
+------------------------------------------------------------------------------------------------
+alzada.alz_actuaciones - TSS_AUTOS_PREVIOS_JER
+------------------------------------------------------------------------------------------------
+
+
+TRUNCATE TABLE alzada.alz_registros_documentales_sustantivos RESTART IDENTITY CASCADE;
+
+UPDATE alzada.alz_registros_documentales_sustantivos
+SET fecha_recepcion =
+  (fecha_recepcion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_registros_documentales_sustantivos
+SET fecha_inicio =
+  (fecha_inicio AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_registros_documentales_sustantivos
+SET fecha_deriva =
+  (fecha_deriva AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+  
+
+TRUNCATE TABLE alzada.alz_registros_documentales_sustantivos_anexos RESTART IDENTITY;
+
+
+------------------------------------------------------------------------------------------------
+memoriales
+------------------------------------------------------------------------------------------------
+
+UPDATE comunes.memoriales
+SET fecha_recepcion =
+        (fecha_recepcion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE comunes.memoriales
+SET fecha_respuesta =
+        (fecha_respuesta AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+TRUNCATE TABLE comunes.memoriales RESTART IDENTITY CASCADE;
+
+
+------------------------------------------------------------------------------------------------
+aclaraciones
+------------------------------------------------------------------------------------------------
+
+TRUNCATE TABLE alzada.alz_aclaraciones RESTART IDENTITY;
+
+UPDATE alzada.alz_aclaraciones
+SET fecha_liberacion =
+        (fecha_liberacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+UPDATE alzada.alz_aclaraciones
+SET fecha_entrega =
+        (fecha_entrega AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+		
+
+select id_aclaracion from alzada.alz_registros_documentales_sustantivos
+where id_aclaracion is not null;
+
+delete from alzada.alz_registros_documentales_sustantivos
+where id_aclaracion is not null;
+
+select * from alzada.alz_registros_documentales_sustantivos_anexos
+where fecha_registra = '2022-06-23 06:15:33.890000 -04:00';
+
+delete from alzada.alz_registros_documentales_sustantivos_anexos
+where fecha_registra = '2022-06-23 06:15:33.890000 -04:00';
+
+
+------------------------------------------------------------------------------------------------
+alz_solicitudes_procesos
+------------------------------------------------------------------------------------------------
+INCREASE EVERY RUN
+UPDATE alzada.alz_solicitudes_procesos
+SET fecha_solicita =
+        (fecha_solicita AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+REDUCE HOURS
+UPDATE alzada.alz_solicitudes_procesos
+SET fecha_solicita = fecha_solicita - interval '4 hours';
+
+ADD HOURS
+UPDATE alzada.alz_solicitudes_procesos
+SET fecha_solicita = fecha_solicita + interval '4 hours'
+WHERE id IN (31,
+             32,
+             33,
+             34,
+             35
+    );
+------------------------------------------------------------------------------------------------
+alz_solicitudes_procesos_motivos
+------------------------------------------------------------------------------------------------
+
+UPDATE alzada.alz_solicitudes_procesos_motivos
+SET fecha_registra =
+        (fecha_registra AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+
+------------------------------------------------------------------------------------------------
+alz_trazabilidad_solicitudes_procesos
+------------------------------------------------------------------------------------------------
+
+UPDATE alzada.alz_trazabilidad_solicitudes_procesos
+SET fecha_accion =
+        (fecha_accion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
+		
+
+UPDATE alzada.alz_trazabilidad_solicitudes_procesos
+SET fecha_accion = fecha_accion + interval '4 hours'
+WHERE id IN (61,
+             62,
+             63,
+             64,
+             65
+    );

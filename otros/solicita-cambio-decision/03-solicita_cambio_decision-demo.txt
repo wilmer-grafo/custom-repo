@@ -1,0 +1,93 @@
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'cgomez' THEN 124
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'cherrera' THEN 343
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'cvalencia' THEN 338
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'fmercado' THEN 213
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'ghilari' THEN 224
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'gmeriles' THEN 358
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'jcabero' THEN 368
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mamercado' THEN 263
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'maranda' THEN 265
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mgemio' THEN 275
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mmarin' THEN 274
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mrivas' THEN 375
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'msegales' THEN 384
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mtimm' THEN 381
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mvillcac' THEN 151
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'navendano' THEN 279
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'nherrera' THEN 386
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'rduran' THEN 395
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'rlinares' THEN 292
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'sferreira' THEN 307
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'vquisbert' THEN 163
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'wvaldez' THEN 402
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'pcondet' THEN 393
+            WHEN LTRIM(RTRIM(ct.u_solicita)) = 'tpenarrieta' THEN 400
+            ELSE 167
+    END)                             AS id_usuario_solicita,
+       7                             AS id_tramite,
+       (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0047/2022' THEN 8130
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0055/2022' THEN 8246
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0089/2022' THEN 8704
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0103/2022' THEN 8898
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0133/2021' THEN 9336
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0138/2021' THEN 9408
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0156/2021' THEN 9672
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0172/2021' THEN 9903
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0209/2021' THEN 10436
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0269/2021' THEN 11325
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0270/2021' THEN 11341
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0278/2021' THEN 11463
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0315/2021' THEN 12015
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0365/2021' THEN 12782
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0369/2021' THEN 12837
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0381/2021' THEN 12999
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0387/2021' THEN 13080
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0444/2021' THEN 13855
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0477/2021' THEN 14281
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0496/2021' THEN 14528
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0537/2021-1' THEN 15069
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0547/2021' THEN 15196
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0548/2021' THEN 15215
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0596/2021' THEN 15840
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0610/2021' THEN 16023
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0631/2021' THEN 16284
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0651/2021' THEN 16509
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0674/2021' THEN 16770
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0730/2021' THEN 17351
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0771/2021' THEN 17781
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-LPZ-0581/2021//ARIT-LPZ-0591/2021' THEN 15648
+           END)                      AS id_recurso_alzada,
+       ct.gestion                    AS gestion,
+       ct.f_solicita                 AS fecha_solicita,
+       ct.motivo_solicita            AS otro_motivo,
+       ct.id                         AS correlativo,
+       20                            AS estado,
+       (SELECT (
+                   CASE
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'ANULAR' THEN 4
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'COMFIRMAR' THEN 1
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'CONFIMAR' THEN 1
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'CONFIRMAR' THEN 1
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'REVOCAR PARCIALMENTE' THEN 2
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'REVOCAR TOTALMENTE' THEN 3
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'REVOCATORIA TOTAL' THEN 3
+                       END)
+        FROM expediente ex
+        WHERE ex.id_exp = ct.id_exp) AS id_decision_anterior,
+       (CASE
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'ANULAR' THEN 4
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'ANULATORIA' THEN 4
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'CONFIRMAR' THEN 1
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'CONFIRMATORIA' THEN 1
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCAR PARCIALMENTE' THEN 2
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCAR TOTALMENTE' THEN 3
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCATORIA TOTAL' THEN 3
+           END)                      AS id_decision_nueva
+
+FROM solicita_cambio_decision ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+  AND LEN(LTRIM(RTRIM(ct.nueva_decision))) > 1
+  AND LTRIM(RTRIM(ct.nueva_decision)) != 'revisiÃƒÂ³n exhaustiva del caso'
+ORDER BY ct.id;

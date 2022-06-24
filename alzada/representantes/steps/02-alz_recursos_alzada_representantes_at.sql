@@ -1,94 +1,363 @@
-EJEMPLO
+select numero_recurso_alzada, id from
+alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+'ARIT-CBA-0001/2021',
+'ARIT-CBA-0001/2022',
+'ARIT-CBA-0002/2021',
+'ARIT-CBA-0002/2022',
+'ARIT-CBA-0003/2022',
+'ARIT-CBA-0004/2021',
+'ARIT-CBA-0006/2021',
+'ARIT-CBA-0007/2021',
+'ARIT-CBA-0008/2021',
+'ARIT-CBA-0009/2021',
+'ARIT-CBA-0010/2021',
+'ARIT-CBA-0011/2022',
+'ARIT-CBA-0016/2021',
+'ARIT-CBA-0017/2021',
+'ARIT-CBA-0018/2021',
+'ARIT-CBA-0019/2021',
+'ARIT-CBA-0020/2021',
+'ARIT-CBA-0020/2022',
+'ARIT-CBA-0021/2021',
+'ARIT-CBA-0021/2022',
+'ARIT-CBA-0025/2022',
+'ARIT-CBA-0028/2021',
+'ARIT-CBA-0028/2022',
+'ARIT-CBA-0029/2021',
+'ARIT-CBA-0029/2022',
+'ARIT-CBA-0030/2021',
+'ARIT-CBA-0030/2022',
+'ARIT-CBA-0031/2021',
+'ARIT-CBA-0031/2022',
+'ARIT-CBA-0032/2022',
+'ARIT-CBA-0033/2021',
+'ARIT-CBA-0034/2021',
+'ARIT-CBA-0034/2021-1',
+'ARIT-CBA-0034/2022',
+'ARIT-CBA-0035/2022',
+'ARIT-CBA-0036/2021',
+'ARIT-CBA-0037/2021',
+'ARIT-CBA-0037/2022',
+'ARIT-CBA-0038/2021',
+'ARIT-CBA-0038/2022',
+'ARIT-CBA-0039/2021',
+'ARIT-CBA-0039/2022',
+'ARIT-CBA-0040/2021',
+'ARIT-CBA-0040/2022',
+'ARIT-CBA-0041/2021',
+'ARIT-CBA-0041/2022',
+'ARIT-CBA-0042/2021',
+'ARIT-CBA-0043/2021',
+'ARIT-CBA-0043/2022',
+'ARIT-CBA-0044/2021',
+'ARIT-CBA-0044/2022',
+'ARIT-CBA-0045/2021',
+'ARIT-CBA-0045/2022',
+'ARIT-CBA-0046/2021',
+'ARIT-CBA-0046/2022',
+'ARIT-CBA-0047/2021',
+'ARIT-CBA-0047/2022',
+'ARIT-CBA-0048/2021',
+'ARIT-CBA-0048/2022',
+'ARIT-CBA-0049/2021',
+'ARIT-CBA-0049/2022',
+'ARIT-CBA-0050/2021',
+'ARIT-CBA-0050/2022',
+'ARIT-CBA-0051/2021',
+'ARIT-CBA-0052/2021',
+'ARIT-CBA-0052/2022',
+'ARIT-CBA-0053/2021',
+'ARIT-CBA-0054/2021',
+'ARIT-CBA-0054/2022',
+'ARIT-CBA-0055/2021',
+'ARIT-CBA-0055/2022',
+'ARIT-CBA-0056/2021',
+'ARIT-CBA-0056/2022',
+'ARIT-CBA-0057/2022',
+'ARIT-CBA-0058/2022',
+'ARIT-CBA-0059/2021',
+'ARIT-CBA-0059/2022',
+'ARIT-CBA-0060/2021',
+'ARIT-CBA-0060/2022',
+'ARIT-CBA-0061/2021',
+'ARIT-CBA-0061/2021-1',
+'ARIT-CBA-0061/2022',
+'ARIT-CBA-0062/2022',
+'ARIT-CBA-0063/2021',
+'ARIT-CBA-0063/2021-1',
+'ARIT-CBA-0063/2022',
+'ARIT-CBA-0064/2021',
+'ARIT-CBA-0064/2022',
+'ARIT-CBA-0065/2021',
+'ARIT-CBA-0065/2022',
+'ARIT-CBA-0066/2021',
+'ARIT-CBA-0066/2022',
+'ARIT-CBA-0067/2021',
+'ARIT-CBA-0068/2021',
+'ARIT-CBA-0068/2021-1',
+'ARIT-CBA-0069/2021',
+'ARIT-CBA-0069/2022',
+'ARIT-CBA-0070/2021',
+'ARIT-CBA-0070/2022',
+'ARIT-CBA-0071/2021',
+'ARIT-CBA-0072/2021',
+'ARIT-CBA-0072/2022',
+'ARIT-CBA-0073/2021',
+'ARIT-CBA-0073/2022',
+'ARIT-CBA-0074/2021',
+'ARIT-CBA-0074/2022',
+'ARIT-CBA-0075/2021',
+'ARIT-CBA-0075/2022',
+'ARIT-CBA-0076/2021',
+'ARIT-CBA-0077/2022',
+'ARIT-CBA-0078/2021',
+'ARIT-CBA-0079/2021',
+'ARIT-CBA-0079/2022',
+'ARIT-CBA-0080/2021',
+'ARIT-CBA-0080/2022',
+'ARIT-CBA-0081/2021',
+'ARIT-CBA-0081/2022',
+'ARIT-CBA-0082/2021',
+'ARIT-CBA-0083/2021',
+'ARIT-CBA-0083/2021-1',
+'ARIT-CBA-0083/2021-2',
+'ARIT-CBA-0083/2022',
+'ARIT-CBA-0084/2021',
+'ARIT-CBA-0084/2022',
+'ARIT-CBA-0085/2021',
+'ARIT-CBA-0085/2021-1',
+'ARIT-CBA-0085/2021-2',
+'ARIT-CBA-0085/2022',
+'ARIT-CBA-0086/2021',
+'ARIT-CBA-0086/2022',
+'ARIT-CBA-0087/2021',
+'ARIT-CBA-0087/2021-1',
+'ARIT-CBA-0088/2021',
+'ARIT-CBA-0088/2022',
+'ARIT-CBA-0095/2021',
+'ARIT-CBA-0096/2021',
+'ARIT-CBA-0097/2021',
+'ARIT-CBA-0098/2021',
+'ARIT-CBA-0099/2021',
+'ARIT-CBA-0100/2021',
+'ARIT-CBA-0102/2021',
+'ARIT-CBA-0103/2021',
+'ARIT-CBA-0104/2021',
+'ARIT-CBA-0110/2021',
+'ARIT-CBA-0111/2021',
+'ARIT-CBA-0111/2021-1',
+'ARIT-CBA-0111/2021-2',
+'ARIT-CBA-0112/2021',
+'ARIT-CBA-0113/2021',
+'ARIT-CBA-0114/2021',
+'ARIT-CBA-0115/2021',
+'ARIT-CBA-0116/2021',
+'ARIT-CBA-0117/2021',
+'ARIT-CBA-0118/2021',
+'ARIT-CBA-0118/2021-1',
+'ARIT-CBA-0122/2021',
+'ARIT-CBA-0123/2021',
+'ARIT-CBA-0124/2021',
+'ARIT-CBA-0125/2021',
+'ARIT-CBA-0126/2021',
+'ARIT-CBA-0126/2021-1',
+'ARIT-CBA-0127/2021',
+'ARIT-CBA-0129/2021',
+'ARIT-CBA-0131/2021',
+'ARIT-CBA-0132/2021',
+'ARIT-CBA-0133/2021',
+'ARIT-CBA-0133/2021-1',
+'ARIT-CBA-0134/2021',
+'ARIT-CBA-0135/2021',
+'ARIT-CBA-0136/2021',
+'ARIT-CBA-0137/2021',
+'ARIT-CBA-0138/2021',
+'ARIT-CBA-0139/2021',
+'ARIT-CBA-0140/2021',
+'ARIT-CBA-0141/2021',
+'ARIT-CBA-0141/2021-1',
+'ARIT-CBA-0141/2021-2',
+'ARIT-CBA-0142/2021',
+'ARIT-CBA-0143/2021',
+'ARIT-CBA-0144/2021',
+'ARIT-CBA-0145/2021',
+'ARIT-CBA-0146/2021',
+'ARIT-CBA-0147/2021',
+'ARIT-CBA-0148/2021',
+'ARIT-CBA-0150/2021',
+'ARIT-CBA-0151/2021',
+'ARIT-CBA-0151/2021-1',
+'ARIT-CBA-0152/2021',
+'ARIT-CBA-0156/2021',
+'ARIT-CBA-0157/2021',
+'ARIT-CBA-0158/2021',
+'ARIT-CBA-0159/2021',
+'ARIT-CBA-0160/2021',
+'ARIT-CBA-0160/2021-1',
+'ARIT-CBA-0164/2021',
+'ARIT-CBA-0165/2021',
+'ARIT-CBA-0166/2021',
+'ARIT-CBA-0167/2021',
+'ARIT-CBA-0168/2021',
+'ARIT-CBA-0170/2021',
+'ARIT-CBA-0170/2021-1',
+'ARIT-CBA-0170/2021-2',
+'ARIT-CBA-0171/2021',
+'ARIT-CBA-0172/2021',
+'ARIT-CBA-0173/2021',
+'ARIT-CBA-0173/2021-1',
+'ARIT-CBA-0174/2021',
+'ARIT-CBA-0175/2021',
+'ARIT-CBA-0176/2021',
+'ARIT-CBA-0177/2021',
+'ARIT-CBA-0178/2021',
+'ARIT-CBA-0180/2021',
+'ARIT-CBA-0181/2021',
+'ARIT-CBA-0182/2021',
+'ARIT-CBA-0182/2021-1',
+'ARIT-CBA-0184/2021',
+'ARIT-CBA-0188/2021',
+'ARIT-CBA-0189/2021',
+'ARIT-CBA-0190/2021',
+'ARIT-CBA-0191/2021',
+'ARIT-CBA-0193/2021',
+'ARIT-CBA-0194/2021',
+'ARIT-CBA-0195/2021',
+'ARIT-CBA-0195/2021-1',
+'ARIT-CBA-0197/2021',
+'ARIT-CBA-0198/2021',
+'ARIT-CBA-0199/2021',
+'ARIT-CBA-0201/2021',
+'ARIT-CBA-0202/2021',
+'ARIT-CBA-0202/2021-1',
+'ARIT-CBA-0203/2021',
+'ARIT-CBA-0204/2021',
+'ARIT-CBA-0207/2021',
+'ARIT-CBA-0210/2021',
+'ARIT-CBA-0211/2021',
+'ARIT-CBA-0212/2021',
+'ARIT-CBA-0213/2021',
+'ARIT-CBA-0215/2021',
+'ARIT-CBA-0216/2021',
+'ARIT-CBA-0216/2021-1',
+'ARIT-CBA-0217/2021',
+'ARIT-CBA-0218/2021',
+'ARIT-CBA-0219/2021',
+'ARIT-CBA-0220/2021',
+'ARIT-CBA-0222/2021',
+'ARIT-CBA-0224/2021',
+'ARIT-CBA-0225/2021',
+'ARIT-CBA-0226/2021',
+'ARIT-CBA-0227/2021',
+'ARIT-CBA-0230/2021',
+'ARIT-CBA-0230/2021-1',
+'ARIT-CBA-0231/2021',
+'ARIT-CBA-0233/2021',
+'ARIT-CBA-0234/2021',
+'ARIT-CBA-0238/2021',
+'ARIT-CBA-0238/2021-1',
+'ARIT-CBA-0239/2021',
+'ARIT-CBA-0241/2021',
+'ARIT-CBA-0241/2021-1',
+'ARIT-CBA-0242/2021',
+'ARIT-CBA-0243/2021',
+'ARIT-CBA-0247/2021',
+'ARIT-CBA-0248/2021',
+'ARIT-CBA-0249/2021',
+'ARIT-CBA-0250/2021',
+'ARIT-CBA-0251/2021',
+'ARIT-CBA-0252/2021',
+'ARIT-CBA-0253/2021',
+'ARIT-CBA-0254/2021',
+'ARIT-CBA-0255/2021',
+'ARIT-CBA-0256/2021',
+'ARIT-CBA-0260/2021',
+'ARIT-CBA-0261/2021',
+'ARIT-CBA-0262/2021',
+'ARIT-CBA-0262/2021-1',
+'ARIT-CBA-0262/2021-2',
+'ARIT-CBA-0263/2021',
+'ARIT-CBA-0264/2021',
+'ARIT-CBA-0264/2021-1',
+'ARIT-CBA-0265/2021',
+'ARIT-CBA-0267/2021',
+'ARIT-CBA-0270/2021',
+'ARIT-CBA-0270/2021-1',
+'ARIT-CBA-0271/2021',
+'ARIT-CBA-0272/2021',
+'ARIT-CBA-0273/2021',
+'ARIT-CBA-0275/2021',
+                               'ARIT-CBA-0237/2021',
+'ARIT-CBA-0237/2021-1',
+'ARIT-CBA-0245/2021',
+'ARIT-CBA-0258/2021',
+'ARIT-CBA-0268/2021',
+'ARIT-CBA-0269/2021'
 
-SELECT (CASE
-    END
-           )     AS id_recurso_alzada,
-       (CASE
-        END)      AS id_representante_at,
-       GETDATE() AS fecha_registra,
-       NULL      AS id_usuario_modifica,
-       NULL      AS fecha_modifica,
-       1         AS id_usuario_registra,
-       1         AS estado
-FROM TSS_RECURSOS_ALZADA
-WHERE LEN(LTRIM(RTRIM(c_Nombre_Representante_AT))) > 1
-  AND (
-        (C_Nro_Expediente LIKE 'ARIT-BEN-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-BEN-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-CBA-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-CBA-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-CHQ-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-CHQ-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-ORU-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-ORU-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-PND-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-PND-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-PTS-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-PTS-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-TJA-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-TJA-%/2022%')
     )
-ORDER BY C_Nro_Expediente;
-
-TOTAL OPCIONAL
-
-SELECT C_Nro_Expediente, LTRIM(RTRIM(c_Nombre_Representante_AT)) AS c_Nombre_Representante_AT
-FROM TSS_RECURSOS_ALZADA
-WHERE LEN(LTRIM(RTRIM(c_Nombre_Representante_AT))) > 1
-  AND (
-        (C_Nro_Expediente LIKE 'ARIT-BEN-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-BEN-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-CBA-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-CBA-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-CHQ-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-CHQ-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-ORU-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-ORU-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-PND-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-PND-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-PTS-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-PTS-%/2022%')
-        OR (C_Nro_Expediente LIKE 'ARIT-TJA-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-TJA-%/2022%')
-    )
-ORDER BY C_Nro_Expediente;
-
-
--- OR (C_Nro_Expediente LIKE 'ARIT-LPZ-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-LPZ-%/2022%')
--- OR (C_Nro_Expediente LIKE 'ARIT-SCZ-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-SCZ-%/2022%')
-
-OBTENER REC ALZ PG
-
-select numero_recurso_alzada, id
-from alzada.alz_recursos_alzada
-where (numero_recurso_alzada ilike 'ARIT-BEN-%/2021%' OR numero_recurso_alzada ilike 'ARIT-BEN-%/2022%')
-   OR (numero_recurso_alzada ilike 'ARIT-CBA-%/2021%' OR numero_recurso_alzada ilike 'ARIT-CBA-%/2022%')
-   or (numero_recurso_alzada ilike 'ARIT-CHQ-%/2021%' OR numero_recurso_alzada ilike 'ARIT-CHQ-%/2022%')
-   or (numero_recurso_alzada ilike 'ARIT-ORU-%/2021%' OR numero_recurso_alzada ilike 'ARIT-ORU-%/2022%')
-   or (numero_recurso_alzada ilike 'ARIT-PND-%/2021%' OR numero_recurso_alzada ilike 'ARIT-PND-%/2022%')
-   or (numero_recurso_alzada ilike 'ARIT-PTS-%/2021%' OR numero_recurso_alzada ilike 'ARIT-PTS-%/2022%')
-   or (numero_recurso_alzada ilike 'ARIT-TJA-%/2021%' OR numero_recurso_alzada ilike 'ARIT-TJA-%/2022%')
 order by numero_recurso_alzada;
 
-ARMAR
-LTRIM(RTRIM(C_Nro_Expediente))
 
 
 
-GET REPRESENTANTES EN SQL SERVER
-
-SELECT temp.c_Nombre_Representante_AT, 1 AS id
-FROM (SELECT LTRIM(RTRIM(c_Nombre_Representante_AT)) AS c_Nombre_Representante_AT
-      FROM TSS_RECURSOS_ALZADA
-      WHERE LEN(LTRIM(RTRIM(c_Nombre_Representante_AT))) > 1
-        AND (
-              (C_Nro_Expediente LIKE 'ARIT-BEN-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-BEN-%/2022%')
-              OR (C_Nro_Expediente LIKE 'ARIT-CBA-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-CBA-%/2022%')
-              OR (C_Nro_Expediente LIKE 'ARIT-CHQ-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-CHQ-%/2022%')
-              OR (C_Nro_Expediente LIKE 'ARIT-ORU-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-ORU-%/2022%')
-              OR (C_Nro_Expediente LIKE 'ARIT-PND-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-PND-%/2022%')
-              OR (C_Nro_Expediente LIKE 'ARIT-PTS-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-PTS-%/2022%')
-              OR (C_Nro_Expediente LIKE 'ARIT-TJA-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-TJA-%/2022%')
-          )
-      GROUP BY c_Nombre_Representante_AT
-     ) AS temp
-ORDER BY temp.c_Nombre_Representante_AT;
-
-PEGAR LOS NOMBRES COMPLETOS EN IN
-
-select nombre_completo, id
+select temp.nombre_completo,
+       temp.id_represntante
+from (select
+       nombre_completo,
+                id_subadministracion_tributaria,
+                max(id) as id_represntante
 from alzada.alz_representantes_at
-where nombre_completo in(
+where
+(nombre_completo='ADRIANA MENDOZA LEDEZMA' AND id_subadministracion_tributaria=83) OR
+(nombre_completo='AGAPO FERRUFINO SANCHEZ' AND id_subadministracion_tributaria=6) OR
+(nombre_completo='DARIO SAAVEDRA NUÑEZ' AND id_subadministracion_tributaria=175) OR
+(nombre_completo='EDWAR HENRY GARCIA FLORES' AND id_subadministracion_tributaria=172) OR
+(nombre_completo='ELIZABETH LEDEZMA CORNEJO' AND id_subadministracion_tributaria=124) OR
+(nombre_completo='ELMER ROJAS MERCADO' AND id_subadministracion_tributaria=135) OR
+(nombre_completo='FERNANDO PLAUTO CRESPO COCA' AND id_subadministracion_tributaria=169) OR
+(nombre_completo='GABY GUZMAN SORIA' AND id_subadministracion_tributaria=83) OR
+(nombre_completo='GUALBERTO CHAVEZ MAMANI' AND id_subadministracion_tributaria=169) OR
+(nombre_completo='LUIS RENE VARGAS RODRIGUEZ' AND id_subadministracion_tributaria=83) OR
+(nombre_completo='MARCOS ANDRES CUEVAS GUTIERREZ' AND id_subadministracion_tributaria=20) OR
+(nombre_completo='MARCOS ANDRES CUEVAS GUTIERREZ' AND id_subadministracion_tributaria=165) OR
+(nombre_completo='MARIO VLADIMIR MOREIRA ARIAS' AND id_subadministracion_tributaria=16) OR
+(nombre_completo='MAURO VARGAS CALVIMONTE' AND id_subadministracion_tributaria=16) OR
+(nombre_completo='MILTON ERIC POOL SOTOMAYOR' AND id_subadministracion_tributaria=16) OR
+(nombre_completo='MILTON JESUS ROJAS CLAROS' AND id_subadministracion_tributaria=20) OR
+(nombre_completo='MIRIAM PATRICIA ROMERO BALDIVIEZO' AND id_subadministracion_tributaria=83) OR
+(nombre_completo='MIRIAM PATRICIA ROMERO BALDIVIEZO Y LUIS RENE VARGAS RODRIGUEZ' AND id_subadministracion_tributaria=83) OR
+(nombre_completo='MIRIAM PATRICIA ROMERO BALDIVIEZO Y ROCIO VIOLETA RETAMOZO ZAMBRANA' AND id_subadministracion_tributaria=83) OR
+(nombre_completo='RICARDO OMAR NEMER' AND id_subadministracion_tributaria=119) OR
+(nombre_completo='RICHARD COSSIO BELTRAN' AND id_subadministracion_tributaria=16) OR
+(nombre_completo='RICHARD OSCAR JORGE MERCADO' AND id_subadministracion_tributaria=83) OR
+(nombre_completo='ROSMERY VILLACORTA GUZMAN' AND id_subadministracion_tributaria=2) OR
+(nombre_completo='SIXTA MARIA SONIA ROJAS ZAMBRANA' AND id_subadministracion_tributaria=83) OR
+(nombre_completo='WILLIAM ROJAS MUNGUIA' AND id_subadministracion_tributaria=83) OR
+(nombre_completo='WILLIAM ROJAS MUNGUÍA' AND id_subadministracion_tributaria=83) OR
+(nombre_completo='WILMA SANTUSA LAIME MENDOZA' AND id_subadministracion_tributaria=160) OR
+(nombre_completo='WILSON ESPINOZA CAMACHO' AND id_subadministracion_tributaria=20) OR
+(nombre_completo='MIRIAM PATRICIA ROMERO BALDIVIEZO, LUIS RENE VARGAS RODRIGUEZ Y RICHARD OSCAR JORGE MERCADO' AND id_subadministracion_tributaria=83)
+group by nombre_completo, id_subadministracion_tributaria) as temp
+order by temp.nombre_completo;
 
-    )
-order by nombre_completo;
 
-ARMAR
+EN POSTGRES
+select (select ra.numero_recurso_alzada from alzada.alz_recursos_alzada ra where ra.id = rec_at.id_recurso_alzada) as numero_recurso_alzada,
+       (select rep.nombre_completo from alzada.alz_representantes_at as rep where rep.id= rec_at.id_representante_at) as nombre_completo,
+(select repe.id_subadministracion_tributaria from alzada.alz_representantes_at as repe where repe.id= rec_at.id_representante_at) as id_subadministracion_tributaria
+from alzada.alz_recursos_alzada_representantes_at as rec_at
+order by numero_recurso_alzada;
 
-LTRIM(RTRIM(C_Nombre_Representante_AT))
+
+SELECT DISTINCT ra.C_Nro_Expediente,
+       rat.c_nombre_representante,
+       rat.N_Codigo_Subadm_Tri
+FROM TSS_REPRESENTANTES_AT rat
+INNER JOIN TSS_RECURSOS_ALZADA ra ON
+    (LTRIM(RTRIM(rat.c_nombre_representante)) = LTRIM(RTRIM(ra.c_Nombre_Representante_AT))
+        AND ra.N_Codigo_Subadm_Tri=rat.N_Codigo_Subadm_Tri)
+WHERE (ra.C_Nro_Expediente LIKE 'ARIT-CBA-%/2021%' OR ra.C_Nro_Expediente LIKE 'ARIT-CBA-%/2022%')
+AND LEN(LTRIM(RTRIM(ra.c_Nombre_Representante_AT))) > 1
+ORDER BY ra.C_Nro_Expediente;
+

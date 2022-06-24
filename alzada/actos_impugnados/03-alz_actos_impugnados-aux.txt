@@ -1,0 +1,29 @@
+SELECT ra.N_Codigo_Acto          AS id_tipo_acto,
+       LTRIM(RTRIM(ra.C_Numero)) AS numero_acto,
+       NULL                   AS cite_acto,
+       ra.D_Fecha_Emision        AS fecha_emision,
+       ra.D_Fecha_Notificacion   AS fecha_notificacion,
+       1                      AS estado,
+       1                      AS id_usuario_registra,
+       GETDATE()              AS fecha_registra,
+       NULL                   AS id_usuario_modifica,
+       NULL                   AS fecha_modifica,
+       (CASE
+           WHEN LTRIM(RTRIM(ra.C_Nro_Expediente))='ARIT-LPZ-0757/2021-1' THEN 39988
+WHEN LTRIM(RTRIM(ra.C_Nro_Expediente))='ARIT-LPZ-0758/2021-1' THEN 39989
+WHEN LTRIM(RTRIM(ra.C_Nro_Expediente))='ARIT-LPZ-0759/2021-1' THEN 39990
+WHEN LTRIM(RTRIM(ra.C_Nro_Expediente))='ARIT-LPZ-0762/2021-1' THEN 39991
+WHEN LTRIM(RTRIM(ra.C_Nro_Expediente))='ARIT-LPZ-0763/2021-1' THEN 39992
+
+           END)               AS id_recurso_alzada,
+       NULL                   AS observaciones
+FROM TSS_ACTOS_IMPUGNADOS AS ra
+WHERE LTRIM(RTRIM(ra.C_Nro_Expediente)) IN (
+    'ARIT-LPZ-0757/2021-1',
+'ARIT-LPZ-0758/2021-1',
+'ARIT-LPZ-0759/2021-1',
+'ARIT-LPZ-0762/2021-1',
+'ARIT-LPZ-0763/2021-1'
+
+    )
+ORDER BY ra.C_Nro_Expediente;

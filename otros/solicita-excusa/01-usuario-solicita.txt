@@ -1,0 +1,15 @@
+SELECT DISTINCT u_solicita, 1 AS d
+FROM solicitud_excusa
+ORDER BY u_solicita;
+
+ARMAR
+LTRIM(RTRIM(ct.u_solicita))
+
+select login, id from seguridad.seg_usuarios
+where login in (
+
+    )
+order by login;
+
+
+

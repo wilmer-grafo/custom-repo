@@ -1,3 +1,87 @@
+1ro
+parametricas.par_tipos_articulos
+parametricas.par_tipos_preposicion
+parametricas.par_tipos_super_administracion
+------------------------------------------------
+parametricas.par_administraciones_tributarias
+------------------------------------------------
+
+2do
+------------------------------------------------
+parametricas.par_subadministraciones_tributarias
+------------------------------------------------
+
+3ro
+parametricas.par_medios_recepcion
+parametricas.par_tipos_demandante
+parametricas.par_tipos_documentos
+seguridad.seg_regiones
+parametricas.par_tipos_respuestas_administracion
+parametricas.par_tipos_resoluciones
+parametricas.par_tipos_procesos_centrales
+parametricas.par_resultados_anulacion
+------------------------------------------------
+alzada.alzada.alz_recursos_alzada DDL
+------------------------------------------------
+
+4to
+parametricas.par_tipos_actos
+------------------------------------------------
+alzada.alz_actos_impugnados DDL
+------------------------------------------------
+
+5to
+parametricas.par_motivos_memorial DDL
+------------------------------------------------
+comunes.memoriales
+------------------------------------------------
+
+6to
+------------------------------------------------
+alzada.alz_interposiciones_jerarquico DDL
+------------------------------------------------
+
+7mo
+parametricas.par_tipos_notificaciones
+parametricas.par_tipos_actuaciones
+------------------------------------------------
+alzada.alz_actuaciones DDL
+------------------------------------------------
+
+8vo
+parametricas.par_tipos_notificaciones
+parametricas.par_tipos_actuaciones
+------------------------------------------------
+alzada.alz_notificaciones DDL
+------------------------------------------------
+
+9no
+parametricas.par_tipos_impuestos
+------------------------------------------------
+alzada.alz_montos_alzada DDL
+------------------------------------------------
+
+10mo
+------------------------------------------------
+alzada.alz_representantes_at DDL
+------------------------------------------------
+
+11vo
+------------------------------------------------
+alzada.alz_recursos_alzada_representantes_at DDL
+------------------------------------------------
+
+12vo
+------------------------------------------------
+alzada.alz_representantes_sp DDL
+------------------------------------------------
+
+13vo
+------------------------------------------------
+alzada.alz_recursos_alzada_representantes_sp DDL
+------------------------------------------------
+
+
 POR DEFECTO
 -----------
 

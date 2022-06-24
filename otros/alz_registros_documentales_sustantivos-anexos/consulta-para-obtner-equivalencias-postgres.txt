@@ -1,0 +1,27 @@
+select concat(aux.numero_recurso_alzada, ';', aux.id_usuario_origen, ';', aux.id_usuario_destino, ';',
+              to_char(aux.fecha_recepcion, 'YYYY-MM-DD HH24:MI:SS')) as dato,
+       aux.id                                                        as valor
+from (select (select ra.numero_recurso_alzada
+              from alzada.alz_recursos_alzada ra
+              where ra.id = rds.id_recurso_alzada)         as numero_recurso_alzada,
+             (select u.login
+              from seguridad.seg_usuarios u
+              where u.id_persona = rds.id_usuario_origen)  as id_usuario_origen,
+             (select u.login
+              from seguridad.seg_usuarios u
+              where u.id_persona = rds.id_usuario_destino) as id_usuario_destino,
+             rds.fecha_recepcion,
+             rds.id
+      from alzada.alz_registros_documentales_sustantivos as rds
+      where rds.id_recurso_alzada in
+            (select id
+             from alzada.alz_recursos_alzada
+             where id in (
+                 select temp.id
+                 from (select numero_recurso_alzada,
+                              id
+                       from alzada.alz_recursos_alzada
+                       where numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%'
+                       order by numero_recurso_alzada) as temp
+             ))) as aux
+order by aux.id;

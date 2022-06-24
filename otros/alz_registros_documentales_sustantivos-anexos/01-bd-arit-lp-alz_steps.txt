@@ -1,45 +1,34 @@
 --TOTAL
 SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
 FROM control_tiempo
-WHERE id_exp LIKE 'ARIT-LPZ-%/2015%'
+WHERE id_exp LIKE 'ARIT-LPZ-%/2021%'
 ORDER BY id;
-
---POR CEPARADO
+--POR ruta_pro
 SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
 FROM control_tiempo
-WHERE id_exp LIKE 'ARIT-LPZ-0145/2016%'
+WHERE id_exp LIKE 'ARIT-LPZ-%/2021%'
 AND ((LEN(ruta_pro) > 0 AND  LEN(ruta_inf) = 0))
 ORDER BY id;
-
---POR CEPARADO
+--POR ruta_inf
 SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
 FROM control_tiempo
-WHERE id_exp LIKE 'ARIT-LPZ-0145/2016%'
+WHERE id_exp LIKE 'ARIT-LPZ-%/2021%'
 AND (LEN(ruta_pro) = 0 AND  LEN(ruta_inf) > 0)
 ORDER BY id;
-
-
--- TODOS
+--AMBOS ruta_pro y ruta_inf
 SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
 FROM control_tiempo
-WHERE id_exp LIKE 'ARIT-LPZ-%/2016%'
+WHERE id_exp LIKE 'ARIT-LPZ-%/2021%'
 AND (LEN(ruta_pro) > 0 AND  LEN(ruta_inf) > 0 )
 ORDER BY id;
--- UNION
-SELECT fd.* FROM (SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
-FROM control_tiempo
-WHERE id_exp LIKE 'ARIT-LPZ-0233/2016%'
-AND (LEN(ruta_pro) > 0 AND  LEN(ruta_inf) > 0)
-UNION ALL
+--VACIO ruta_pro y ruta_inf
 SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
 FROM control_tiempo
-WHERE id_exp LIKE 'ARIT-LPZ-0233/2016%'
-AND (LEN(ruta_pro) > 0 AND  LEN(ruta_inf) > 0 )) AS fd
-ORDER BY fd.id;
-
--- TODOS VACIO
-SELECT id, origen, destino, id_exp, ruta_pro, ruta_inf
-FROM control_tiempo
-WHERE id_exp LIKE 'ARIT-LPZ-%/2016%'
+WHERE id_exp LIKE 'ARIT-LPZ-%/2021%'
 AND (LEN(ruta_pro) = 0 AND  LEN(ruta_inf) = 0 )
 ORDER BY id;
+
+
+1ro el martes
+luego el tra-vie
+despues importar el csv

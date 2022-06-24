@@ -1,0 +1,116 @@
+-- obtener los expedientes <= 20, SQL SERVER 
+
+SELECT dd.id_exp, 1 AS id
+FROM (SELECT LTRIM(RTRIM(id_exp)) as id_exp
+      FROM reg_aclaracion
+      WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+        AND LEN(id_exp) <= 20
+      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
+ORDER BY dd.id_exp;
+
+-- obtener los id's de los expedientes, PG
+
+select numero_recurso_alzada, id
+FROM alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+
+    )
+order by numero_recurso_alzada;
+
+
+ARMAR
+LTRIM(RTRIM(ct.id_exp))
+
+OPCIONAL
+
+-- obtener los expedientes > 20, SQL SERVER 
+
+SELECT (CASE
+            WHEN LEN(LTRIM(RTRIM(dd.id_exp))) > 20 THEN SUBSTRING(LTRIM(RTRIM(id_exp)), 0,
+                                                                  CHARINDEX('//', LTRIM(RTRIM(id_exp))))
+            ELSE LTRIM(RTRIM(dd.id_exp))
+    END) AS exp,
+       1 AS id
+FROM (SELECT LTRIM(RTRIM(id_exp)) AS id_exp
+      FROM reg_aclaracion
+      WHERE SUBSTRING(LTRIM(RTRIM(id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(id_exp)))) LIKE 'ARIT-LPZ-%/2022%'
+        AND LEN(LTRIM(RTRIM(id_exp))) > 20
+      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
+ORDER BY dd.id_exp;
+
+
+-- obtener los id's de los expedientes, PG
+
+select numero_recurso_alzada, id
+FROM alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+
+    )
+order by numero_recurso_alzada;
+
+-- armar con estos valores
+SELECT  dd.id_exp, 1 AS id
+FROM (SELECT LTRIM(RTRIM(id_exp)) AS id_exp
+      FROM reg_aclaracion
+      WHERE SUBSTRING(LTRIM(RTRIM(id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(id_exp)))) LIKE 'ARIT-LPZ-%/2021%'
+        AND LEN(id_exp) > 20
+      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
+ORDER BY dd.id_exp;
+
+ARMAR
+LTRIM(RTRIM(ct.id_exp))
+
+ARIT-LPZ-0244/2016//ARIT-LPZ-0243/2016//ARIT-LPZ-0304/2016,10442
+
+DEMO QUERY
+
+SELECT (CASE
+
+    END)                                          AS id_recurso_alzada,
+       NULL                                       AS id_memorial,
+       ('ARIT-RA-' + (
+           CASE
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 1 THEN '000' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 2 THEN '00' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 3 THEN '0' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 4 THEN LTRIM(RTRIM(ct.correlativo))
+               END
+           ) + '/' + CAST(ct.gestion AS VARCHAR)) as numero_auto_motivado,
+       (CASE
+            WHEN ct.f_liberacion = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_liberacion
+           END)                                   AS fecha_liberacion,
+       20                                         AS estado,
+       NULL                                       AS fecha_entrega
+FROM reg_aclaracion AS ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+ORDER BY id;
+
+GET ID MEMORIAL
+
+SELECT dd.id_exp, 1 AS id
+FROM (SELECT LTRIM(RTRIM(id_exp)) as id_exp
+      FROM reg_aclaracion
+      WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+        AND LEN(id_exp) <= 20
+      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
+ORDER BY dd.id_exp;
+
+
+select (select ra.numero_recurso_alzada
+        from alzada.alz_recursos_alzada ra
+        where ra.id = temp.id_recurso_alzada) as numero_recurso_alzada,
+       temp.id                                as id_memorial
+from (select id_recurso_alzada, id
+      from comunes.memoriales
+      where id_recurso_alzada in (
+          select id
+          from alzada.alz_recursos_alzada
+          where numero_recurso_alzada in (
+
+              )
+      ) and id_motivo_memorial in (15, 29)) AS temp
+order by numero_recurso_alzada;
+
+ARMAR
+LTRIM(RTRIM(ct.id_exp))

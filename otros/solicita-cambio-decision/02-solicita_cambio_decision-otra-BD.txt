@@ -1,0 +1,75 @@
+--
+SELECT temp.C_Nro_Expediente, 1 AS id
+FROM (SELECT LTRIM(RTRIM(ct.id_exp)) AS C_Nro_Expediente
+      FROM solicita_cambio_decision ct
+      WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR
+             LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+        AND LEN(LTRIM(RTRIM(id_exp))) <= 20
+      GROUP BY LTRIM(RTRIM(ct.id_exp))) AS temp
+ORDER BY temp.C_Nro_Expediente;
+
+--  
+select numero_recurso_alzada, id
+FROM alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+
+    )
+order by numero_recurso_alzada;
+
+
+ARMAR
+LTRIM(RTRIM(ct.id_exp))
+
+
+SELECT (CASE
+            WHEN LEN(LTRIM(RTRIM(dd.id_exp))) > 20 THEN SUBSTRING(LTRIM(RTRIM(id_exp)), 0,
+                                                                  CHARINDEX('//', LTRIM(RTRIM(id_exp))))
+            ELSE LTRIM(RTRIM(dd.id_exp))
+    END) AS exp,
+       1 AS id
+FROM (SELECT LTRIM(RTRIM(id_exp)) AS id_exp
+      FROM solicita_cambio_decision
+      WHERE (
+                  SUBSTRING(LTRIM(RTRIM(id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(id_exp)))) LIKE 'ARIT-LPZ-%/2021%' OR
+                  SUBSTRING(LTRIM(RTRIM(id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(id_exp)))) LIKE 'ARIT-LPZ-%/2022%'
+          )
+        AND LEN(LTRIM(RTRIM(id_exp))) > 20
+      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
+ORDER BY dd.id_exp;
+
+
+select numero_recurso_alzada, id
+FROM alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+
+    )
+order by numero_recurso_alzada;
+
+-- ARMAR CON ESTOS VALORES
+
+SELECT  LTRIM(RTRIM(dd.id_exp)), 1 AS id
+FROM (SELECT id_exp
+      FROM solicita_cambio_decision
+      WHERE (
+          SUBSTRING(LTRIM(RTRIM(id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(id_exp)))) LIKE 'ARIT-LPZ-%/2021%' OR
+          SUBSTRING(LTRIM(RTRIM(id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(id_exp)))) LIKE 'ARIT-LPZ-%/2022%'
+          )
+        AND LEN(id_exp) > 20
+      GROUP BY id_exp) AS dd
+ORDER BY dd.id_exp;
+
+ARMAR
+LTRIM(RTRIM(ct.id_exp))
+
+ARIT-LPZ-0244/2016//ARIT-LPZ-0243/2016//ARIT-LPZ-0304/2016,10442
+
+
+-- MOTIVOS
+
+SELECT DISTINCT decision, 1 AS d
+FROM expediente
+WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+  AND LEN(decision) > 1;
+
+ARMAR
+LTRIM(RTRIM(ct.nueva_decision))

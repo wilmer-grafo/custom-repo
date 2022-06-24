@@ -1,7 +1,51 @@
 https://convertio.co/es/xlsx-csv/
 
-importar 
-representantes.csv
+--PRIMERO OBTENER LOS EXPEDIENTES DE LOS REPRESENTANTES - SQL SERVER
 
-modificar
-Result_645-representantes.xlsx
+SELECT C_Nro_Expediente, LTRIM(RTRIM(C_Representante)) AS C_Representante
+FROM TSS_RECURSOS_ALZADA
+WHERE LEN(LTRIM(RTRIM(C_Representante))) > 2
+AND (C_Nro_Expediente LIKE 'ARIT-BEN-%/2021%' OR C_Nro_Expediente LIKE 'ARIT-BEN-%/2022%')
+ORDER BY C_Nro_Expediente;
+
+EL RESULTADO LLEVAR AL IN PARA POSTGRES
+
+select numero_recurso_alzada, id from
+alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+
+    )
+order by numero_recurso_alzada;
+
+ARMAR
+LTRIM(RTRIM(C_Nro_Expediente))
+
+
+PEGAR LOS NOMBRES COMPLETOS EN IN
+
+select nombre_completo, max(id)
+from alzada.alz_representantes_at
+where nombre_completo in (
+
+)
+and estado = 1
+group by nombre_completo
+order by nombre_completo;
+
+BUSCAR Y/O CREAR EL NOMBRE QUE NO EXISTE
+
+ARMAR
+
+LTRIM(RTRIM(C_Representante))
+
+
+
+select nombre_completo, max(id) from alzada.alz_representantes_sp
+where nombre_completo in (
+
+
+    )
+group by nombre_completo
+order by nombre_completo;
+
+
