@@ -1,0 +1,114 @@
+-- obtener los expedientes SQL SERVER 
+
+SELECT dd.id_exp, 1 AS id
+FROM (SELECT (CASE
+                  WHEN LEN(LTRIM(RTRIM(id_exp))) > 20 THEN SUBSTRING(LTRIM(RTRIM(id_exp)), 0,
+                                                                     CHARINDEX('//', LTRIM(RTRIM(id_exp))))
+                  ELSE LTRIM(RTRIM(id_exp))
+    END) as id_exp
+      FROM reg_aclaracion
+      WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+             LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
+ORDER BY dd.id_exp;
+
+============================================================
+
+
+-- obtener los id's de los expedientes, PG
+
+select numero_recurso_alzada, id
+FROM alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+
+    )
+order by numero_recurso_alzada;
+
+=============================================
+
+ARMAR
+LTRIM(RTRIM(ct.id_exp))
+
+
+GET ID MEMORIAL, POSTGRESQL
+---------------------------
+
+select (select ra.numero_recurso_alzada
+        from alzada.alz_recursos_alzada ra
+        where ra.id = temp.id_recurso_alzada) as numero_recurso_alzada,
+       temp.id                                as id_memorial
+from (select id_recurso_alzada, id
+      from comunes.memoriales
+      where id_recurso_alzada in (
+          select id
+          from alzada.alz_recursos_alzada
+          where (numero_recurso_alzada ilike 'ARIT-CHQ-%/2021%' or
+                 numero_recurso_alzada ilike 'ARIT-CHQ-%/2022%')
+          order by numero_recurso_alzada
+      )
+        and id_motivo_memorial in (15, 29)) AS temp
+order by numero_recurso_alzada;
+
+ARMAR
+LTRIM(RTRIM(ct.id_exp))
+
+============================================================
+
+DEMO QUERY
+----------
+
+SELECT (CASE
+    END)                                          AS id_recurso_alzada,
+       (CASE
+           END)                                   AS id_memorial,
+       ('ARIT-RA-' + (
+           CASE
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 1 THEN '000' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 2 THEN '00' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 3 THEN '0' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 4 THEN LTRIM(RTRIM(ct.correlativo))
+               END
+           ) + '/' + CAST(ct.gestion AS VARCHAR)) as numero_auto_motivado,
+       (CASE
+            WHEN ct.f_liberacion = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_liberacion
+           END)                                   AS fecha_liberacion,
+       20                                         AS estado,
+       ct.f_registro                              AS fecha_entrega
+FROM reg_aclaracion AS ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+ORDER BY id;
+
+
+
+RUN QUERY
+----------
+
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-CHQ-0010/2021' THEN 6468
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-CHQ-0011/2021' THEN 6480
+    END)                                          AS id_recurso_alzada,
+       (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-CHQ-0010/2021' THEN 5388
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-CHQ-0011/2021' THEN 5395
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-CHQ-0012/2021' THEN 5407
+           END)                                   AS id_memorial,
+       ('ARIT-RA-' + (
+           CASE
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 1 THEN '000' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 2 THEN '00' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 3 THEN '0' + LTRIM(RTRIM(ct.correlativo))
+               WHEN LEN(LTRIM(RTRIM(ct.correlativo))) = 4 THEN LTRIM(RTRIM(ct.correlativo))
+               END
+           ) + '/' + CAST(ct.gestion AS VARCHAR)) as numero_auto_motivado,
+       (CASE
+            WHEN ct.f_liberacion = '1900-01-01 00:00:00.000' THEN NULL
+            ELSE ct.f_liberacion
+           END)                                   AS fecha_liberacion,
+       20                                         AS estado,
+       ct.f_registro                              AS fecha_entrega
+FROM reg_aclaracion AS ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+ORDER BY id;

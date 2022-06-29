@@ -69,7 +69,7 @@ SELECT (CASE
             WHEN LTRIM(RTRIM(ct.u_aprueba_rechaza_dir)) = 'varauco' THEN 316
             WHEN LTRIM(RTRIM(ct.u_aprueba_rechaza_dir)) = 'vlaura' THEN 318
             WHEN LTRIM(RTRIM(ct.u_aprueba_rechaza_dir)) = 'vlaurad' THEN 318
-            ELSE 167 END)       AS id_usuario_destino,
+            ELSE 238 END)       AS id_usuario_destino,
        ct.f_aprueba_rechaza_dir AS fecha_accion,
        NULL                     AS ruta_adjunto,
        20                       AS estado,

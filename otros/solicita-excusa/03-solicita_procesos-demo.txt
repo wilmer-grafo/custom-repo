@@ -2,7 +2,7 @@ SELECT (CASE
             WHEN LTRIM(RTRIM(ct.u_solicita)) = 'mgemio' THEN 275
             WHEN LTRIM(RTRIM(ct.u_solicita)) = 'nherrera' THEN 386
             WHEN LTRIM(RTRIM(ct.u_solicita)) = 'sferreira' THEN 307
-            ELSE 167
+            ELSE 238
     END)                        AS id_usuario_solicita,
        4                        AS id_tramite,
        (CASE

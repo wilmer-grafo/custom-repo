@@ -1,0 +1,113 @@
+STEP 
+----
+Caso "nombre_documento" = "ruta_pro"
+
+El excel en postgresql se mantiene.
+Solo obtener un nuevo excel en sql server, y reemplazar.
+
+OBTENER EL EXCEL SQL SERVER
+--------------------------- 
+
+SELECT ((CASE
+             WHEN LEN(LTRIM(RTRIM(ct.id_exp))) > 20 THEN
+                 SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp))))
+             ELSE
+                 LTRIM(RTRIM(ct.id_exp))
+    END)
+    + ';' + (
+            CAST((SELECT ori.id_value
+                  FROM origenes AS ori
+                  WHERE ori.usuario_origen = LTRIM(RTRIM(ct.origen))) as VARCHAR)
+            ) + ';' + (
+            CAST((SELECT dest.id_value
+                  FROM origenes AS dest
+                  WHERE dest.usuario_origen = LTRIM(RTRIM(ct.destino))) as VARCHAR)
+            ) + ';' +
+        SUBSTRING(CONVERT(varchar, ct.f_recepcion, 120), 1, 19))                        AS id_registro_documental_sustantivo,
+       REPLACE(LTRIM(RTRIM(ct.ruta_pro)), '../documentos/', 'expedientes/informes-ra/') AS ruta_documento,
+       ''                                                                               as nombre_documento,
+       20                                                                               AS estado,
+       1                                                                                AS id_usuario_registra,
+       GETDATE()                                                                        AS fecha_registra,
+       NULL                                                                             AS id_usuario_modifica,
+       NULL                                                                             AS fecha_modifica
+FROM control_tiempo ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+  AND (LEN(ct.ruta_pro) > 0 AND LEN(ct.ruta_inf) > 0)
+ORDER BY ct.id;
+
+===================================================================================================================
+
+--------
+carpeta: control-cambio-anexos
+
+DONE 
+----
+Caso "ruta_documento" = "ruta_pro"
+
+USAR: 02-aux-ctrl-cambios-anexos-ruta-pro.ktr
+Postgresql: Resultado-postgres.xlsx IN
+Sql Server: Resultado-sql-server.xlsx IN
+Resultado: Transformacion-cambios-anexos.xls OUT
+
+USAR: 03-ctrl-cambios-anexos-ruta-pro.ktr
+Excel: Transformacion-cambios-anexos.xls IN
+CSV: archivo-anexos-ruta-pro OUT
+
+
+
+
+STEP 
+----
+Caso "nombre_documento" = "ruta_inf"
+
+El excel en postgresql se mantiene.
+Solo obtener un nuevo excel en sql server, y reemplazar.
+
+OBTENER EL EXCEL SQL SERVER
+--------------------------- 
+
+SELECT ((CASE
+             WHEN LEN(LTRIM(RTRIM(ct.id_exp))) > 20 THEN
+                 SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp))))
+             ELSE
+                 LTRIM(RTRIM(ct.id_exp))
+    END)
+    + ';' + (
+            CAST((SELECT ori.id_value
+                  FROM origenes AS ori
+                  WHERE ori.usuario_origen = LTRIM(RTRIM(ct.origen))) as VARCHAR)
+            ) + ';' + (
+            CAST((SELECT dest.id_value
+                  FROM origenes AS dest
+                  WHERE dest.usuario_origen = LTRIM(RTRIM(ct.destino))) as VARCHAR)
+            ) + ';' +
+        SUBSTRING(CONVERT(varchar, ct.f_recepcion, 120), 1, 19))                        AS id_registro_documental_sustantivo,
+       ''                                                                               AS ruta_documento,
+       REPLACE(LTRIM(RTRIM(ct.ruta_inf)), '../documentos/', 'expedientes/informes-ra/') AS nombre_documento,
+       20                                                                               AS estado,
+       1                                                                                AS id_usuario_registra,
+       GETDATE()                                                                        AS fecha_registra,
+       NULL                                                                             AS id_usuario_modifica,
+       NULL                                                                             AS fecha_modifica
+FROM control_tiempo ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+  AND (LEN(ct.ruta_pro) > 0 AND LEN(ct.ruta_inf) > 0)
+ORDER BY ct.id;
+
+===================================================================================================================
+
+--------
+carpeta: control-cambio-anexos-ruta-inf
+
+
+USAR: 04-aux-ctrl-cambios-anexos-ruta-inf.ktr
+Postgresql: Resultado-postgres.xlsx IN
+Sql Server: Resultado-sql-server-ruta-inf.xlsx IN 
+Resultado: Transformacion-anexos-ruta-inf.xls OUT
+
+USAR: 05-ctrl-cambios-anexos-ruta-inf.ktr
+Excel: Transformacion-anexos-ruta-inf.xls IN
+CSV: archivo-anexos-ruta-inf OUT

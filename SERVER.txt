@@ -82,6 +82,20 @@ alzada.alz_recursos_alzada_representantes_sp DDL
 ------------------------------------------------
 
 
+OPCIONAL
+
+seguridad.seg_cargos
+seguridad.seg_personas
+------------------------------------------------
+
+------------------------------------------------
+
+
+
+
+
+
+
 POR DEFECTO
 -----------
 
@@ -190,3 +204,50 @@ WHERE ra.C_Nro_Expediente LIKE 'ARIT-CBA-0049/2010'
   AND TN.C_Nro_Expediente LIKE 'ARIT-CBA-0049/2010'
   AND TRA.C_Nro_Expediente LIKE 'ARIT-CBA-0049/2010'
 ORDER BY ra.d_fecha_emision;
+
+----------------------------------------
+USE [bd_aritcba]
+GO
+
+DECLARE @return_value int
+
+EXEC    @return_value = [dbo].[actualiza_idexp]
+        @id_exp_anterior = N'ARIT-CBA-0130/2021 -1',
+        @id_exp = N'ARIT-CBA-0130/2021-1'
+
+SELECT  'Return Value' = @return_value
+
+GO
+----------------------------------------
+
+AUXILIARES 
+
+use bd_aritchq
+go
+
+create table recursos
+(
+    numero_recurso_alzada varchar(30) not null
+        constraint recursos_pk
+            primary key nonclustered,
+    id int not null
+)
+go
+
+
+use bd_aritchq
+go
+
+create table origenes
+(
+    id int identity
+        constraint origenes_pk
+            primary key nonclustered,
+    usuario_origen varchar(30) not null,
+    id_value int not null
+)
+go
+
+create unique index origenes_usuario_origen_uindex
+    on origenes (usuario_origen)
+go

@@ -1,0 +1,52 @@
+GET EXP
+
+SELECT DISTINCT LTRIM(RTRIM(id_exp)) AS id_exp, 1 AS d
+    FROM log_nota
+WHERE cite IS NOT NULL
+AND (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR
+       LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+AND LEN(LTRIM(RTRIM(id_exp))) <= 20;
+
+
+select numero_recurso_alzada, id
+from alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+    )
+order by numero_recurso_alzada;
+
+ARMAR
+LTRIM(RTRIM(id_exp))
+
+GET EXP 
+
+SELECT (CASE
+            WHEN LEN(LTRIM(RTRIM(dd.id_exp))) > 20 THEN SUBSTRING(LTRIM(RTRIM(id_exp)), 0,
+                                                                  CHARINDEX('//', LTRIM(RTRIM(id_exp))))
+            ELSE LTRIM(RTRIM(dd.id_exp))
+    END) AS exp,
+       1 AS id
+FROM (SELECT LTRIM(RTRIM(id_exp)) AS id_exp
+      FROM log_nota
+      WHERE (
+                  SUBSTRING(LTRIM(RTRIM(id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(id_exp)))) LIKE 'ARIT-LPZ-%/2021%' OR
+                  SUBSTRING(LTRIM(RTRIM(id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(id_exp)))) LIKE 'ARIT-LPZ-%/2022%'
+          )
+        AND LEN(LTRIM(RTRIM(id_exp))) > 20
+      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
+ORDER BY dd.id_exp;
+
+select numero_recurso_alzada, id
+from alzada.alz_recursos_alzada
+where numero_recurso_alzada in (
+    )
+order by numero_recurso_alzada;
+
+SELECT DISTINCT LTRIM(RTRIM(id_exp)) AS id_exp, 1 AS d
+    FROM log_nota
+WHERE cite IS NOT NULL
+AND (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR
+       LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+AND LEN(LTRIM(RTRIM(id_exp))) > 20;
+
+ARMAR
+LTRIM(RTRIM(id_exp))

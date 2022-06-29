@@ -1,0 +1,67 @@
+-- obtener los expedientes SQL SERVER 
+
+SELECT dd.id_exp, 1 AS id
+FROM (SELECT (CASE
+                  WHEN LEN(LTRIM(RTRIM(id_exp))) > 20 THEN SUBSTRING(LTRIM(RTRIM(id_exp)), 0,
+                                                                     CHARINDEX('//', LTRIM(RTRIM(id_exp))))
+                  ELSE LTRIM(RTRIM(id_exp))
+    END) as id_exp
+      FROM solicita_cambio_decision
+      WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+             LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
+ORDER BY dd.id_exp;
+
+-- obtener los id's de los expedientes, PG
+
+select (select ra.numero_recurso_alzada
+        from alzada.alz_recursos_alzada ra
+        where ra.id = temp.id_recurso_alzada) as numero_recurso_alzada,
+       temp.id                                as id_solicitud_proceso
+from (select id_recurso_alzada, id
+      from alzada.alz_solicitudes_procesos
+      where id_recurso_alzada in (
+          select id
+          from alzada.alz_recursos_alzada
+          where numero_recurso_alzada in (
+              )
+      )) AS temp
+order by numero_recurso_alzada;
+
+
+ARMAR
+-----
+LTRIM(RTRIM(ct.id_exp))
+
+
+RUN
+---
+
+SELECT (CASE
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-CHQ-0006/2021' THEN 56
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-CHQ-0006/2021' THEN 57
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-CHQ-0010/2021' THEN 58
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-CHQ-0011/2021' THEN 59
+            WHEN LTRIM(RTRIM(ct.id_exp)) = 'ARIT-CHQ-0022/2021' THEN 60
+    END)                                                               AS id_solicitud_proceso,
+       (SELECT ori.id_value
+        FROM origenes AS ori
+        WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita)))        AS id_usuario_origen,
+       (SELECT rec.id_value
+        FROM origenes AS rec
+        WHERE rec.usuario_origen = LTRIM(RTRIM(ct.u_aprueba_rechaza))) AS id_usuario_destino,
+       ct.f_aprueba_rechaza                                            AS fecha_accion,
+       NULL                                                            AS ruta_adjunto,
+       20                                                              AS estado,
+       (
+           CASE
+               WHEN ct.estado = 1 THEN 23
+               ELSE 24
+               END)                                                    AS id_proceso,
+       NULL                                                            AS observaciones
+FROM solicita_cambio_decision ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+  AND LEN(LTRIM(RTRIM(ct.nueva_decision))) > 1
+ORDER BY ct.id;
+

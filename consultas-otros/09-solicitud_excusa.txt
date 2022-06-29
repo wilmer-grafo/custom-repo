@@ -1,0 +1,24 @@
+SELECT (SELECT ori.id_value
+        FROM origenes AS ori
+        WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita))) AS id_usuario_solicita,
+       4                                                        AS id_tramite,
+       (CASE
+            WHEN LEN(LTRIM(RTRIM(ct.id_exp))) > 20 THEN
+                (SELECT id
+                 FROM recursos AS r
+                 WHERE r.numero_recurso_alzada =
+                       SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp)))))
+            ELSE
+                (SELECT id FROM recursos AS r WHERE r.numero_recurso_alzada = LTRIM(RTRIM(ct.id_exp)))
+           END)                                                 AS id_recurso_alzada,
+       ct.gestion                                               AS gestion,
+       ct.f_solicita                                            AS fecha_solicita,
+       ct.otros_motivo                                          AS otro_motivo,
+       ct.correlativo_solicitud                                 AS correlativo,
+       20                                                       AS estado,
+       NULL                                                     AS id_decision_anterior,
+       NULL                                                     AS id_decision_nueva
+FROM solicitud_excusa ct
+WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+       LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+ORDER BY ct.id;

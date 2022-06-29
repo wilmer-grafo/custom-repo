@@ -1,0 +1,25 @@
+delete
+-- select *
+from alzada.alz_registros_documentales_sustantivos as rds
+where rds.id_recurso_alzada in
+      (select id
+       from alzada.alz_recursos_alzada
+       where id in (select id
+                    from alzada.alz_recursos_alzada
+                    where (numero_recurso_alzada ilike 'ARIT-CBA-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-CBA-%/2022%')
+                    order by numero_recurso_alzada)
+      );
+
+delete
+--select *
+from comunes.memoriales as rds
+where rds.id_recurso_alzada in
+      (select id
+       from alzada.alz_recursos_alzada
+       where id in (select id
+                    from alzada.alz_recursos_alzada
+                    where (numero_recurso_alzada ilike 'ARIT-CBA-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-CBA-%/2022%')
+                    order by numero_recurso_alzada)
+      );

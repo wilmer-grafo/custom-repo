@@ -1,0 +1,46 @@
+SELECT (SELECT ori.id_value
+        FROM origenes AS ori
+        WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita))) AS id_usuario_solicita,
+       7                                                        AS id_tramite,
+       (CASE
+            WHEN LEN(LTRIM(RTRIM(ct.id_exp))) > 20 THEN
+                (SELECT id
+                 FROM recursos AS r
+                 WHERE r.numero_recurso_alzada =
+                       SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp)))))
+            ELSE
+                (SELECT id FROM recursos AS r WHERE r.numero_recurso_alzada = LTRIM(RTRIM(ct.id_exp)))
+           END)                                                 AS id_recurso_alzada,
+       ct.gestion                                               AS gestion,
+       ct.f_solicita                                            AS fecha_solicita,
+       ct.motivo_solicita                                       AS otro_motivo,
+       ct.id                                                    AS correlativo,
+       20                                                       AS estado,
+       (SELECT (
+                   CASE
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'ANULAR' THEN 4
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'COMFIRMAR' THEN 1
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'CONFIMAR' THEN 1
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'CONFIRMAR' THEN 1
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'REVOCAR PARCIALMENTE' THEN 2
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'REVOCAR PACIALMENTE' THEN 2
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'REVOCAR TOTALMENTE' THEN 3
+                       WHEN LTRIM(RTRIM(ex.decision)) = 'REVOCATORIA TOTAL' THEN 3
+                       END)
+        FROM expediente ex
+        WHERE ex.id_exp = ct.id_exp)                            AS id_decision_anterior,
+       (CASE
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'ANULAR' THEN 4
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'ANULATORIA' THEN 4
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'CONFIRMAR' THEN 1
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'CONFIRMATORIA' THEN 1
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCAR PARCIALMENTE' THEN 2
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCAR PACIALMENTE' THEN 2
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCAR TOTALMENTE' THEN 3
+            WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCATORIA TOTAL' THEN 3
+           END)                                                 AS id_decision_nueva
+FROM solicita_cambio_decision ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+  AND LEN(LTRIM(RTRIM(ct.nueva_decision))) > 1
+ORDER BY ct.id;

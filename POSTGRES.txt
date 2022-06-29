@@ -36,3 +36,4 @@ SELECT setval(pg_get_serial_sequence('parametricas.par_tipos_actuaciones', 'id')
 
 TRUNCATE TABLE alzada.alz_representantes_at RESTART IDENTITY ;
 DELETE FROM alzada.alz_representantes_at WHERE id > 0;
+

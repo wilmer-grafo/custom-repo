@@ -36,6 +36,6 @@ WHEN LTRIM(RTRIM(ct.u_solicita))='vquisbert' THEN 163
 WHEN LTRIM(RTRIM(ct.u_solicita))='wvaldez' THEN 402
 WHEN LTRIM(RTRIM(ct.u_solicita)) = 'pcondet' THEN 393
 WHEN LTRIM(RTRIM(ct.u_solicita)) = 'tpenarrieta' THEN 400
-ELSE 167 
+ELSE 238 
 
 

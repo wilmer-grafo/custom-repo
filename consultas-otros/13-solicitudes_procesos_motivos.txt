@@ -1,0 +1,50 @@
+-- obtener los expedientes SQL SERVER
+
+SELECT dd.id_exp, 1 AS id
+FROM (SELECT (CASE
+                  WHEN LEN(LTRIM(RTRIM(id_exp))) > 20 THEN SUBSTRING(LTRIM(RTRIM(id_exp)), 0,
+                                                                     CHARINDEX('//', LTRIM(RTRIM(id_exp))))
+                  ELSE LTRIM(RTRIM(id_exp))
+    END) as id_exp
+      FROM solicitud_ampliacion
+      WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+             LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
+ORDER BY dd.id_exp;
+
+-- obtener los id's de los expedientes, PG
+
+select (select ra.numero_recurso_alzada
+        from alzada.alz_recursos_alzada ra
+        where ra.id = temp.id_recurso_alzada) as numero_recurso_alzada,
+       temp.id                                as id_solicitud_proceso
+from (select id_recurso_alzada, id
+      from alzada.alz_solicitudes_procesos
+      where id_recurso_alzada in (
+          select id
+          from alzada.alz_recursos_alzada
+          where numero_recurso_alzada in (
+              )
+      )) AS temp
+order by numero_recurso_alzada;
+
+ARMAR
+-----
+LTRIM(RTRIM(ct.id_exp))
+
+
+SELECT (CASE
+    END)                                                        AS id_solicitud,
+       ct.motivo_solicita                                       AS id_motivo,
+       (SELECT ori.id_value
+        FROM origenes AS ori
+        WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita))) AS id_usuario_registra,
+       ct.f_solicita                                            AS fecha_registra
+FROM solicitud_ampliacion ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+  AND ct.correlativo_ampliacion IS NOT NULL
+ORDER BY ct.id;
+
+
+CASO 4/
