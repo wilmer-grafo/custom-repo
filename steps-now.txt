@@ -83,17 +83,7 @@ SET fecha_notificacion =
 parametricas.par_tipos_impuestos
 SIN CAMBIOS
 
-------------------------------------------------------------------------------------------------
-alzada.alz_actuaciones
-------------------------------------------------------------------------------------------------
 
-UPDATE alzada.alz_actuaciones
-SET fecha_emision =
-        (fecha_emision AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
-
-UPDATE alzada.alz_actuaciones
-SET fecha_subsanacion =
-        (fecha_subsanacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz';
 
 ------------------------------------------------------------------------------------------------
 alzada.alz_notificaciones

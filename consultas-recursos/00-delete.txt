@@ -1,0 +1,51 @@
+--2do eliminar alz_actos_impugnados
+
+delete
+-- select *
+from alzada.alz_actos_impugnados as rds
+where rds.id_recurso_alzada in
+      (select id
+       from alzada.alz_recursos_alzada
+       where id in (select id
+                    from alzada.alz_recursos_alzada
+                    where (numero_recurso_alzada ilike 'ARIT-TJA-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-TJA-%/2022%')));
+
+
+--1ro eliminar montos alzada
+
+delete
+from alzada.alz_montos_alzada
+where id in (select ama.id
+from alzada.alz_montos_alzada as ama
+inner join alzada.alz_actos_impugnados aai on aai.id = ama.id_acto_impugnado
+where aai.id_recurso_alzada in (select id
+                    from alzada.alz_recursos_alzada
+                    where (numero_recurso_alzada ilike 'ARIT-TJA-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-TJA-%/2022%')));
+
+
+=====================================================================================
+
+
+--1ro eliminar notificaciones
+
+delete
+from alzada.alz_notificaciones
+where id in (select ama.id
+from alzada.alz_notificaciones as ama
+inner join alzada.alz_actuaciones aai on aai.id = ama.id_actuacion
+where aai.id_recurso_alzada in (select id
+                    from alzada.alz_recursos_alzada
+                    where (numero_recurso_alzada ilike 'ARIT-CHQ-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-CHQ-%/2022%')));
+
+--2do eliminar actuaciones
+
+delete
+from alzada.alz_actuaciones as rds
+where rds.id_recurso_alzada in
+      (select id
+       from alzada.alz_recursos_alzada
+       where (numero_recurso_alzada ilike 'ARIT-CHQ-%/2021%' or
+              numero_recurso_alzada ilike 'ARIT-CHQ-%/2022%'));

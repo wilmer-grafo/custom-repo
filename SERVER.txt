@@ -251,3 +251,24 @@ go
 create unique index origenes_usuario_origen_uindex
     on origenes (usuario_origen)
 go
+
+
+create table representantes
+(
+    identificador int identity
+        constraint representantes_pk
+            primary key nonclustered,
+    nombre_representante_at varchar(200) not null,
+    id int not null
+)
+go
+
+
+create table legales
+(
+    nombre_representante_sp varchar(200) not null
+        constraint legales_pk
+            primary key nonclustered,
+    id int not null
+)
+

@@ -1,0 +1,31 @@
+------------------------------------------------------------------------------------------------
+alzada.alz_actuaciones
+------------------------------------------------------------------------------------------------
+fecha_emision, fecha_subsanacion
+
+UPDATE alzada.alz_actuaciones
+SET fecha_emision =
+        (fecha_emision AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
+where id_recurso_alzada in
+      (select id
+       from alzada.alz_recursos_alzada
+       where id in (select id
+                    from alzada.alz_recursos_alzada
+                    where (numero_recurso_alzada ilike 'ARIT-BEN-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-BEN-%/2022%')
+                    order by numero_recurso_alzada)
+      );
+      
+
+UPDATE alzada.alz_actuaciones
+SET fecha_subsanacion =
+        (fecha_subsanacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
+where id_recurso_alzada in
+      (select id
+       from alzada.alz_recursos_alzada
+       where id in (select id
+                    from alzada.alz_recursos_alzada
+                    where (numero_recurso_alzada ilike 'ARIT-TJA-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-TJA-%/2022%')
+                    order by numero_recurso_alzada)
+      );
