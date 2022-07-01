@@ -65,3 +65,66 @@ WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
   AND LEN(LTRIM(RTRIM(ct.nueva_decision))) > 1
 ORDER BY ct.id;
 
+
+Update fecha_solicita
+
+EXCEL
+
+select concat(aux.gestion, ';', aux.numero_recurso_alzada, ';', aux.id_usuario_solicita, ';',
+              to_char(aux.fecha_solicita, 'YYYY-MM-DD HH24:MI:SS')) as dato,
+       aux.id
+from (select rds.id,
+             rds.gestion,
+             (select ra.numero_recurso_alzada
+              from alzada.alz_recursos_alzada ra
+              where ra.id = rds.id_recurso_alzada)          as numero_recurso_alzada,
+             (select u.id
+              from seguridad.seg_usuarios u
+              where u.id_persona = rds.id_usuario_solicita) as id_usuario_solicita,
+             rds.fecha_solicita                             as fecha_solicita
+      from alzada.alz_solicitudes_procesos as rds
+      where id_tramite = 7
+        and id_recurso_alzada in (select id
+                                  from alzada.alz_recursos_alzada
+                                  where (numero_recurso_alzada ilike 'ARIT-SCZ-%/2021%' or
+                                         numero_recurso_alzada ilike 'ARIT-SCZ-%/2022%'))) as aux
+order by aux.id;
+
+
+EXCEL
+
+SELECT (CAST(ct.gestion AS varchar) + ';' +
+        (CASE
+             WHEN LEN(LTRIM(RTRIM(ct.id_exp))) > 20 THEN
+                 SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp))))
+             ELSE
+                 LTRIM(RTRIM(ct.id_exp))
+            END)
+    + ';' +
+        (
+            CAST((SELECT ori.id_value
+                  FROM origenes AS ori
+                  WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita))) as VARCHAR)
+            )
+    + ';' +
+        SUBSTRING(CONVERT(varchar, ct.f_solicita, 120), 1, 19))        AS id_solicitud_proceso,
+       (SELECT ori.id_value
+        FROM origenes AS ori
+        WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita)))        AS id_usuario_origen,
+       (SELECT rec.id_value
+        FROM origenes AS rec
+        WHERE rec.usuario_origen = LTRIM(RTRIM(ct.u_aprueba_rechaza))) AS id_usuario_destino,
+       ct.f_aprueba_rechaza                                            AS fecha_accion,
+       NULL                                                            AS ruta_adjunto,
+       20                                                              AS estado,
+       (
+           CASE
+               WHEN ct.estado = 1 THEN 23
+               ELSE 24
+               END)                                                    AS id_proceso,
+       NULL                                                            AS observaciones
+FROM solicita_cambio_decision ct
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-SCZ-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-SCZ-%/2022%')
+  AND LEN(LTRIM(RTRIM(ct.nueva_decision))) > 1
+ORDER BY ct.id;

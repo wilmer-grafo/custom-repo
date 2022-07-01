@@ -1,5 +1,7 @@
-ACTUALIZAR FECHAS, fecha_recepcion, fecha_inicio, fecha_deriva, en la tabla anterior control cambios, que ahora sera alz_registros_documentales_sustantivos
+ACTUALIZAR FECHAS, en la tabla anterior control cambios, alz_registros_documentales_sustantivos
 --------------------------------------
+fecha_recepcion, fecha_inicio, fecha_deriva
+
 
 update alzada.alz_registros_documentales_sustantivos
 SET fecha_recepcion =
@@ -13,6 +15,19 @@ where id_recurso_alzada in
                            numero_recurso_alzada ilike 'ARIT-CHQ-%/2022%')
                     order by numero_recurso_alzada)
       );
+
+update alzada.alz_registros_documentales_sustantivos
+set fecha_recepcion = fecha_recepcion - interval '4 hours'
+where id_recurso_alzada in
+      (select id
+       from alzada.alz_recursos_alzada
+       where id in (select id
+                    from alzada.alz_recursos_alzada
+                    where (numero_recurso_alzada ilike 'ARIT-CHQ-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-CHQ-%/2022%')
+                    order by numero_recurso_alzada)
+      );
+
 
 CASO RUTA PRO
 =============

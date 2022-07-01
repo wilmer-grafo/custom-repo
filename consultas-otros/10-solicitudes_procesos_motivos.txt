@@ -54,3 +54,60 @@ ORDER BY ct.id;
 
 
 CASO 4/
+
+
+Update fecha_solicita, PG
+
+EXCEL
+
+select concat(aux.gestion, ';', aux.numero_recurso_alzada, ';', aux.id_usuario_solicita, ';',
+              to_char(aux.fecha_solicita, 'YYYY-MM-DD HH24:MI:SS')) as dato,
+       aux.id
+from (select rds.id,
+             rds.gestion,
+             (select ra.numero_recurso_alzada
+              from alzada.alz_recursos_alzada ra
+              where ra.id = rds.id_recurso_alzada)          as numero_recurso_alzada,
+             (select u.id
+              from seguridad.seg_usuarios u
+              where u.id_persona = rds.id_usuario_solicita) as id_usuario_solicita,
+             rds.fecha_solicita                             as fecha_solicita
+      from alzada.alz_solicitudes_procesos as rds
+      where id_tramite = 4
+        and id_recurso_alzada in (select id
+                                  from alzada.alz_recursos_alzada
+                                  where (numero_recurso_alzada ilike 'ARIT-SCZ-%/2021%' or
+                                         numero_recurso_alzada ilike 'ARIT-SCZ-%/2022%'))) as aux
+order by aux.id;
+
+
+
+Verificar motivo_solicita > 2
+EXCEL
+
+SELECT (CAST(ct.gestion AS varchar) + ';' +
+        (CASE
+             WHEN LEN(LTRIM(RTRIM(ct.id_exp))) > 20 THEN
+                 SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp))))
+             ELSE
+                 LTRIM(RTRIM(ct.id_exp))
+            END)
+    + ';' +
+        (
+            CAST((SELECT ori.id_value
+                  FROM origenes AS ori
+                  WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita))) as VARCHAR)
+            )
+    + ';' +
+        SUBSTRING(CONVERT(varchar, ct.f_solicita, 120), 1, 19)) AS id_solicitud,
+       REPLACE(LTRIM(RTRIM(ct.motivo_solicita)), '/', '')       AS id_motivo,
+       (SELECT ori.id_value
+        FROM origenes AS ori
+        WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita))) AS id_usuario_registra,
+       ct.f_solicita                                            AS fecha_registra
+FROM solicitud_excusa ct
+WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-SCZ-%/2021%' OR
+       LTRIM(RTRIM(id_exp)) LIKE 'ARIT-SCZ-%/2022%')
+  AND LEN(LTRIM(RTRIM(ct.motivo_solicita))) <= 2
+ORDER BY ct.id;
+

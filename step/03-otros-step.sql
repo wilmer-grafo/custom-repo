@@ -62,3 +62,4 @@ WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
        LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2022%')
 ORDER BY u_solicita;
 
+s

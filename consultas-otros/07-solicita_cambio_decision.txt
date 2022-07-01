@@ -38,9 +38,15 @@ SELECT (SELECT ori.id_value
             WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCAR PACIALMENTE' THEN 2
             WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCAR TOTALMENTE' THEN 3
             WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCATORIA TOTAL' THEN 3
+           WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'ANULATORIA.' THEN 4
+           WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'ANULATORIAS' THEN 4
+           WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'Confirmatoria' THEN 4
+           WHEN LTRIM(RTRIM(ct.nueva_decision)) = 'REVOCATORIA PARCIAL' THEN 2
            END)                                                 AS id_decision_nueva
 FROM solicita_cambio_decision ct
-WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
-       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-SCZ-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-SCZ-%/2022%')
   AND LEN(LTRIM(RTRIM(ct.nueva_decision))) > 1
 ORDER BY ct.id;
+
+

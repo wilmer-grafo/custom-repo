@@ -17,3 +17,49 @@ where id_recurso_alzada in
                     order by numero_recurso_alzada)
       );
 
+
+
+------------------------------------------------------------------------------------------------
+alzada.alz_solicitudes_procesos - motivo-excusa
+------------------------------------------------------------------------------------------------
+
+update alzada.alz_solicitudes_procesos
+set fecha_solicita =
+        (fecha_solicita AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
+where id_tramite = 4
+  and id_recurso_alzada in
+      (select id
+       from alzada.alz_recursos_alzada
+       where id in (select id
+                    from alzada.alz_recursos_alzada
+                    where (numero_recurso_alzada ilike 'ARIT-SCZ-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-SCZ-%/2022%')
+                    order by numero_recurso_alzada)
+      );
+
+
+
+
+
+
+
+CONT
+
+select count(ai.id)
+from alzada.alz_registros_documentales_sustantivos ai
+where id_recurso_alzada in (
+    select id
+    from alzada.alz_recursos_alzada
+    where (numero_recurso_alzada ilike 'ARIT-SCZ-%/2021%' or
+           numero_recurso_alzada ilike 'ARIT-SCZ-%/2022%')
+);
+
+select count(id)
+from alzada.alz_registros_documentales_sustantivos_anexos
+where id in (select ama.id
+from alzada.alz_registros_documentales_sustantivos_anexos as ama
+inner join alzada.alz_registros_documentales_sustantivos aai on aai.id = ama.id_registro_documental_sustantivo
+where aai.id_recurso_alzada in (select id
+                    from alzada.alz_recursos_alzada
+                    where (numero_recurso_alzada ilike 'ARIT-SCZ-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-SCZ-%/2022%')));
