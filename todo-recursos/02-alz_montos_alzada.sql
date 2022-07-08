@@ -9,14 +9,7 @@ from (select ai.id,
               where ra.id = ai.id_recurso_alzada) as numero_recurso_alzada,
              ai.id_tipo_acto                      as id_tipo_acto,
              ai.numero_acto                       as numero_acto
-      from alzada.alz_actos_impugnados ai
-      where id_recurso_alzada in (
-          select id
-          from alzada.alz_recursos_alzada
-          where (numero_recurso_alzada ilike 'ARIT-BEN-%/2021%' or
-                 numero_recurso_alzada ilike 'ARIT-BEN-%/2022%')
-          order by numero_recurso_alzada
-      )) as temp
+      from alzada.alz_actos_impugnados ai) as temp
 order by temp.id;
 
 
@@ -103,8 +96,6 @@ SELECT LTRIM(RTRIM(ra.C_Nro_Expediente)) + ';' + CAST(ra.N_Codigo_Acto AS VARCHA
        1                                   AS tipo_moneda,
        1                                   AS tipo_moneda_resuelto
 FROM TSS_MONTOS AS ra
-WHERE (LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-%-%/2021%' OR
-       LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-%-%/2022%')
 ORDER BY LTRIM(RTRIM(ra.C_Nro_Expediente));
 
 

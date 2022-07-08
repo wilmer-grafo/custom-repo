@@ -1,5 +1,3 @@
-Previo correr 01-actos-impugnados.ktr, para poblar recursos
-
 CONSULTA
 ========
 
@@ -34,8 +32,6 @@ SELECT (SELECT id
        NULL                                                                AS id_interposicion_jerarquico,
        NULL                                                                AS estado_interposicion
 FROM TSS_AUTOS AS ra
-WHERE (LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-BEN-%/2021%' OR
-       LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-BEN-%/2022%')
 ORDER BY LTRIM(RTRIM(ra.C_Nro_Expediente));
 
 

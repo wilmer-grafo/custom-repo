@@ -1,4 +1,14 @@
 Cargar recursos y los representantes sp.
+EJECUTAR LA CONSULTA Y GENERAR CSV, previa creacion de la tabla legales
+
+select nombre_completo as nombre_representante_sp,
+       id
+from alzada.alz_representantes_sp
+order by id;
+
+
+DESPUES
+EJECUTAR LA CONSULTA Y GENERAR CSV, LUEGO IMPORTAR EL ARCHIVO GENERADO
 
 SELECT (SELECT id
         FROM recursos AS r
@@ -17,7 +27,4 @@ SELECT (SELECT id
        NULL                                                                   AS id_tipo_documento_representante
 FROM TSS_RECURSOS_ALZADA ra
 WHERE LEN(LTRIM(RTRIM(ra.C_Representante))) > 1
-  AND (LTRIM(RTRIM(C_Nro_Expediente)) LIKE 'ARIT-%-%/2021%' OR
-       LTRIM(RTRIM(C_Nro_Expediente)) LIKE 'ARIT-%-%/2022%')
 ORDER BY LTRIM(RTRIM(C_Representante));
-

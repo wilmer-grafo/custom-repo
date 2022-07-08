@@ -100,7 +100,7 @@ SELECT (CASE
             WHEN (ct.motivo = 2 OR ct.motivo = 30 OR ct.motivo = 42 OR ct.motivo = 43 OR ct.motivo = 209 OR
                   ct.motivo = 193 OR ct.motivo = 185 OR ct.motivo = 143) THEN 4
             WHEN (ct.motivo = 2 OR ct.motivo = 30 OR ct.motivo = 42 OR ct.motivo = 43 OR ct.motivo = 91) THEN 14
-           WHEN (ct.motivo = 106) THEN 48
+            WHEN (ct.motivo = 106) THEN 48
             ELSE ct.motivo
            END)                                                  AS id_motivo_memorial,
        ct.f_recep                                                AS fecha_recepcion,
@@ -133,7 +133,7 @@ SELECT (CASE
        NULL                                                      AS id_usuario_remite,
        NULL                                                      AS observaciones_confirma_radicatoria
 FROM reg_memorial ct
-WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
-       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2022%')
   AND ct.estado > 0
 ORDER BY LTRIM(RTRIM(ct.id_exp));

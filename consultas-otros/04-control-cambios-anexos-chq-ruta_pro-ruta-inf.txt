@@ -32,8 +32,8 @@ SELECT ((CASE
        NULL                                                                             AS id_usuario_modifica,
        NULL                                                                             AS fecha_modifica
 FROM control_tiempo ct
-WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
-       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2022%')
   AND (LEN(ct.ruta_pro) > 0 AND LEN(ct.ruta_inf) > 0)
 ORDER BY ct.id;
 
@@ -92,8 +92,8 @@ SELECT ((CASE
        NULL                                                                             AS id_usuario_modifica,
        NULL                                                                             AS fecha_modifica
 FROM control_tiempo ct
-WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
-       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2022%')
   AND (LEN(ct.ruta_pro) > 0 AND LEN(ct.ruta_inf) > 0)
 ORDER BY ct.id;
 

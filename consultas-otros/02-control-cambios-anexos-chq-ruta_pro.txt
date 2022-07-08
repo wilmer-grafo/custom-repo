@@ -2,31 +2,36 @@ ACTUALIZAR FECHAS, en la tabla anterior control cambios, alz_registros_documenta
 --------------------------------------
 fecha_recepcion, fecha_inicio, fecha_deriva
 
-
 update alzada.alz_registros_documentales_sustantivos
 SET fecha_recepcion =
         (fecha_recepcion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
-where id_recurso_alzada in
-      (select id
-       from alzada.alz_recursos_alzada
-       where id in (select id
-                    from alzada.alz_recursos_alzada
-                    where (numero_recurso_alzada ilike 'ARIT-CHQ-%/2021%' or
-                           numero_recurso_alzada ilike 'ARIT-CHQ-%/2022%')
-                    order by numero_recurso_alzada)
-      );
+where id_recurso_alzada in (select id
+                            from alzada.alz_recursos_alzada
+                            where (numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%' or
+                                   numero_recurso_alzada ilike 'ARIT-LPZ-%/2022%'));
+
+
+update alzada.alz_registros_documentales_sustantivos
+SET fecha_inicio =
+        (fecha_inicio AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
+where id_recurso_alzada in (select id
+                            from alzada.alz_recursos_alzada
+                            where (numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%' or
+                                   numero_recurso_alzada ilike 'ARIT-LPZ-%/2022%'));
+
+update alzada.alz_registros_documentales_sustantivos
+SET fecha_deriva =
+        (fecha_deriva AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
+where id_recurso_alzada in (select id
+                            from alzada.alz_recursos_alzada
+                            where (numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%' or
+                                   numero_recurso_alzada ilike 'ARIT-LPZ-%/2022%'));
+
+
 
 update alzada.alz_registros_documentales_sustantivos
 set fecha_recepcion = fecha_recepcion - interval '4 hours'
-where id_recurso_alzada in
-      (select id
-       from alzada.alz_recursos_alzada
-       where id in (select id
-                    from alzada.alz_recursos_alzada
-                    where (numero_recurso_alzada ilike 'ARIT-CHQ-%/2021%' or
-                           numero_recurso_alzada ilike 'ARIT-CHQ-%/2022%')
-                    order by numero_recurso_alzada)
-      );
+
 
 
 CASO RUTA PRO
@@ -58,8 +63,8 @@ from (select (select ra.numero_recurso_alzada
                  from (select numero_recurso_alzada,
                               id
                        from alzada.alz_recursos_alzada
-                       where (numero_recurso_alzada ilike 'ARIT-CHQ-%/2021%' or
-                              numero_recurso_alzada ilike 'ARIT-CHQ-%/2022%')
+                       where (numero_recurso_alzada ilike 'ARIT-%-%/2021%' or
+                              numero_recurso_alzada ilike 'ARIT-%-%/2022%')
                        order by numero_recurso_alzada) as temp
              ))) as aux
 order by aux.id;
@@ -92,8 +97,8 @@ SELECT ((CASE
        NULL                                                                             AS id_usuario_modifica,
        NULL                                                                             AS fecha_modifica
 FROM control_tiempo ct
-WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
-       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2022%')
   AND (LEN(ct.ruta_pro) > 0 AND LEN(ct.ruta_inf) = 0)
 ORDER BY ct.id;
 

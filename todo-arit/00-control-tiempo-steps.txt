@@ -1,0 +1,9 @@
+EJECUTAR LA CONSULTA Y GENERAR CSV, LUEGO IMPORTAR; previa creacion de la tabla recursos y la creacion del index
+EN CADA DB, como tambien la poblacion de la tabla origenes, para los usuarios origen y destino, en cada BD
+
+select numero_recurso_alzada, id
+from alzada.alz_recursos_alzada
+order by numero_recurso_alzada;
+
+
+POSTERIOR EJECUTAR LA CONSULTA en 01-control-tiempo.txt, en la BD correspondiente

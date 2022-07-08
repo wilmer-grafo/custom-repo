@@ -25,8 +25,8 @@ from (select ra.numero_recurso_alzada,
       from alzada.alz_recursos_alzada as ra
                inner join alzada.alz_actuaciones ac
                           on ra.id = ac.id_recurso_alzada
-      where (numero_recurso_alzada ilike 'ARIT-BEN-%/2021%' or
-             numero_recurso_alzada ilike 'ARIT-BEN-%/2022%')
+      where (numero_recurso_alzada ilike 'ARIT-%-%/2021%' or
+             numero_recurso_alzada ilike 'ARIT-%-%/2022%')
         and ac.id_tipo_actuacion not in (23, 24)
      ) as aux
 order by aux.id;
@@ -57,8 +57,8 @@ SELECT (LTRIM(RTRIM(ra.C_Nro_Expediente)) + ';' + CAST(ra.N_Codigo_Tipo_Auto AS 
         FROM TSS_RECURSOS_ALZADA AS TRA
         WHERE TRA.C_Nro_Expediente = ra.C_Nro_Expediente)            AS id_region_radicatoria
 FROM TSS_NOTIFICACIONES AS ra
-WHERE (LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-BEN-%/2021%' OR
-       LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-BEN-%/2022%')
+WHERE (LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-%-%/2021%' OR
+       LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-%-%/2022%')
   AND ra.N_Codigo_Tipo_Auto NOT IN (22, 23)
 ORDER BY LTRIM(RTRIM(ra.C_Nro_Expediente));
 

@@ -8,8 +8,6 @@ SELECT LTRIM(RTRIM(C_Representante))            AS nombre_completo,
        NULL                                     AS id_region
 FROM TSS_RECURSOS_ALZADA
 WHERE LEN(LTRIM(RTRIM(C_Representante))) > 1
-  AND (LTRIM(RTRIM(C_Nro_Expediente)) LIKE 'ARIT-%-%/2021%' OR
-       LTRIM(RTRIM(C_Nro_Expediente)) LIKE 'ARIT-%-%/2022%')
 ORDER BY LTRIM(RTRIM(C_Representante));
 
 

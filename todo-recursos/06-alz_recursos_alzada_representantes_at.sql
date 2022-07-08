@@ -1,4 +1,14 @@
 Cargar recursos y los representantes at.
+EJECUTAR LA CONSULTA Y GENERAR CSV, previa creacion de la tabla representantes
+
+select nombre_completo as nombre_representante_at,
+       id
+from alzada.alz_representantes_at
+order by id;
+
+
+DESPUES
+EJECUTAR LA CONSULTA Y GENERAR CSV, LUEGO IMPORTAR EL ARCHIVO GENERADO
 
 SELECT (SELECT id
         FROM recursos AS r
@@ -16,7 +26,5 @@ FROM TSS_REPRESENTANTES_AT rat
     (LTRIM(RTRIM(rat.c_nombre_representante)) = LTRIM(RTRIM(ra.c_Nombre_Representante_AT))
         AND ra.N_Codigo_Subadm_Tri = rat.N_Codigo_Subadm_Tri)
 WHERE LEN(LTRIM(RTRIM(ra.c_Nombre_Representante_AT))) > 1
-  AND (LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-%-%/2021%' OR
-       LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-%-%/2022%')
 ORDER BY LTRIM(RTRIM(ra.C_Nro_Expediente));
 

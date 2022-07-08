@@ -1,64 +1,43 @@
--- obtener los expedientes SQL SERVER 
+EL excel de postgres se mantiene
 
-SELECT dd.id_exp, 1 AS id
-FROM (SELECT (CASE
-                  WHEN LEN(LTRIM(RTRIM(id_exp))) > 20 THEN SUBSTRING(LTRIM(RTRIM(id_exp)), 0,
-                                                                     CHARINDEX('//', LTRIM(RTRIM(id_exp))))
-                  ELSE LTRIM(RTRIM(id_exp))
-    END) as id_exp
-      FROM solicitud_ampliacion
-      WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
-             LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2022%')
-      GROUP BY LTRIM(RTRIM(id_exp))) AS dd
-ORDER BY dd.id_exp;
+EXCEL
 
--- obtener los id's de los expedientes, PG
-
-select (select ra.numero_recurso_alzada
-        from alzada.alz_recursos_alzada ra
-        where ra.id = temp.id_recurso_alzada) as numero_recurso_alzada,
-       temp.id                                as id_solicitud_proceso
-from (select id_recurso_alzada, id
-      from alzada.alz_solicitudes_procesos
-      where id_recurso_alzada in (
-          select id
-          from alzada.alz_recursos_alzada
-          where numero_recurso_alzada in (
-              )
-      )) AS temp
-order by numero_recurso_alzada;
-
-
-ARMAR
------
-LTRIM(RTRIM(ct.id_exp))
-
-
-RUN
----
-
-SELECT (CASE
-    END)                                                         AS id_solicitud_proceso,
+SELECT (CAST(ct.gestion AS varchar) + ';' +
+        (CASE
+             WHEN LEN(LTRIM(RTRIM(ct.id_exp))) > 20 THEN
+                 SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp))))
+             ELSE
+                 LTRIM(RTRIM(ct.id_exp))
+            END)
+    + ';' +
+        (
+            CAST((SELECT ori.id_value
+                  FROM origenes AS ori
+                  WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita))) as VARCHAR)
+            )
+    + ';' +
+        SUBSTRING(CONVERT(varchar, ct.f_solicita, 120), 1, 19))           AS id_solicitud_proceso,
        (SELECT ori.id_value
         FROM origenes AS ori
-        WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita)))  AS id_usuario_origen,
-       (SELECT dest.id_value
-        FROM origenes AS dest
-        WHERE dest.usuario_origen = LTRIM(RTRIM(ct.u_solicita))) AS id_usuario_destino,
-       ct.f_aprueba_rechaza_dir                                  AS fecha_accion,
-       NULL                                                      AS ruta_adjunto,
-       20                                                        AS estado,
+        WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita)))           AS id_usuario_origen,
+       (SELECT rec.id_value
+        FROM origenes AS rec
+        WHERE rec.usuario_origen = LTRIM(RTRIM(ct.u_aprueba_rechaza_dir))) AS id_usuario_destino,
+       (CASE
+            WHEN ct.f_aprueba_rechaza_dir IS NULL THEN ct.f_solicita
+            ELSE ct.f_aprueba_rechaza_dir
+           END)                                                           AS fecha_accion,
+       NULL                                                               AS ruta_adjunto,
+       20                                                                 AS estado,
        (
            CASE
                WHEN ct.estado = 1 THEN 19
                WHEN ct.estado = 2 THEN 20
                ELSE 19
-               END)                                              AS id_proceso,
-       LTRIM(RTRIM(ct.obs_dir))                                  AS observaciones
+               END)                                                       AS id_proceso,
+       NULL                                                               AS observaciones
 FROM solicitud_ampliacion ct
-WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
-       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-CHQ-%/2022%')
-  AND ct.correlativo_ampliacion IS NOT NULL
+WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-%-%/2021%' OR
+       LTRIM(RTRIM(id_exp)) LIKE 'ARIT-%-%/2022%')
+AND ct.correlativo_ampliacion IS NOT NULL
 ORDER BY ct.id;
-
-

@@ -205,6 +205,96 @@ WHERE ra.C_Nro_Expediente LIKE 'ARIT-CBA-0049/2010'
   AND TRA.C_Nro_Expediente LIKE 'ARIT-CBA-0049/2010'
 ORDER BY ra.d_fecha_emision;
 
+
+================================================= SISUT =================================================
+
+create table recursos
+(
+    identificador         int identity
+        constraint recursos_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(50) not null,
+    id                    int         not null
+)
+
+CREATE INDEX index_name_recursos
+    ON recursos (numero_recurso_alzada);
+
+
+create table representantes
+(
+    identificador int identity
+        constraint representantes_pk
+            primary key nonclustered,
+    nombre_representante_at varchar(200) not null,
+    id int not null
+)
+go
+
+CREATE INDEX index_name_representantes
+ON representantes (nombre_representante_at);
+
+
+REPRESENTANTES - SP
+
+create table legales
+(
+    identificador           int identity
+        constraint legales_pk
+            primary key nonclustered,
+    nombre_representante_sp varchar(200) not null,
+    id                      int          not null
+)
+
+CREATE INDEX index_name_legales
+ON legales (nombre_representante_sp);
+
+
+create table notificaciones_aux
+(
+    identificador int identity
+        constraint notificaciones_aux_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(250) not null,
+    id int not null
+)
+
+CREATE INDEX index_name_actuaciones
+ON notificaciones_aux (numero_recurso_alzada);
+
+================================================= SISUT =================================================
+
+
+
+================================================= ARITS =================================================
+
+create table recursos_arit
+(
+    identificador         int identity
+        constraint recursos_arit_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(50) not null,
+    id                    int         not null
+);
+
+CREATE INDEX index_name_recursos_arit
+    ON recursos_arit (numero_recurso_alzada);
+
+
+create table documentos_aux
+(
+    identificador int identity
+        constraint documentos_aux_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(250) not null,
+    id int not null
+);
+
+CREATE INDEX index_name_documentos_aux
+ON documentos_aux (numero_recurso_alzada);
+
+
+
 ----------------------------------------
 USE [bd_aritcba]
 GO
@@ -219,56 +309,33 @@ SELECT  'Return Value' = @return_value
 
 GO
 ----------------------------------------
-
+s
 AUXILIARES 
 
-use bd_aritchq
-go
-
-create table recursos
-(
-    numero_recurso_alzada varchar(30) not null
-        constraint recursos_pk
-            primary key nonclustered,
-    id int not null
-)
-go
-
-
-use bd_aritchq
-go
 
 create table origenes
 (
     id int identity
         constraint origenes_pk
             primary key nonclustered,
-    usuario_origen varchar(30) not null,
+    usuario_origen varchar(50) not null,
     id_value int not null
-)
-go
+);
 
 create unique index origenes_usuario_origen_uindex
-    on origenes (usuario_origen)
+    on origenes (usuario_origen);
+
+
+
+use bd_aritchq
 go
 
-
-create table representantes
+create table aclaraciones
 (
     identificador int identity
-        constraint representantes_pk
+        constraint aclaraciones_pk
             primary key nonclustered,
-    nombre_representante_at varchar(200) not null,
+    numero_recurso_alzada varchar(150) not null,
     id int not null
 )
 go
-
-
-create table legales
-(
-    nombre_representante_sp varchar(200) not null
-        constraint legales_pk
-            primary key nonclustered,
-    id int not null
-)
-

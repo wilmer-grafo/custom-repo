@@ -4,42 +4,106 @@ alzada.alz_registros_documentales_sustantivos - contol_tiempo
 fecha_recepcion, fecha_inicio, fecha_deriva
 
 
+-- PARA CONTROL CAMBIOS
 update alzada.alz_registros_documentales_sustantivos
 SET fecha_recepcion =
         (fecha_recepcion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
-where id_recurso_alzada in
+where id_recurso_alzada in (select id
+                            from alzada.alz_recursos_alzada
+                            where (numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%' or
+                                   numero_recurso_alzada ilike 'ARIT-LPZ-%/2022%'))
+and id_aclaracion is not null;
+
+VERIFICAR
+select *
+from alzada.alz_registros_documentales_sustantivos_anexos a
+inner join alzada.alz_registros_documentales_sustantivos b on b.id=a.id_registro_documental_sustantivo
+where b.id_recurso_alzada in
+      (select id
+       from alzada.alz_recursos_alzada
+       where (numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%' or
+              numero_recurso_alzada ilike 'ARIT-LPZ-%/2022%'))
+and b.id_aclaracion is not null
+order by a.id;
+
+
+------------------------------------------------------------------------------------------------
+alzada.alz_solicitudes_procesos - solicita_cambio_decision
+------------------------------------------------------------------------------------------------
+
+
+update alzada.alz_solicitudes_procesos
+set fecha_solicita =
+        (fecha_solicita AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
+where id_tramite = 7
+  and id_recurso_alzada in
       (select id
        from alzada.alz_recursos_alzada
        where id in (select id
                     from alzada.alz_recursos_alzada
-                    where (numero_recurso_alzada ilike 'ARIT-CBA-%/2021%' or
-                           numero_recurso_alzada ilike 'ARIT-CBA-%/2022%')
-                    order by numero_recurso_alzada)
-      );
-
+                    where (numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%' or
+                           numero_recurso_alzada ilike 'ARIT-LPZ-%/2022%')
+                    order by numero_recurso_alzada));
 
 
 ------------------------------------------------------------------------------------------------
 alzada.alz_solicitudes_procesos - motivo-excusa
 ------------------------------------------------------------------------------------------------
 
+
+------------------------------------------------------------------------------------------------
+alzada.alz_solicitudes_procesos - solicitud_ampliacion
+------------------------------------------------------------------------------------------------
+
 update alzada.alz_solicitudes_procesos
 set fecha_solicita =
         (fecha_solicita AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
-where id_tramite = 4
+where id_tramite = 5
   and id_recurso_alzada in
       (select id
        from alzada.alz_recursos_alzada
        where id in (select id
                     from alzada.alz_recursos_alzada
                     where (numero_recurso_alzada ilike 'ARIT-SCZ-%/2021%' or
-                           numero_recurso_alzada ilike 'ARIT-SCZ-%/2022%')
-                    order by numero_recurso_alzada)
-      );
+                           numero_recurso_alzada ilike 'ARIT-SCZ-%/2022%')));
 
 
 
+------------------------------------------------------------------------------------------------
+alzada.alz_aclaraciones - reg_aclaracion
+------------------------------------------------------------------------------------------------
 
+update alzada.alz_aclaraciones
+SET fecha_liberacion =
+        (fecha_liberacion AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
+where id_recurso_alzada in (select id
+                            from alzada.alz_recursos_alzada
+                            where (numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%' or
+                                   numero_recurso_alzada ilike 'ARIT-LPZ-%/2022%')
+                            order by numero_recurso_alzada);
+
+
+update alzada.alz_aclaraciones
+SET fecha_entrega =
+        (fecha_entrega AT TIME ZONE 'UTC') AT TIME ZONE 'America/La_Paz'
+where id_recurso_alzada in (select id
+                            from alzada.alz_recursos_alzada
+                            where (numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%' or
+                                   numero_recurso_alzada ilike 'ARIT-LPZ-%/2022%')
+                            order by numero_recurso_alzada);
+
+
+
+VERIFICAR CONTROL TIEMPO ACLARACION
+select *
+from alzada.alz_registros_documentales_sustantivos
+where id_recurso_alzada in
+      (select id
+       from alzada.alz_recursos_alzada
+       where (numero_recurso_alzada ilike 'ARIT-LPZ-%/2021%' or
+              numero_recurso_alzada ilike 'ARIT-LPZ-%/2022%'))
+and id_aclaracion is not null
+order by id;
 
 
 

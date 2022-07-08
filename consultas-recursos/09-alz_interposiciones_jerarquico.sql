@@ -30,6 +30,6 @@ SELECT (SELECT r.id
 FROM TSS_INTERPONE_REC_JER AS rec_jer
          INNER JOIN TSS_RECURSOS_ALZADA TRA on TRA.C_Nro_Expediente = rec_jer.C_Nro_Expediente
 WHERE rec_jer.C_Nro_Expediente_Jer IS NULL
-  AND (TRA.C_Nro_Expediente LIKE 'ARIT-CBA-%/2021%' OR
-       TRA.C_Nro_Expediente LIKE 'ARIT-CBA-%/2022%')
+  AND (TRA.C_Nro_Expediente LIKE 'ARIT-%-%/2021%' OR
+       TRA.C_Nro_Expediente LIKE 'ARIT-%-%/2022%')
 ORDER BY TRA.C_Nro_Expediente;

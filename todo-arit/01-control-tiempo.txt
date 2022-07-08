@@ -1,11 +1,11 @@
 SELECT (CASE
             WHEN LEN(LTRIM(RTRIM(ct.id_exp))) > 20 THEN
                 (SELECT id
-                 FROM recursos AS r
+                 FROM recursos_arit AS r
                  WHERE r.numero_recurso_alzada =
                        SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp)))))
             ELSE
-                (SELECT id FROM recursos AS r WHERE r.numero_recurso_alzada = LTRIM(RTRIM(ct.id_exp)))
+                (SELECT id FROM recursos_arit AS r WHERE r.numero_recurso_alzada = LTRIM(RTRIM(ct.id_exp)))
     END)                                                      AS id_recurso_alzada,
        (CASE
             WHEN (
@@ -227,6 +227,4 @@ SELECT (CASE
            END)                                               AS observaciones,
        NULL                                                   AS id_aclaracion
 FROM control_tiempo AS ct
-WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2021%' OR
-       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2022%')
 ORDER BY ct.id;

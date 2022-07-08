@@ -25,8 +25,8 @@ SELECT ra.N_Codigo_Acto          AS id_tipo_acto,
            END)                  AS id_recurso_alzada,
        NULL                      AS observaciones
 FROM TSS_ACTOS_IMPUGNADOS AS ra
-WHERE (LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-BEN-%/2021%' OR
-       LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-BEN-%/2022%')
+WHERE (LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-%-%/2021%' OR
+       LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-%-%/2022%')
 ORDER BY LTRIM(RTRIM(ra.C_Nro_Expediente));
 
 

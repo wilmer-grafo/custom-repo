@@ -206,7 +206,7 @@ SELECT 1                                                                        
             WHEN LTRIM(RTRIM(ra.C_Usuario)) = 'aestivarizu' THEN 168
             ELSE 322
            END)                                                                       AS id_usuario_registra,
-       GETDATE()                                                                      AS fecha_registra,
+       ra.D_Fecha_Update                                                              AS fecha_registra,
        NULL                                                                           AS id_usuario_modifica,
        NULL                                                                           AS fecha_modifica,
        (CASE
@@ -293,8 +293,4 @@ SELECT 1                                                                        
             ELSE -5
            END)                                                                       AS id_region_recepcion
 FROM TSS_RECURSOS_ALZADA AS ra
-WHERE (LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-BEN-%/2021%' OR
-       LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE 'ARIT-BEN-%/2022%')
 ORDER BY LTRIM(RTRIM(ra.C_Nro_Expediente));
-
-CSV

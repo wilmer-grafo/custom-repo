@@ -25,6 +25,18 @@ WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
        LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2022%')
 ORDER BY usuario_reg;
 
+CONTROL TIEMPO ACLARACION
+SELECT DISTINCT origen, 1 As d
+FROM control_tiempo_aclaracion
+WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR
+       LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+ORDER BY origen;
+
+SELECT DISTINCT destino, 1 As d
+FROM control_tiempo_aclaracion
+WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2021%' OR
+       LTRIM(RTRIM(id_exp)) LIKE 'ARIT-LPZ-%/2022%')
+ORDER BY destino;
 
 SOLICITA CAMBIO DECISION
 ------------------------

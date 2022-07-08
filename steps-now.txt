@@ -1,3 +1,7 @@
+SET DATEFORMAT 'YMD';
+
+
+
 TRUNCATE TABLE seguridad.seg_areas RESTART IDENTITY CASCADE;
 
 DROP TABLE seguridad.seg_regiones CASCADE;

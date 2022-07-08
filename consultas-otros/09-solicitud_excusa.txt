@@ -19,6 +19,6 @@ SELECT (SELECT ori.id_value
        NULL                                                     AS id_decision_anterior,
        NULL                                                     AS id_decision_nueva
 FROM solicitud_excusa ct
-WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2021%' OR
-       LTRIM(RTRIM(id_exp)) LIKE 'ARIT-CHQ-%/2022%')
+-- WHERE (LTRIM(RTRIM(id_exp)) LIKE 'ARIT-%-%/2021%' OR
+--        LTRIM(RTRIM(id_exp)) LIKE 'ARIT-%-%/2022%')
 ORDER BY ct.id;
