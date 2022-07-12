@@ -1,0 +1,57 @@
+EJECUTAR LA CONSULTA Y GENERAR CSV, LUEGO IMPORTAR; previa creacion de la tabla request_process_aux y la creacion del index
+Drop y clear 
+
+select concat(aux.gestion, ';', aux.numero_recurso_alzada, ';', aux.id_usuario_solicita, ';',
+              to_char(aux.fecha_solicita, 'YYYY-MM-DD HH24:MI:SS')) as dato,
+       aux.id
+from (select rds.id,
+             rds.gestion,
+             (select ra.numero_recurso_alzada
+              from alzada.alz_recursos_alzada ra
+              where ra.id = rds.id_recurso_alzada)          as numero_recurso_alzada,
+             (select u.id
+              from seguridad.seg_usuarios u
+              where u.id_persona = rds.id_usuario_solicita) as id_usuario_solicita,
+             rds.fecha_solicita                             as fecha_solicita
+      from alzada.alz_solicitudes_procesos as rds
+      where id_tramite = 4) as aux
+order by aux.id;
+
+
+
+Verificar motivo_solicita > 2
+
+EXCEL
+=====
+
+SELECT (SELECT TOP 1 da.id
+        FROM request_process_aux da
+        WHERE da.numero_recurso_alzada = temp.id_solicitud) AS id_solicitud,
+       id_motivo,
+       id_usuario_registra,
+       fecha_registra
+FROM (SELECT (CAST(ct.gestion AS varchar) + ';' +
+              (CASE
+                   WHEN LEN(LTRIM(RTRIM(ct.id_exp))) > 20 THEN
+                       SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp))))
+                   ELSE
+                       LTRIM(RTRIM(ct.id_exp))
+                  END)
+    + ';' +
+              (
+                  CAST((SELECT ori.id_value
+                        FROM origenes AS ori
+                        WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita))) as VARCHAR)
+                  )
+    + ';' +
+              SUBSTRING(CONVERT(varchar, ct.f_solicita, 120), 1, 19)) AS id_solicitud,
+             REPLACE(LTRIM(RTRIM(ct.motivo_solicita)), '/', '')       AS id_motivo,
+             (SELECT ori.id_value
+              FROM origenes AS ori
+              WHERE ori.usuario_origen = LTRIM(RTRIM(ct.u_solicita))) AS id_usuario_registra,
+             ct.f_solicita                                            AS fecha_registra,
+             ct.id
+      FROM solicitud_excusa ct
+      WHERE LEN(LTRIM(RTRIM(ct.motivo_solicita))) <= 2) AS temp
+ORDER BY temp.id;
+

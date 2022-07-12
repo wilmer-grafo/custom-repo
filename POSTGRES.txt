@@ -160,6 +160,8 @@ truncate table alzada.alz_registros_documentales_sustantivos_anexos restart iden
 
 truncate table comunes.memoriales restart identity cascade;
 
+truncate table alzada.alz_aclaraciones restart identity cascade;
+
 ==============
 UPDATE - ARTIS
 ==============
@@ -177,21 +179,28 @@ update alzada.alz_registros_documentales_sustantivos
 set fecha_deriva = fecha_deriva + interval '4 hours';
 
 
-
-
+-------------
+-- memoriales
+-------------
 update comunes.memoriales
 set fecha_recepcion = fecha_recepcion + interval '4 hours';
 
 update comunes.memoriales
 set fecha_respuesta = fecha_respuesta + interval '4 hours';
 
-truncate table alzada.alz_aclaraciones restart identity cascade;
+
+--------------------------------------------
+-- alzada.alz_aclaraciones
+--------------------------------------------
 
 update alzada.alz_aclaraciones
 set fecha_liberacion = fecha_liberacion + interval '4 hours';
 
 update alzada.alz_aclaraciones
 set fecha_entrega = fecha_entrega + interval '4 hours';
+
+
+
 
 truncate table alzada.alz_registros_documentales_sustantivos_anexos restart identity cascade;
 

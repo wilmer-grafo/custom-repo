@@ -281,6 +281,19 @@ CREATE INDEX index_name_recursos_arit
     ON recursos_arit (numero_recurso_alzada);
 
 
+create table memoriales_temp
+(
+    identificador int identity
+        constraint memoriales_temp_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(250) not null,
+    id int not null
+);
+
+CREATE INDEX index_name_memoriales_temp
+ON memoriales_temp (numero_recurso_alzada);
+
+
 create table documentos_aux
 (
     identificador int identity
@@ -327,8 +340,7 @@ create unique index origenes_usuario_origen_uindex
 
 
 
-use bd_aritchq
-go
+PARA CONTROL TIEMPO ACLARACION ACLARACION
 
 create table aclaraciones
 (
@@ -337,5 +349,29 @@ create table aclaraciones
             primary key nonclustered,
     numero_recurso_alzada varchar(150) not null,
     id int not null
-)
-go
+);
+
+CREATE INDEX index_name_aclaraciones_tiempo
+ON aclaraciones (numero_recurso_alzada);
+
+CSV, IMPORT 
+select (select numero_recurso_alzada
+        from alzada.alz_recursos_alzada ra
+        where ra.id = a.id_recurso_alzada),
+       a.id
+from alzada.alz_aclaraciones a;
+
+-----------------------------------------
+select (select numero_recurso_alzada
+        from alzada.alz_recursos_alzada ra
+        where ra.id = a.id_recurso_alzada),
+       a.id
+from alzada.alz_aclaraciones a
+where a.id_recurso_alzada = (
+    select id
+    from alzada.alz_recursos_alzada
+    where numero_recurso_alzada = 'ARIT-CHQ-0010/2021'
+);
+
+WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2021%' OR
+       LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2022%')
