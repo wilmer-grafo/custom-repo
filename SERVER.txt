@@ -341,6 +341,7 @@ create unique index origenes_usuario_origen_uindex
 
 
 PARA CONTROL TIEMPO ACLARACION ACLARACION
+=========================================
 
 create table aclaraciones
 (
@@ -375,3 +376,20 @@ where a.id_recurso_alzada = (
 
 WHERE (LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2021%' OR
        LTRIM(RTRIM(ct.id_exp)) LIKE 'ARIT-%-%/2022%')
+
+
+---------------------------
+--- solicitudes_procesos
+---------------------------
+
+create table request_process_aux
+(
+    identificador int identity
+        constraint request_process_aux_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(250) not null,
+    id int not null
+);
+
+CREATE INDEX index_name_request_process_aux
+ON request_process_aux (numero_recurso_alzada);

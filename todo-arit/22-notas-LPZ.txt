@@ -1,0 +1,53 @@
+SELECT temp.id_recurso_alzada,
+       id_tipo_tramite,
+       cite,
+       fecha_nota,
+       id_usuario_registra,
+       fecha_registra,
+       id_usuario_modifica,
+       fecha_modifica,
+       estado,
+       id_region,
+       ruta_doc,
+       nombre_doc,
+       id_alz_interposicion_jerarquico,
+       orden,
+       observaciones,
+       fecha_recepcion_agit,
+       estado_recepcion_agit
+FROM (SELECT (CASE
+                  WHEN LEN(LTRIM(RTRIM(ct.id_exp))) > 20 THEN
+                      (SELECT id
+                       FROM recursos_arit AS r
+                       WHERE r.numero_recurso_alzada =
+                             SUBSTRING(LTRIM(RTRIM(ct.id_exp)), 0, CHARINDEX('//', LTRIM(RTRIM(ct.id_exp)))))
+                  ELSE
+                      (SELECT id FROM recursos_arit AS r WHERE r.numero_recurso_alzada = LTRIM(RTRIM(ct.id_exp)))
+    END)               AS id_recurso_alzada,
+             (CASE
+                  WHEN LTRIM(RTRIM(tipo)) = 'DEVOLUCION' THEN 1
+                  WHEN LTRIM(RTRIM(tipo)) = 'JERARQUICO' THEN 2
+                 END)  AS id_tipo_tramite,
+             (CASE
+                  WHEN LTRIM(RTRIM(tipo)) = 'DEVOLUCION' THEN 'ARITLP-SC-DEV-' + ct.cite
+                  WHEN LTRIM(RTRIM(tipo)) = 'JERARQUICO' THEN 'ARITLP-SC-JER-' + ct.cite
+                 END)  AS cite,
+             f_nota    AS fecha_nota,
+             1            id_usuario_registra,
+             GETDATE() AS fecha_registra,
+             NULL      AS id_usuario_modifica,
+             NULL      AS fecha_modifica,
+             20        AS estado,
+             2         AS id_region,
+             NULL      AS ruta_doc,
+             NULL      AS nombre_doc,
+             NULL      AS id_alz_interposicion_jerarquico,
+             3         AS orden,
+             NULL      AS observaciones,
+             NULL      AS fecha_recepcion_agit,
+             NULL      AS estado_recepcion_agit,
+             ct.id
+      FROM log_nota ct
+      WHERE cite IS NOT NULL) AS temp
+WHERE temp.id_recurso_alzada IS NOT NULL
+ORDER BY temp.id;
