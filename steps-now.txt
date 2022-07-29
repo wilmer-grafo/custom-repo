@@ -1,5 +1,21 @@
 SET DATEFORMAT 'YMD';
 
+PARA JER FP-resolucion query
+SET DATEFORMAT 'DMY';
+
+
+#FROILAN
+FIX CARGO REP, LUEGO UPDATE
+select C_En_Calidad
+FROM TSS_RECURSOS_ALZADA AS ra
+WHERE LTRIM(RTRIM(C_Nro_Expediente)) LIKE '%2021%'
+and LTRIM(RTRIM(ra.C_En_Calidad)) is null
+ORDER BY LTRIM(RTRIM(ra.C_Nro_Expediente));
+
+--
+update alzada.alz_recursos_alzada
+set id_region_documento = null
+where id_region_documento = 10;
 
 
 TRUNCATE TABLE seguridad.seg_areas RESTART IDENTITY CASCADE;

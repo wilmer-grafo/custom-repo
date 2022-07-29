@@ -215,7 +215,7 @@ create table recursos
             primary key nonclustered,
     numero_recurso_alzada varchar(50) not null,
     id                    int         not null
-)
+);
 
 CREATE INDEX index_name_recursos
     ON recursos (numero_recurso_alzada);
@@ -393,3 +393,224 @@ create table request_process_aux
 
 CREATE INDEX index_name_request_process_aux
 ON request_process_aux (numero_recurso_alzada);
+
+---------------------------
+--- recursos_jerarquicos, FP_resolucion
+---------------------------
+
+create table resoluciones_jer
+(
+    identificador             int identity
+        constraint resoluciones_jer_pk
+            primary key nonclustered,
+    Expediente                varchar(70) not null,
+    Expediente_Jerarquico     varchar(250) not null,
+    C_Razon_Social            nvarchar(500),
+    Administracion_Tributaria varchar(300),
+    FP_Resolucion             datetime
+);
+
+CREATE INDEX index_resoluciones_jer
+    ON resoluciones_jer (Expediente_Jerarquico);
+    
+
+create table usuarios_jer
+(
+    id int identity
+        constraint usuarios_jer_pk
+            primary key nonclustered,
+    usuario varchar(50) not null,
+    id_value int not null
+);
+
+create unique index usuarios_jer_uindex
+    on usuarios_jer (usuario);
+
+SELECT DISTINCT LTRIM(RTRIM(C_Usuario)), 1 d
+FROM TSS_EXPEDIENTES_ARCHIVO_JER EX
+ORDER BY LTRIM(RTRIM(C_Usuario));
+
+select login, id from
+seguridad.seg_usuarios
+where login in (
+);
+
+IMPORT CSV
+
+
+create table recursos_jerarquicos
+(
+    identificador         int identity
+        constraint recursos_jerarquicos_pk
+            primary key nonclustered,
+    numero_recurso_jerarquico varchar(50) not null,
+    id                    int         not null
+);
+
+CREATE INDEX index_name_recursos_jerarquicos
+    ON recursos_jerarquicos (numero_recurso_jerarquico);
+
+select numero_recurso_jerarquico, id from jerarquico.jer_recursos_jerarquicos;
+
+IMPORT CSV
+
+--------------
+TSS_MONTOS_JER
+--------------
+
+create table actos_jer
+(
+    identificador         int identity
+        constraint actos_jer_pk
+            primary key nonclustered,
+    numero_recurso_jerarquico varchar(150) not null,
+    id                    int         not null
+);
+
+CREATE INDEX index_name_actos_jer
+    ON actos_jer (numero_recurso_jerarquico);
+
+
+IMPORT CSV
+
+select concat(temp.numero_recurso_alzada, ';', temp.id_tipo_acto, ';', temp.numero_acto) as dato,
+       temp.id                                                                           as valor
+from (select ai.id,
+             (select ra.numero_recurso_jerarquico
+              from jerarquico.jer_recursos_jerarquicos ra
+              where ra.id = ai.id_recurso_jerarquico) as numero_recurso_alzada,
+             ai.id_tipo_acto                          as id_tipo_acto,
+             ai.numero_acto                           as numero_acto
+      from jerarquico.jer_actos_impugnados ai) as temp
+order by temp.id;
+
+
+--------------
+TSS_AUTOS_JER-
+--------------
+
+create table interposiciones_jer
+(
+    identificador         int identity
+        constraint interposiciones_jer_pk
+            primary key nonclustered,
+    numero_recurso_jerarquico varchar(150) not null,
+    id                    int         not null
+);
+
+CREATE INDEX index_name_interposiciones_jer
+    ON interposiciones_jer (numero_recurso_jerarquico);
+
+
+IMPORT CSV
+
+select (select ra.numero_recurso_jerarquico
+        from jerarquico.jer_recursos_jerarquicos ra
+        where ra.id = ai.id_recurso_jerarquico) as numero_recurso_alzada,
+       ai.id
+from alzada.alz_interposiciones_jerarquico ai
+order by ai.id;
+
+----------------------
+TSS_NOTIFICACIONES_JER
+----------------------
+
+create table notificaciones_jer
+(
+    identificador int identity
+        constraint notificaciones_jer_pk
+            primary key nonclustered,
+    numero_recurso_jerarquico varchar(250) not null,
+    id int not null
+);
+
+CREATE INDEX index_name_notificaciones_jer
+ON notificaciones_jer (numero_recurso_jerarquico);
+
+
+-------
+CALIDAD
+-------
+
+create table recursos_jer_calidad
+(
+    identificador         int identity
+        constraint recursos_jer_calidad_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(50) not null,
+    id                    int         not null
+);
+
+CREATE INDEX index_name_recursos_jer_calidad
+    ON recursos_jer_calidad (numero_recurso_alzada);
+
+
+create table origenes_calidad
+(
+    id int identity
+        constraint origenes_calidad_pk
+            primary key nonclustered,
+    usuario_origen varchar(50) not null,
+    id_value int not null
+);
+
+create unique index origenes_calidad_usuario_origen_uindex
+    on origenes_calidad (usuario_origen);
+
+
+SELECT descripcion,
+       0         id_tipo_devolucion,
+       1         estado,
+       1         id_usuario_registra,
+       GETDATE() fecha_registra,
+       NULL      id_usuario_modifica,
+       NULL      fecha_modifica
+FROM tipos_observaciones
+WHERE id > 3;
+
+----
+
+create table documentos_jer_aux
+(
+    identificador int identity
+        constraint documentos_jer_aux_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(250) not null,
+    id int not null
+);
+
+CREATE INDEX index_name_documentos_jer_aux
+ON documentos_jer_aux (numero_recurso_alzada);
+
+
+create table memoriales_jer_temp
+(
+    identificador int identity
+        constraint memoriales_jer_temp_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(250) not null,
+    id int not null
+);
+
+CREATE INDEX index_name_memoriales_jer_temp
+ON memoriales_jer_temp (numero_recurso_alzada);
+
+
+create table aclaraciones_jer
+(
+    identificador int identity
+        constraint aclaraciones_jer_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(150) not null,
+    id int not null
+);
+
+CREATE INDEX index_name_aclaraciones_jer
+ON aclaraciones_jer (numero_recurso_alzada);
+
+select (select numero_recurso_jerarquico
+        from jerarquico.jer_recursos_jerarquicos ra
+        where ra.id = a.id_recurso_jerarquico),
+       a.id
+from jerarquico.jer_aclaraciones a;
+

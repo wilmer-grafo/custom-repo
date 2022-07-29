@@ -1,5 +1,4 @@
-EXCEL
-
+CSV
 
 select concat(temp.numero_recurso_alzada, ';', temp.id_tipo_acto, ';', temp.numero_acto) as dato,
        temp.id                                                                           as valor
@@ -12,12 +11,27 @@ from (select ai.id,
       from alzada.alz_actos_impugnados ai) as temp
 order by temp.id;
 
+create table actos_impuganados_aux
+(
+    identificador int identity
+        constraint actos_impuganados_aux_pk
+            primary key nonclustered,
+    numero_recurso_alzada varchar(250) not null,
+    id int not null
+);
+
+CREATE INDEX index_name_actos_impuganados_aux
+ON actos_impuganados_aux (numero_recurso_alzada);
+
 
 EXCEL
 
 
-SELECT LTRIM(RTRIM(ra.C_Nro_Expediente)) + ';' + CAST(ra.N_Codigo_Acto AS VARCHAR) + ';' +
-       LTRIM(RTRIM(ra.C_Numero))           AS id_acto_impugnado,
+SELECT (SELECT aia.id
+        FROM actos_impuganados_aux aia
+        WHERE aia.numero_recurso_alzada =
+              (LTRIM(RTRIM(ra.C_Nro_Expediente)) + ';' + CAST(ra.N_Codigo_Acto AS VARCHAR) + ';' +
+               LTRIM(RTRIM(ra.C_Numero)))) AS id_acto_impugnado,
        (CASE
             WHEN ra.N_Codigo_Impuesto = 0 THEN CASE
                                                    WHEN (
@@ -96,6 +110,7 @@ SELECT LTRIM(RTRIM(ra.C_Nro_Expediente)) + ';' + CAST(ra.N_Codigo_Acto AS VARCHA
        1                                   AS tipo_moneda,
        1                                   AS tipo_moneda_resuelto
 FROM TSS_MONTOS AS ra
+WHERE LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE '%2021%'
 ORDER BY LTRIM(RTRIM(ra.C_Nro_Expediente));
 
 

@@ -91,3 +91,41 @@ truncate table alzada.alz_aclaraciones restart identity cascade;
 truncate table alzada.alz_trazabilidad_solicitudes_procesos restart identity;
 
 truncate table alzada.alz_notas restart identity cascade;
+
+
+TOTALES
+
+SELECT COUNT(ra.C_Nro_Expediente)
+FROM TSS_RECURSOS_ALZADA AS ra
+WHERE LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE '%2021%';
+
+
+SELECT COUNT(ra.C_Nro_Expediente)
+FROM TSS_ACTOS_IMPUGNADOS AS ra
+WHERE LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE '%2021%';
+
+SELECT COUNT(ra.C_Nro_Expediente)
+FROM TSS_MONTOS AS ra
+WHERE LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE '%2021%';
+
+SELECT COUNT(ra.C_Nro_Expediente)
+FROM TSS_AUTOS AS ra
+WHERE LTRIM(RTRIM(ra.C_Nro_Expediente)) LIKE '%2021%';
+
+SELECT COUNT(*)
+FROM TSS_AUTOS
+WHERE D_Fecha_Emision  BETWEEN '2021-01-01' AND '2021-12-31'
+AND C_Nro_Expediente LIKE '%2021%';
+
+
+select count(id)
+from alzada.alz_recursos_alzada;
+
+select count(ai.id)
+from alzada.alz_actos_impugnados ai;
+
+select count(ama.id)
+from alzada.alz_montos_alzada as ama;
+
+select count(rds.id)
+from alzada.alz_actuaciones as rds;

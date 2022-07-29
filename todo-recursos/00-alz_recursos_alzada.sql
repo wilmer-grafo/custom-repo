@@ -20,7 +20,7 @@ SELECT 1                                                                        
             WHEN ra.C_Proc_Doc_Identidad = 'CB' THEN 3
             WHEN ra.C_Proc_Doc_Identidad = 'CH' THEN 1
             WHEN ra.C_Proc_Doc_Identidad = 'PT' THEN 5
-            ELSE 10
+            ELSE NULL
            END)                                                                       AS id_region_documento,
        ra.N_Codigo_Subadm_Tri                                                         AS id_subadministracion_tributaria,
        (CASE
@@ -28,7 +28,7 @@ SELECT 1                                                                        
             ELSE LTRIM(RTRIM(ra.C_Presentado_Por))
            END)                                                                       AS nombre_presentante,
        (CASE
-            WHEN ra.C_En_Calidad IS NULL THEN ''
+            WHEN LTRIM(RTRIM(ra.C_En_Calidad)) IS NULL THEN '.'
             ELSE LTRIM(RTRIM(ra.C_En_Calidad))
            END)                                                                       AS cargo_presentante,
        (CASE
@@ -215,7 +215,6 @@ SELECT 1                                                                        
             WHEN (ISNUMERIC(ra.N_Codigo_Super_Reg) = 1 AND ra.N_Codigo_Intendencia IS NULL) THEN ra.N_Codigo_Super_Reg
             WHEN (ISNUMERIC(ra.N_Codigo_Super_Reg) = 1 AND ISNUMERIC(ra.N_Codigo_Intendencia) = 1)
                 THEN ra.N_Codigo_Super_Reg
-            ELSE -4
            END)                                                                       AS id_region_radicatoria,
        CAST(SUBSTRING(CONVERT(varchar, D_Fecha_Presentacion, 120), 1, 10) +
             SUBSTRING(CONVERT(varchar, D_Hora_Presentacion, 120), 11, 9) AS DATETIME) AS fecha_presentacion,
@@ -290,7 +289,8 @@ SELECT 1                                                                        
             WHEN (ISNUMERIC(ra.N_Codigo_Super_Reg) = 1 AND ra.N_Codigo_Intendencia IS NULL) THEN ra.N_Codigo_Super_Reg
             WHEN (ISNUMERIC(ra.N_Codigo_Super_Reg) = 1 AND ISNUMERIC(ra.N_Codigo_Intendencia) = 1)
                 THEN ra.N_Codigo_Intendencia + 4
-            ELSE -5
            END)                                                                       AS id_region_recepcion
 FROM TSS_RECURSOS_ALZADA AS ra
+WHERE LTRIM(RTRIM(C_Nro_Expediente)) LIKE '%2021%'
 ORDER BY LTRIM(RTRIM(ra.C_Nro_Expediente));
+
